@@ -140,6 +140,8 @@ section{padding:64px 0;}
 .impact-text strong{color:var(--text); font-weight:600;}
 .role-line{font-family:var(--mono); font-size:13px; color:var(--text-faint); margin-bottom:20px;}
 .role-line strong{color:var(--text);}
+.role-text{color:var(--text-dim); font-size:18px; padding-top:2px;}
+.role-text strong{color:var(--text); font-weight:600;}
 
 /* ---------- SKILLS ---------- */
 .skill-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:28px;}
