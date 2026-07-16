@@ -1,15 +1,15 @@
 // ---------- repo links ----------
-// Single source of truth: once FinSight / Makkal Kural are pushed to GitHub,
+// Single source of truth: once Publyq / Kashiq are pushed to GitHub,
 // update the two URLs below and both "view repo" links update automatically.
 const REPO_LINKS = {
-  finsight: null,
-  makkalKural: null
+  publyq: "https://publyq.in",
+  kashiq: "https://kashiq.in"
 };
 
 function wireRepoLinks() {
   const map = [
-    { id: "link-finsight", url: REPO_LINKS.finsight },
-    { id: "link-makkal", url: REPO_LINKS.makkalKural }
+    { id: "publyq", url: REPO_LINKS.publyq },
+    { id: "kashiq", url: REPO_LINKS.kashiq }
   ];
 
   map.forEach(({ id, url }) => {
@@ -20,11 +20,17 @@ function wireRepoLinks() {
       el.href = url;
       el.target = "_blank";
       el.rel = "noopener";
-      el.textContent = "view repo →";
+
+      if (id === "publyq") {
+        el.textContent = "view platform →";
+      } else if (id === "kashiq") {
+        el.textContent = "view landing page →";
+      }
+
       el.classList.remove("is-disabled");
     } else {
       el.removeAttribute("href");
-      el.textContent = "repo coming soon";
+      el.textContent = "coming soon";
       el.classList.add("is-disabled");
     }
   });
@@ -57,8 +63,8 @@ function typeTerminal() {
     {
       type: "term-comment",
       text:
-        "relay-expense-tracker/\n" +
-        "makkal-kural/\n"
+        "publyq-civic-intelligence/\n" +
+        "kashiq-personal-finance/\n"
     },
     { type: "prompt-new", text: "~/builds$ " }
   ];
@@ -71,7 +77,7 @@ function typeTerminal() {
         ? escapeHTML(seg.text)
         : `<span class="${seg.type}">${escapeHTML(seg.text)}</span>`
     )
-    .join("") + '<span class="cursor"></span>';
+    .join("") +'<span class="cursor"></span>';
 
   if (reduceMotion) {
     body.innerHTML = wrapLines(finalHTML);
