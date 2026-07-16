@@ -138,9 +138,9 @@ section{padding:64px 0;}
 .impact-num .unit{font-size:13px; color:var(--text-faint); display:block; margin-top:2px; font-weight:400;}
 .impact-text{color:var(--text-dim); font-size:15px; padding-top:2px;}
 .impact-text strong{color:var(--text); font-weight:600;}
-.role-line{font-family:var(--mono); font-size:13px; color:var(--text-faint); margin-bottom:20px;}
+.role-line{font-family:var(--mono); font-size:15px; color:var(--text-faint); margin-bottom:20px;}
 .role-line strong{color:var(--text);}
-.role-text{color:var(--text-dim); font-size:18px; padding-top:2px;}
+.role-text{color:var(--text-dim); font-size:17px; padding-top:2px;}
 .role-text strong{color:var(--text); font-weight:600;}
 
 /* ---------- SKILLS ---------- */
