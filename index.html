@@ -15,88 +15,198 @@
   <div class="wrap">
     <div class="brand"><span class="dot"></span>Builder's Note</div>
     <div class="navlinks">
-      <a href="#log">log</a>
-      <a href="#impact">impact</a>
+      <a href="#about">about</a>
+      <a href="#discovery">discovery</a>
+      <a href="#log">build log</a>
+      <a href="#impact">track record</a>
       <a href="#stack">stack</a>
       <a href="#contact">contact</a>
     </div>
   </div>
 </nav>
 
-<header class="hero">
+<header class="hero" id="about">
   <div class="wrap">
-    <span class="eyebrow">// last updated July 2026</span>
-    <h1>Sushil <span>- Decision Systems Engineer</span></h1>
-    <p class="sub">I spent four years turning messy manufacturing data into decisions for Fortune 500 OEMs. Today, I'm applying the same systems thinking to build products that transform complex public and operational data into clear, actionable intelligence. Whether you're working with operational data, internal documents, or large public datasets, I help organisations build intelligence systems that make information easier to search, understand, and act on through data pipelines, knowledge bases, and conversational analytics built around your data.</p>
-    <div class="terminal" role="img" aria-label="Terminal session showing a career transition from analytics role to independent AI building">
-      <div class="term-bar">
-        <span class="term-dot" style="background:#D9665E"></span><span class="term-dot" style="background:#E8A33D"></span><span class="term-dot" style="background:#5FB87A"></span>
-        <span class="term-title">sushil@career — zsh</span>
-      </div>
-      <div class="term-body" id="term-body">
-        <!-- populated by script.js; static fallback below covers no-JS cases -->
-        <noscript>
-          <div class="line"><span class="prompt-old">axion-ray:~$</span> git log --oneline -3</div>
-          <div class="line term-comment">a1c92e3  led 24 analysts, $15M+ in quality losses identified
-            6fd0a81  cut RCA from days → hours
-            3b1de44  scaled platform adoption across 450+ stakeholders</div>
-          <div class="line"><span class="prompt-old">axion-ray:~$</span> git checkout -b independent-builder</div>
-          <div class="line term-comment">Switched to a new branch 'independent-builder'</div>
-          <div class="line"><span class="prompt-new">~/builds$</span> ls</div>
-          <div class="line term-comment">publyq-civic-intelligence/
-          kashiq-personal-finance/</div>
-          <div class="line"><span class="prompt-new">~/builds$</span></div>
-        </noscript>
-      </div>
+    <span class="eyebrow">[Section title placeholder]</span>
+    <h1>[Main heading placeholder]</h1>
+    <p class="sub">[Paragraph 1 placeholder]</p>
+    <p class="sub">[Paragraph 2 placeholder]</p>
+    <div class="cta-group">
+      <a href="#discovery" class="btn btn-primary">[Primary CTA placeholder]</a>
+      <a href="#log" class="btn btn-secondary">[Secondary CTA placeholder — optional]</a>
     </div>
   </div>
 </header>
 
-<section id="log">
+<section id="discovery">
   <div class="wrap">
     <div class="sec-head">
       <span class="tag">02</span>
+      <h2>Discovery Call</h2>
+    </div>
+
+    <div class="discovery-card">
+      <div class="discovery-title">[Discovery call title placeholder]</div>
+      <p class="discovery-desc">[Short description placeholder]</p>
+
+      <div class="cta-group">
+        <a href="#calendly-placeholder" class="btn btn-primary">Book Discovery Call</a>
+      </div>
+
+      <div class="discovery-meta">
+        <span><strong>Availability</strong>[Availability placeholder]</span>
+        <span><strong>Response time</strong>[Response time placeholder]</span>
+      </div>
+
+      <details class="ask-before">
+        <summary>What I'll ask before the meeting</summary>
+        <ul>
+          <li>Company</li>
+          <li>Website</li>
+          <li>Scope of work</li>
+          <li>Dataset type</li>
+          <li>Number of datasets</li>
+          <li>Estimated fields</li>
+          <li>Sample data</li>
+          <li>Business problem</li>
+          <li>Success criteria</li>
+          <li>Timeline</li>
+          <li>Additional notes</li>
+        </ul>
+      </details>
+
+      <div class="calendly-embed" id="calendly-placeholder">
+        [Calendly embed placeholder — to be added later]
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="log">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">03</span>
       <h2>Build Log</h2>
     </div>
 
-    <div class="commit">
-      <div class="commit-meta">
-        <span class="commit-hash">#publyq01</span>
-        <span class="status building">Live</span>
-      </div>
-      <div>
-        <div class="commit-title">Publyq: Civic Intelligence & Conversational Analytics</div>
-        <p class="commit-desc">Publyq is a civic intelligence platform that helps governments make better decisions using public grievance data. Built on Greater Chennai Corporation (GCC) complaints, it turns thousands of citizen complaints into clear insights on trends, issue hotspots, department performance, and recurring problems. Users can ask questions in plain English/Tamil and get instant, data-backed answers, making civic data easier to explore, understand, and act on.</p>
-        <div class="diffstat">ask <span class="add">+Gemma4:e4b conversational analytics</span> · pulse <span class="add">+cluster heatmap & ward/zone/constituency SVG map</span> · accountability <span class="add">+owner heat-score & resolution tracking (dept/MLA/zone)</span></div>
-        <div class="stack">
-          <span class="pill">FastAPI</span>
-          <span class="pill">PostgreSQL (Cloud SQL)</span>
-          <span class="pill">Gemma4:e4b via Ollama (self-hosted)</span>
-          <span class="pill">Tamil / English i18n</span>
-          <span class="pill">KML Ward / Zone / Constituency Map</span>
+    <div class="build-log-primary">
+      <div class="commit">
+        <div class="commit-meta">
+          <span class="commit-hash">#publyq01</span>
+          <span class="status building">Live</span>
         </div>
-        <div class="commit-links">
-          <a href="#" id="publyq">publyq</a>
+        <div>
+          <div class="commit-title">Publyq: Civic Intelligence &amp; Conversational Analytics</div>
+
+          <div class="project-blocks">
+            <div class="project-block">
+              <span class="project-block-label">Problem</span>
+              <p class="project-block-body">[Problem placeholder]</p>
+            </div>
+
+            <div class="project-block">
+              <span class="project-block-label">Why Now</span>
+              <p class="project-block-body">[Why now placeholder]</p>
+            </div>
+
+            <div class="project-block">
+              <span class="project-block-label">Solution</span>
+              <p class="project-block-body">[Solution placeholder]</p>
+            </div>
+
+            <div class="project-block">
+              <span class="project-block-label">Proof / Metrics</span>
+              <div class="metric-grid">
+                <div class="metric-item">
+                  <span class="metric-value">[Metric]</span>
+                  <span class="metric-label">[Label]</span>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-value">[Metric]</span>
+                  <span class="metric-label">[Label]</span>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-value">[Metric]</span>
+                  <span class="metric-label">[Label]</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-block">
+              <span class="project-block-label">How It Works</span>
+              <div class="pipeline">
+                <div class="pipeline-step">Input</div>
+                <span class="pipeline-arrow" aria-hidden="true">→</span>
+                <div class="pipeline-step">Processing</div>
+                <span class="pipeline-arrow" aria-hidden="true">→</span>
+                <div class="pipeline-step">Enrichment</div>
+                <span class="pipeline-arrow" aria-hidden="true">→</span>
+                <div class="pipeline-step">Inference</div>
+                <span class="pipeline-arrow" aria-hidden="true">→</span>
+                <div class="pipeline-step">Output</div>
+              </div>
+            </div>
+
+            <div class="project-block">
+              <span class="project-block-label">Engineering Decisions</span>
+              <div class="decision-cards">
+                <dl class="decision-card">
+                  <dt>Decision</dt>
+                  <dd>[Decision placeholder]</dd>
+                  <dt>Why</dt>
+                  <dd>[Why placeholder]</dd>
+                  <dt>Tradeoffs</dt>
+                  <dd>[Tradeoffs placeholder]</dd>
+                </dl>
+                <dl class="decision-card">
+                  <dt>Decision</dt>
+                  <dd>[Decision placeholder]</dd>
+                  <dt>Why</dt>
+                  <dd>[Why placeholder]</dd>
+                  <dt>Tradeoffs</dt>
+                  <dd>[Tradeoffs placeholder]</dd>
+                </dl>
+              </div>
+            </div>
+
+            <div class="project-block">
+              <span class="project-block-label">Tech</span>
+              <div class="stack">
+                <span class="pill">[Tech placeholder]</span>
+                <span class="pill">[Tech placeholder]</span>
+                <span class="pill">[Tech placeholder]</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="action-row">
+            <a href="#" id="publyq" class="action-btn">Live Demo</a>
+            <a href="#" id="publyq-case-study" class="action-btn">Case Study</a>
+            <a href="#" id="publyq-architecture" class="action-btn">Architecture</a>
+          </div>
         </div>
       </div>
     </div>
-    <div class="commit">
-      <div class="commit-meta">
-        <span class="commit-hash">#kashiq01</span>
-        <span class="status building">in progress</span>
-      </div>
-      <div>
-        <div class="commit-title">Kashiq: multi-account expense intelligence</div>
-        <p class="commit-desc">A full-stack personal finance tracker that transforms fragmented bank statements into a unified income, expense, and cash flow view through automated transaction clustering.</p>
-        <div class="diffstat">backend/parser.py <span class="add">+regex bank parsers</span> · storage.py <span class="add">+clustering engine</span> · frontend <span class="add">+4 dashboards</span></div>
-        <div class="stack">
-          <span class="pill">Python / Flask</span>
-          <span class="pill">React + Vite</span>
-          <span class="pill">Recharts</span>
-          <span class="pill">PostgreSQL</span>
+
+    <div class="build-log-secondary">
+      <div class="commit">
+        <div class="commit-meta">
+          <span class="commit-hash">#kashiq01</span>
+          <span class="status building">in progress</span>
         </div>
-        <div class="commit-links">
-          <a href="#" id="kashiq">kashiq</a>
+        <div>
+          <div class="commit-title">Kashiq: multi-account expense intelligence</div>
+          <p class="commit-desc">A full-stack personal finance tracker that transforms fragmented bank statements into a unified income, expense, and cash flow view through automated transaction clustering.</p>
+          <div class="diffstat">backend/parser.py <span class="add">+regex bank parsers</span> · storage.py <span class="add">+clustering engine</span> · frontend <span class="add">+4 dashboards</span></div>
+          <div class="stack">
+            <span class="pill">Python / Flask</span>
+            <span class="pill">React + Vite</span>
+            <span class="pill">Recharts</span>
+            <span class="pill">PostgreSQL</span>
+          </div>
+          <div class="commit-links">
+            <a href="#" id="kashiq">kashiq</a>
+          </div>
         </div>
       </div>
     </div>
@@ -106,7 +216,7 @@
 <section id="impact">
   <div class="wrap">
     <div class="sec-head">
-      <span class="tag">03</span>
+      <span class="tag">04</span>
       <h2>Track Record</h2>
     </div>
     <div class="role-line"><strong>Lead Analytics</strong> · Axion Ray (Vertical AI) · Apr 2022 – Apr 2026</div>
@@ -140,41 +250,58 @@
 <section id="stack">
   <div class="wrap">
     <div class="sec-head">
-      <span class="tag">04</span>
-      <h2>Preferred Stack</h2>
+      <span class="tag">05</span>
+      <h2>Engineering Stack</h2>
     </div>
-    <div class="skill-grid">
-      <div class="skill-cat">
-        <span class="skill-cat-label">analysis</span>
-        <ul>
-          <li>EDA &amp; hypothesis testing</li>
-          <li>A/B testing, segmentation</li>
-          <li>Regression, classification, time-series</li>
-        </ul>
+    <div class="stack-groups">
+      <div class="stack-group">
+        <span class="stack-group-label">Languages</span>
+        <div class="stack">
+          <span class="pill">[Language placeholder]</span>
+          <span class="pill">[Language placeholder]</span>
+        </div>
       </div>
-      <div class="skill-cat">
-        <span class="skill-cat-label">build</span>
-        <ul>
-          <li>Python (pandas, NumPy, scikit-learn)</li>
-          <li>Flask + React / Vite</li>
-          <li>LLM-powered ETL pipelines</li>
-        </ul>
+      <div class="stack-group">
+        <span class="stack-group-label">Data</span>
+        <div class="stack">
+          <span class="pill">[Data placeholder]</span>
+          <span class="pill">[Data placeholder]</span>
+        </div>
       </div>
-      <div class="skill-cat">
-        <span class="skill-cat-label">data</span>
-        <ul>
-          <li>Advanced SQL, BigQuery, MySQL</li>
-          <li>Star/snowflake schema design</li>
-          <li>Supabase, GCP</li>
-        </ul>
+      <div class="stack-group">
+        <span class="stack-group-label">Backend</span>
+        <div class="stack">
+          <span class="pill">[Backend placeholder]</span>
+          <span class="pill">[Backend placeholder]</span>
+        </div>
       </div>
-      <div class="skill-cat">
-        <span class="skill-cat-label">tell the story</span>
-        <ul>
-          <li>Power BI (DAX, measures)</li>
-          <li>Looker Studio, PostHog</li>
-          <li>Decision-focused dashboards</li>
-        </ul>
+      <div class="stack-group">
+        <span class="stack-group-label">Frontend</span>
+        <div class="stack">
+          <span class="pill">[Frontend placeholder]</span>
+          <span class="pill">[Frontend placeholder]</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <span class="stack-group-label">AI</span>
+        <div class="stack">
+          <span class="pill">[AI placeholder]</span>
+          <span class="pill">[AI placeholder]</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <span class="stack-group-label">Cloud</span>
+        <div class="stack">
+          <span class="pill">[Cloud placeholder]</span>
+          <span class="pill">[Cloud placeholder]</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <span class="stack-group-label">DevOps</span>
+        <div class="stack">
+          <span class="pill">[DevOps placeholder]</span>
+          <span class="pill">[DevOps placeholder]</span>
+        </div>
       </div>
     </div>
   </div>
@@ -183,9 +310,11 @@
 <footer id="contact">
   <div class="wrap">
     <div class="sec-head" style="border-bottom:none; margin-bottom:24px;">
-      <span class="tag">05</span>
+      <span class="tag">06</span>
       <h2>Contact</h2>
     </div>
+    <div class="contact-heading">[Contact heading placeholder]</div>
+    <p class="contact-desc">[Contact description placeholder]</p>
     <p class="contact-line">→ <a href="mailto:sushilkumarsenthilnathan@gmail.com">sushilkumarsenthilnathan@gmail.com</a></p>
     <p class="contact-line">→ <a href="https://linkedin.com/in/sushilkumar-s/" target="_blank" rel="noopener">linkedin.com/in/sushilkumar-s</a></p>
     <p class="contact-line">→ <a href="https://github.com/SushilDev13" target="_blank" rel="noopener">github.com/SushilDev13</a></p>
