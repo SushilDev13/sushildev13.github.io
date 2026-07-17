@@ -99,8 +99,26 @@ function setupScrollTint() {
   update();
 }
 
+// ---------- build log accordion: collapsible project-block sections ----------
+function setupBuildLogAccordions() {
+  document.querySelectorAll(".block-summary").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const wrap = btn.closest(".project-block-toggle");
+      const panel = wrap.querySelector(".block-panel");
+      const isOpen = wrap.classList.toggle("is-open");
+      btn.setAttribute("aria-expanded", String(isOpen));
+      if (isOpen) {
+        panel.removeAttribute("inert");
+      } else {
+        panel.setAttribute("inert", "");
+      }
+    });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   wireRepoLinks();
   setupScrollReveal();
   setupScrollTint();
+  setupBuildLogAccordions();
 });

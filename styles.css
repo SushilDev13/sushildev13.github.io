@@ -287,6 +287,33 @@ section{padding:80px 0;}
 .stack-flow li{position:relative; padding-right:16px;}
 .stack-flow li:not(:last-child)::after{content:"·"; position:absolute; right:5px; color:var(--text-faint);}
 
+/* ---------- BUILD LOG ACCORDION (collapsible project blocks) ---------- */
+.project-block-toggle,
+.project-block-tech{border-top:1px solid var(--border); padding-top:20px;}
+
+.block-summary{
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  width:100%; background:none; border:none; padding:0; margin:0; cursor:pointer;
+  font:inherit; text-align:left; color:inherit; -webkit-tap-highlight-color:transparent;
+}
+.block-summary .project-block-label{margin-bottom:0;}
+.block-summary:hover .project-block-label{color:var(--text);}
+
+.block-toggle-icon{
+  font-family:var(--mono); font-size:15px; color:var(--accent);
+  flex-shrink:0; width:14px; text-align:center; line-height:1;
+}
+.block-toggle-icon::before{content:"+";}
+.project-block-toggle.is-open .block-toggle-icon::before{content:"–";}
+
+.block-panel{
+  display:grid; grid-template-rows:0fr;
+  transition:grid-template-rows .25s ease;
+}
+.project-block-toggle.is-open .block-panel{grid-template-rows:1fr;}
+.block-panel-inner{overflow:hidden; min-height:0;}
+.block-panel-inner > *{padding-top:10px;}
+
 /* ---------- FOOTER / CONTACT ---------- */
 footer{padding:80px 0; border-top:1px solid var(--border); position:relative;}
 footer::before{
