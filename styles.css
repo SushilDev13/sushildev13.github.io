@@ -308,9 +308,14 @@ section{padding:80px 0;}
 .role-text strong{color:var(--text); font-weight:600;}
 
 /* ---------- ENGINEERING STACK ---------- */
-.stack-groups{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:28px;}
-.stack-group-label{font-family:var(--mono); font-size:12px; color:var(--accent); margin-bottom:10px; display:block;}
-.stack-group .stack{margin-bottom:0;}
+.stack-groups{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:36px 32px;}
+.stack-group-head{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
+.stack-icon{width:17px; height:17px; color:var(--accent); flex-shrink:0;}
+.stack-group-label{font-family:var(--mono); font-size:12px; color:var(--accent); text-transform:uppercase; letter-spacing:0.04em;}
+
+.stack-flow{list-style:none; display:flex; flex-wrap:wrap; font-size:15px; color:var(--text-dim); line-height:1.9;}
+.stack-flow li{position:relative; padding-right:16px;}
+.stack-flow li:not(:last-child)::after{content:"·"; position:absolute; right:5px; color:var(--text-faint);}
 
 /* ---------- FOOTER / CONTACT ---------- */
 footer{padding:80px 0; border-top:1px solid var(--border); position:relative;}
