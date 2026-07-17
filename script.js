@@ -1,10 +1,9 @@
 // ---------- repo links ----------
-// Single source of truth: once Publyq collateral (demo, case study, architecture
-// writeup) and Kashiq are ready, fill in the URLs below and the corresponding
-// links wire themselves up / drop their disabled state automatically.
+// Single source of truth: once Publyq collateral (demo, architecture writeup)
+// and Kashiq are ready, fill in the URLs below and the corresponding links
+// wire themselves up / drop their disabled state automatically.
 const REPO_LINKS = {
   publyq: "https://publyq.in",
-  publyqCaseStudy: null,
   publyqArchitecture: null,
   kashiq: "https://kashiq.in"
 };
@@ -12,7 +11,6 @@ const REPO_LINKS = {
 function wireRepoLinks() {
   const actionMap = [
     { id: "publyq", url: REPO_LINKS.publyq },
-    { id: "publyq-case-study", url: REPO_LINKS.publyqCaseStudy },
     { id: "publyq-architecture", url: REPO_LINKS.publyqArchitecture }
   ];
 
@@ -37,7 +35,7 @@ function wireRepoLinks() {
       kashiq.href = REPO_LINKS.kashiq;
       kashiq.target = "_blank";
       kashiq.rel = "noopener";
-      kashiq.textContent = "view landing page →";
+      kashiq.textContent = "View Landing Page";
       kashiq.classList.remove("is-disabled");
     } else {
       kashiq.removeAttribute("href");

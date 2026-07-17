@@ -112,6 +112,7 @@ h1 span{color:var(--text-dim);}
 .btn-primary:hover{box-shadow:0 14px 34px -8px rgba(232,163,61,0.65); transform:translateY(-1px);}
 .btn-secondary{color:var(--text-dim); border-color:var(--border);}
 .btn-secondary:hover{color:var(--text); border-color:var(--text-faint);}
+.btn.is-disabled{opacity:0.45; cursor:default; pointer-events:none;}
 
 /* ---------- SECTION SCAFFOLD ---------- */
 section{padding:80px 0;}
@@ -238,10 +239,6 @@ section{padding:80px 0;}
   transition:border-color .15s, color .15s;
 }
 .pill:hover{border-color:var(--accent-dim); color:var(--text);}
-.commit-links{display:flex; gap:18px; font-family:var(--mono); font-size:13px; margin-top:16px;}
-.commit-links a{color:var(--accent); border-bottom:1px solid transparent; transition:border-color .15s;}
-.commit-links a:hover{border-color:var(--accent);}
-.commit-links a.is-disabled{color:var(--text-faint); cursor:default; pointer-events:none;}
 
 /* ---------- PROJECT BLOCKS (BUILD LOG DETAIL) ---------- */
 .project-blocks{display:flex; flex-direction:column; gap:28px; margin-top:24px;}
