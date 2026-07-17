@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<noscript><style>.reveal,.reveal-group .reveal-item,.project-card{opacity:1!important; transform:none!important;}</style></noscript>
+<noscript><style>.reveal,.reveal-group .reveal-item,.project-card{opacity:1!important; transform:none!important;} .nav-toggle{display:none!important;} .navlinks{display:flex!important; position:static!important; margin:0!important; padding:0!important; border-bottom:none!important;}</style></noscript>
 </head>
 <body>
 
@@ -17,7 +17,12 @@
 <nav>
   <div class="wrap">
     <div class="brand"><span class="dot"></span>Sushil</div>
-    <div class="navlinks">
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation menu">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <div class="navlinks" id="nav-links">
       <a href="#about">about</a>
       <a href="#discovery">discovery</a>
       <a href="#log">build log</a>
@@ -71,9 +76,9 @@
             <li>Industry</li>
             <li>Website</li>
             <li>Brief Description</li>
-            <li>Business Problem: What problem are you trying to solve?</li>
-            <li>Current Workflow: How are you solving it today?</li>
-            <li>Dataset Type: CSV, Database, Documents, API, Mixed</li>
+            <li>Business Problem</li>
+            <li>Current Workflow</li>
+            <li>Dataset Type</li>
             <li>Number of Datasets</li>
             <li>Sample Data (Optional)</li>
             <li>Data Volume</li>
@@ -254,40 +259,26 @@
                 <span class="project-block-label">Solution</span>
                 <p class="project-block-body">Kashiq automatically parses bank statements, categorises transactions, and combines multiple accounts into a single, searchable view of personal finances with intelligent transaction clustering.</p>
               </div>
-
-              <div class="project-block">
-                <span class="project-block-label">Proof / Metrics</span>
-                <div class="metric-row">
-                  <div class="metric-item">
-                    <span class="metric-value">4</span>
-                    <span class="metric-label">Classification Types</span>
-                  </div>
-                  <div class="metric-item">
-                    <span class="metric-value">10</span>
-                    <span class="metric-label">Date Formats Parsed</span>
-                  </div>
-                  <div class="metric-item">
-                    <span class="metric-value">26</span>
-                    <span class="metric-label">Bank Header Aliases</span>
-                  </div>
-                </div>
-              </div>
-
               <div class="project-block">
                 <span class="project-block-label">How It Works</span>
                 <div class="pipeline">
-                  <span class="pipeline-chip">CSV Statement Upload</span>
+                  <span class="pipeline-chip">Statement Upload</span>
                   <span class="pipeline-arrow" aria-hidden="true">→</span>
                   <span class="pipeline-chip">Parser Normalization</span>
                   <span class="pipeline-arrow" aria-hidden="true">→</span>
                   <span class="pipeline-chip">Auto-Clustering</span>
                   <span class="pipeline-arrow" aria-hidden="true">→</span>
-                  <span class="pipeline-chip">Manual Classification</span>
-                  <span class="pipeline-arrow" aria-hidden="true">→</span>
                   <span class="pipeline-chip">Dashboard Aggregation</span>
                   <span class="pipeline-arrow" aria-hidden="true">→</span>
                   <span class="pipeline-chip">Runway Forecast</span>
+                  <span class="pipeline-arrow" aria-hidden="true">→</span>
+                  <span class="pipeline-chip">User Validation</span>
                 </div>
+              </div>
+
+              <div class="project-block">
+                <span class="project-block-label">Status</span>
+                <p class="project-block-body">Strengthening the parsing and auto-clustering engine to enable multi-format document ingestion (PDF, CSV, XLSX) and MECE-based transaction classification.</p>
               </div>
 
               <div class="project-block">
@@ -313,13 +304,9 @@
 
               <div class="project-block">
                 <span class="project-block-label">Why Now</span>
-                <p class="project-block-body">Most personal finance apps solve this by linking your bank accounts through a third-party aggregator, which means handing over banking credentials to a service you don't control. Bank-exported CSV statements are already free, structured enough to parse reliably, and require no credential sharing at all. Treating recurring counterparties as first-class objects instead of one-off rows, and reconciling everything into one local, self-hosted record, is now practical without depending on a hosted account-aggregation service.</p>
+                <p class="project-block-body">Bank-exported statements are universally available, yet remain fragmented across formats and institutions. Advances in document parsing and transaction intelligence now enable these records to be consolidated into a single, structured financial ledger that works consistently across banks.</p>
               </div>
 
-              <div class="project-block">
-                <span class="project-block-label">Why Me</span>
-                <p class="project-block-body">I spent four years building analytics systems that reconcile messy, multi-source enterprise data into a single trustworthy record. Kashiq applies the same discipline to my own bank statements: normalize every source into one schema, group by real-world identity rather than raw transaction rows, and classify a merchant once so the system applies it automatically from then on.</p>
-              </div>
             </div>
           </div>
 
@@ -364,10 +351,6 @@
                 </div>
               </div>
 
-              <div class="project-block">
-                <span class="project-block-label">Status</span>
-                <p class="project-block-body">Actively refining the auto-clustering logic and shipping the public-facing landing page and product site.</p>
-              </div>
             </div>
           </div>
         </div>

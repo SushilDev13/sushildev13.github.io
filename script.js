@@ -163,9 +163,49 @@ function setupProjectTabs() {
   });
 }
 
+// ---------- mobile nav: hamburger toggle for the collapsed link list ----------
+function setupNavToggle() {
+  const toggle = document.getElementById("nav-toggle");
+  const links = document.getElementById("nav-links");
+  if (!toggle || !links) return;
+
+  function closeMenu() {
+    toggle.setAttribute("aria-expanded", "false");
+    links.classList.remove("is-open");
+  }
+
+  function openMenu() {
+    toggle.setAttribute("aria-expanded", "true");
+    links.classList.add("is-open");
+  }
+
+  toggle.addEventListener("click", () => {
+    const isOpen = toggle.getAttribute("aria-expanded") === "true";
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  links.querySelectorAll("a").forEach((a) => {
+    a.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
+  });
+
+  document.addEventListener("click", (e) => {
+    if (toggle.getAttribute("aria-expanded") !== "true") return;
+    if (!links.contains(e.target) && !toggle.contains(e.target)) closeMenu();
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   wireRepoLinks();
   setupScrollReveal();
   setupScrollTint();
   setupProjectTabs();
+  setupNavToggle();
 });
