@@ -47,13 +47,13 @@ function wireRepoLinks() {
   }
 }
 
-// ---------- scroll reveal for build-log commits ----------
+// ---------- scroll reveal: build-log cards, section heads, staggered groups ----------
 function setupScrollReveal() {
-  const commits = document.querySelectorAll(".commit");
-  if (!commits.length) return;
+  const targets = document.querySelectorAll(".project-card, .reveal, .reveal-group");
+  if (!targets.length) return;
 
   if (!("IntersectionObserver" in window)) {
-    commits.forEach((c) => c.classList.add("in-view"));
+    targets.forEach((t) => t.classList.add("in-view"));
     return;
   }
 
@@ -69,10 +69,40 @@ function setupScrollReveal() {
     { threshold: 0.15 }
   );
 
-  commits.forEach((c) => observer.observe(c));
+  targets.forEach((t) => observer.observe(t));
+}
+
+// ---------- ambient background tint that drifts with scroll position ----------
+// Reinforces the "ideas evolving into software" narrative with a barely-there
+// hue shift — skipped entirely under reduced-motion since it's decorative.
+function setupScrollTint() {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduceMotion) return;
+
+  let ticking = false;
+  function update() {
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
+    document.documentElement.style.setProperty("--scroll-progress", progress.toFixed(3));
+    ticking = false;
+  }
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    },
+    { passive: true }
+  );
+
+  update();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   wireRepoLinks();
   setupScrollReveal();
+  setupScrollTint();
 });

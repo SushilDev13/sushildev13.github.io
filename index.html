@@ -8,8 +8,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<noscript><style>.reveal,.reveal-group .reveal-item,.project-card{opacity:1!important; transform:none!important;}</style></noscript>
 </head>
 <body>
+
+<div class="bg-mesh" aria-hidden="true"></div>
 
 <nav>
   <div class="wrap">
@@ -26,12 +29,12 @@
 </nav>
 
 <header class="hero" id="about">
-  <div class="wrap">
-    <span class="eyebrow">Engineering Better Decisions</span>
-    <h1>Building decision systems that transform complex operational data into actionable intelligence.</h1>
-    <p class="sub">I spent four years helping Fortune 500 OEMs make sense of complex manufacturing data. Today, I'm applying the same systems thinking to build products that transform public and operational data into clear, actionable intelligence.</p>
-    <p class="sub">Whether you're working with operational data, internal documents, or large public datasets, I build decision systems that turn your data into information people can search, understand, and act on.</p>
-    <div class="cta-group">
+  <div class="wrap reveal-group">
+    <span class="eyebrow reveal-item">Engineering Better Decisions</span>
+    <h1 class="reveal-item">Building decision systems that transform complex operational data into actionable intelligence.</h1>
+    <p class="sub reveal-item">I spent four years helping Fortune 500 OEMs make sense of complex manufacturing data. Today, I'm applying the same systems thinking to build products that transform public and operational data into clear, actionable intelligence.</p>
+    <p class="sub reveal-item">Whether you're working with operational data, internal documents, or large public datasets, I build decision systems that turn your data into information people can search, understand, and act on.</p>
+    <div class="cta-group reveal-item">
       <a href="#discovery" class="btn btn-primary">Book a Discovery Call</a>
       <a href="#log" class="btn btn-secondary">View My Work</a>
     </div>
@@ -40,51 +43,55 @@
 
 <section id="discovery">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head reveal">
       <span class="tag">02</span>
       <h2>Let's Talk About Your Data</h2>
     </div>
 
-    <div class="discovery-card">
-      <div class="discovery-title">Book a 30-Minute Intro Call</div>
-      <p class="discovery-desc">Tell me what you're building, the data you're working with, and where you're getting stuck. I'll review your submission before the call so we can spend our time discussing solutions rather than gathering context.</p>
+    <div class="discovery-card panel discovery-split reveal">
+      <div class="discovery-col discovery-col-main">
+        <div class="discovery-title">Book a 30-Minute Intro Call</div>
+        <p class="discovery-desc">Tell me what you're building, the data you're working with, and where you're getting stuck. I'll review your submission before the call so we can spend our time discussing solutions rather than gathering context.</p>
 
-      <div class="cta-group">
-        <a href="#calendly-placeholder" class="btn btn-primary">Book Intro Call →</a>
+        <div class="cta-group">
+          <a href="#calendly-placeholder" class="btn btn-primary">Book Intro Call →</a>
+        </div>
+
+        <div class="discovery-meta">
+          <span><strong>Availability</strong>Mon–Fri → 6:30 PM – 9:00 PM IST</span>
+          <span><strong>Response time</strong>Within 24 hours (after reviewing your request) </span>
+        </div>
       </div>
 
-      <div class="discovery-meta">
-        <span><strong>Availability</strong>Mon–Fri → 6:30 PM – 9:00 PM IST</span>
-        <span><strong>Response time</strong>Within 24 hours (after reviewing your request) </span>
-      </div>
+      <div class="discovery-col discovery-col-aside">
+        <details class="ask-before">
+          <summary>Before We Meet</summary>
+          <ul>
+            <li>Company</li>
+            <li>Industry</li>
+            <li>Website</li>
+            <li>Brief Description</li>
+            <li>Business Problem: What problem are you trying to solve?</li>
+            <li>Current Workflow: How are you solving it today?</li>
+            <li>Dataset Type: CSV, Database, Documents, API, Mixed</li>
+            <li>Number of Datasets</li>
+            <li>Sample Data (Optional)</li>
+            <li>Data Volume</li>
+            <li>Timeline</li>
+            <li>Additional notes</li>
+          </ul>
+        </details>
 
-      <details class="ask-before">
-        <summary>Before We Meet</summary>
-        <ul>
-          <li>Company</li>
-          <li>Industry</li>
-          <li>Website</li>
-          <li>Brief Description</li>
-          <li>Business Problem: What problem are you trying to solve?</li>
-          <li>Current Workflow: How are you solving it today?</li>
-          <li>Dataset Type: CSV, Database, Documents, API, Mixed</li>
-          <li>Number of Datasets</li>
-          <li>Sample Data (Optional)</li>
-          <li>Data Volume</li>
-          <li>Timeline</li>
-          <li>Additional notes</li>
-        </ul>
-      </details>
-
-      <div class="calendly-embed" id="calendly-placeholder">
-        <div class="discovery-title">Typical Engagements</div>
-        <ul>
-          <li>Conversational analytics on your knowledge base</li>
-          <li>Analytics pipelines for operational data</li>
-          <li>Search across internal documents</li>
-          <li>AI-powered decision systems</li>
-          <li>Custom data applications built around your workflows</li>
-        </ul>
+        <div class="engagements" id="calendly-placeholder">
+          <span class="engagements-label">Typical Engagements</span>
+          <ul>
+            <li>Conversational analytics on your knowledge base</li>
+            <li>Analytics pipelines for operational data</li>
+            <li>Search across internal documents</li>
+            <li>AI-powered decision systems</li>
+            <li>Custom data applications built around your workflows</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -92,44 +99,43 @@
 
 <section id="log">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head reveal">
       <span class="tag">03</span>
       <h2>Build Log</h2>
     </div>
 
     <div class="build-log-primary">
-      <div class="commit">
-        <div class="commit-meta">
+      <div class="project-card panel">
+        <div class="project-card-head">
           <span class="commit-hash">#publyq01</span>
           <span class="status building">Live</span>
         </div>
-        <div>
-          <div class="commit-title">Publyq: Intelligence Layer for Public Grievance Data</div>
+        <div class="commit-title">Publyq: Intelligence Layer for Public Grievance Data</div>
 
-          <div class="project-blocks">
-            <div class="project-block">
+        <div class="project-blocks reveal-group">
+            <div class="project-block reveal-item">
               <span class="project-block-label">Problem</span>
               <p class="project-block-body">Every day, cities receive thousands of public grievances covering roads, drainage, waste management, street lighting, and other civic issues. While this data is publicly available, it remains fragmented across individual complaints, making it difficult to identify recurring problems, accountability gaps, or city-wide trends.</p>
             </div>
 
-            <div class="project-block">
+            <div class="project-block reveal-item">
               <span class="project-block-label">Why Now</span>
               <p class="project-block-body">Governments are publishing more operational data than ever before, but most public systems are still built to track individual complaints rather than understand the bigger picture. Advances in modern search and language models now make it practical to explore large civic datasets using natural language instead of complex dashboards or SQL.</p>
             </div>
 
-            <div class="project-block">
+            <div class="project-block reveal-item">
               <span class="project-block-label">Why Me</span>
               <p class="project-block-body">I spent four years building enterprise analytics systems that helped engineering teams identify recurring failures across millions of manufacturing records. Publyq applies the same engineering mindset to public infrastructure, turning fragmented civic data into systems that support better decisions.</p>
             </div>
 
-            <div class="project-block">
+            <div class="project-block reveal-item">
               <span class="project-block-label">Solution</span>
               <p class="project-block-body">Publyq transforms raw public grievance records into a searchable civic intelligence layer. By combining data enrichment, geospatial mapping, and conversational analytics, it helps users understand what is happening across a city instead of searching through thousands of individual complaints.</p>
             </div>
 
-            <div class="project-block">
+            <div class="project-block reveal-item">
               <span class="project-block-label">Proof / Metrics</span>
-              <div class="metric-grid">
+              <div class="metric-row">
                 <div class="metric-item">
                   <span class="metric-value">200</span>
                   <span class="metric-label">Wards Covered</span>
@@ -145,27 +151,27 @@
               </div>
             </div>
 
-            <div class="project-block">
+            <div class="project-block reveal-item">
               <span class="project-block-label">How It Works</span>
               <div class="pipeline">
-                <div class="pipeline-step">Public Complaints</div>
+                <span class="pipeline-step">Public Complaints</span>
                 <span class="pipeline-arrow" aria-hidden="true">→</span>
-                <div class="pipeline-step">Data Enrichment</div>
+                <span class="pipeline-step">Data Enrichment</span>
                 <span class="pipeline-arrow" aria-hidden="true">→</span>
-                <div class="pipeline-step">Ward Mapping</div>
+                <span class="pipeline-step">Ward Mapping</span>
                 <span class="pipeline-arrow" aria-hidden="true">→</span>
-                <div class="pipeline-step">Knowledge Layer</div>
+                <span class="pipeline-step">Knowledge Layer</span>
                 <span class="pipeline-arrow" aria-hidden="true">→</span>
-                <div class="pipeline-step">Conversational Analytics</div>
+                <span class="pipeline-step">Conversational Analytics</span>
                 <span class="pipeline-arrow" aria-hidden="true">→</span>
-                <div class="pipeline-step">Insights & Decisions</div>
+                <span class="pipeline-step">Insights & Decisions</span>
               </div>
             </div>
 
-            <div class="project-block">
+            <div class="project-block reveal-item">
               <span class="project-block-label">Engineering Decisions</span>
-              <div class="decision-cards">
-                <dl class="decision-card">
+              <div class="decision-list">
+                <dl class="decision-row">
                   <dt>Decision</dt>
                   <dd>Local LLM</dd>
                   <dt>Why</dt>
@@ -173,7 +179,7 @@
                   <dt>Tradeoffs</dt>
                   <dd>Lower reasoning capability than frontier models, but significantly better control over latency, privacy, and operating cost.</dd>
                 </dl>
-                <dl class="decision-card">
+                <dl class="decision-row">
                   <dt>Decision</dt>
                   <dd>PostgreSQL + Structured Knowledge Layer</dd>
                   <dt>Why</dt>
@@ -184,7 +190,7 @@
               </div>
             </div>
 
-            <div class="project-block">
+            <div class="project-block reveal-item">
               <span class="project-block-label">Tech</span>
               <div class="stack">
                 <span class="pill">FastAPI</span>
@@ -196,47 +202,47 @@
             </div>
           </div>
 
-          <div class="action-row">
-            <a href="#" id="publyq" class="action-btn">Explore Platform →</a>
-            <a href="#" id="publyq-case-study" class="action-btn">Technical Walkthrough →</a>
-            <a href="#" id="publyq-architecture" class="action-btn">System Architecture →</a>
+          <div class="commit-links">
+            <a href="#" id="publyq">Explore Platform →</a>
+            <a href="#" id="publyq-case-study">Technical Walkthrough →</a>
+            <a href="#" id="publyq-architecture">System Architecture →</a>
           </div>
-        </div>
       </div>
     </div>
 
     <div class="build-log-secondary">
-      <div class="commit">
-        <div class="commit-meta">
+      <div class="project-card panel">
+        <div class="project-card-head">
           <span class="commit-hash">#kashiq01</span>
           <span class="status building">in progress</span>
         </div>
-        <div>
-          <div class="commit-title">Kashiq: Multi-Account Financial Intelligence</div>
-          <div class="project-blocks">
-            <div class="project-block">
-              <span class="project-block-label">Problem</span>
-              <p class="project-block-body">Personal finances are often spread across multiple bank accounts, making it difficult to understand overall income, spending, and cash flow without manually consolidating statements.</p>
-            </div>
+        <div class="commit-title">Kashiq: Multi-Account Financial Intelligence</div>
 
-            <div class="project-block">
-              <span class="project-block-label">Solution</span>
-              <p class="project-block-body">Kashiq automatically parses bank statements, categorises transactions, and combines multiple accounts into a single, searchable view of personal finances with intelligent transaction clustering.</p>
-            </div>
+        <div class="project-blocks reveal-group">
+          <div class="project-block reveal-item">
+            <span class="project-block-label">Problem</span>
+            <p class="project-block-body">Personal finances are often spread across multiple bank accounts, making it difficult to understand overall income, spending, and cash flow without manually consolidating statements.</p>
+          </div>
 
-            <div class="project-block">
-              <span class="project-block-label">Status</span>
-              <p class="project-block-body">Currently rebuilding the data engine with PostgreSQL to support larger datasets, improved categorisation, and conversational analytics.</p>
-            </div>
-          <div class="stack">
-            <span class="pill">Python / Flask</span>
-            <span class="pill">React + Vite</span>
-            <span class="pill">Recharts</span>
-            <span class="pill">PostgreSQL</span>
+          <div class="project-block reveal-item">
+            <span class="project-block-label">Solution</span>
+            <p class="project-block-body">Kashiq automatically parses bank statements, categorises transactions, and combines multiple accounts into a single, searchable view of personal finances with intelligent transaction clustering.</p>
           </div>
-          <div class="commit-links">
-            <a href="#" id="kashiq">kashiq</a>
+
+          <div class="project-block reveal-item">
+            <span class="project-block-label">Status</span>
+            <p class="project-block-body">Currently rebuilding the data engine with PostgreSQL to support larger datasets, improved categorisation, and conversational analytics.</p>
           </div>
+        </div>
+
+        <div class="stack">
+          <span class="pill">Python / Flask</span>
+          <span class="pill">React + Vite</span>
+          <span class="pill">Recharts</span>
+          <span class="pill">PostgreSQL</span>
+        </div>
+        <div class="commit-links">
+          <a href="#" id="kashiq">kashiq</a>
         </div>
       </div>
     </div>
@@ -245,31 +251,31 @@
 
 <section id="impact">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head reveal">
       <span class="tag">04</span>
       <h2>Track Record</h2>
     </div>
-    <div class="role-line"><strong>Lead Analytics</strong> · Axion Ray (Vertical AI) · Apr 2022 – Apr 2026</div>
-    <div class="role-text">Scaled enterprise analytics across <strong>product, operations, and AI workflows</strong> for one of Axion Ray's largest customer portfolios.</div>
+    <div class="role-line reveal"><strong>Lead Analytics</strong> · Axion Ray (Vertical AI) · Apr 2022 – Apr 2026</div>
+    <div class="role-text reveal">Scaled enterprise analytics across <strong>product, operations, and AI workflows</strong> for one of Axion Ray's largest customer portfolios.</div>
 
-    <div class="impact-list">
-      <div class="impact-row">
+    <div class="impact-list reveal-group">
+      <div class="impact-row reveal-item">
         <div class="impact-num">$15M+<span class="unit">quality losses</span></div>
         <div class="impact-text">Built analytics workflows that surfaced over $15M in potential quality losses <strong>by identifying recurring engine failure patterns</strong> across warranty claims, work orders, and service escalations, enabling engineering teams to prioritize corrective actions.</div>
       </div>
-      <div class="impact-row">
+      <div class="impact-row reveal-item">
         <div class="impact-num">26%<span class="unit">of revenue</span></div>
         <div class="impact-text">Served as the end-to-end analytics lead for one of Axion Ray's largest enterprise accounts, representing approximately 26% of company revenue, <strong>coordinating delivery, client priorities, and analytics operations</strong> across cross-functional teams.</div>
       </div>
-      <div class="impact-row">
+      <div class="impact-row reveal-item">
         <div class="impact-num">90%<span class="unit">ETL automation</span></div>
         <div class="impact-text">Designed and deployed Python and LLM-powered automation pipelines that eliminated approximately 90% of manual ETL effort for failure-code extraction, <strong>reducing processing time while improving data consistency.</strong></div>
       </div>
-      <div class="impact-row">
+      <div class="impact-row reveal-item">
         <div class="impact-num">24<span class="unit">analysts</span></div>
         <div class="impact-text">Led and mentored a team of 24 analysts, <strong>standardizing workflows, reducing delivery bottlenecks,</strong> and improving delivery quality across multiple workstreams.</div>
       </div>
-      <div class="impact-row">
+      <div class="impact-row reveal-item">
         <div class="impact-num">450+<span class="unit">client users</span></div>
         <div class="impact-text">Measured product adoption and engagement across an enterprise AI platform serving more than 450 client stakeholders, designing funnel analyses, WAU/MAU reporting, and feature-flag experiments that informed <strong>product strategy and operational decisions.</strong></div>
       </div>
@@ -279,12 +285,12 @@
 
 <section id="stack">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head reveal">
       <span class="tag">05</span>
       <h2>Preferred Stack</h2>
     </div>
-    <div class="stack-groups">
-      <div class="stack-group">
+    <div class="stack-groups reveal-group">
+      <div class="stack-group reveal-item">
         <span class="stack-group-label">Languages</span>
         <div class="stack">
           <span class="pill">Python</span>
@@ -292,7 +298,7 @@
           <span class="pill">JavaScript</span>
         </div>
       </div>
-      <div class="stack-group">
+      <div class="stack-group reveal-item">
         <span class="stack-group-label">Data</span>
         <div class="stack">
           <span class="pill">PostgreSQL</span>
@@ -301,7 +307,7 @@
           <span class="pill">GeoPandas</span>
         </div>
       </div>
-      <div class="stack-group">
+      <div class="stack-group reveal-item">
         <span class="stack-group-label">Backend</span>
         <div class="stack">
           <span class="pill">FastAPI</span>
@@ -309,7 +315,7 @@
           <span class="pill">Pydantic</span>
         </div>
       </div>
-      <div class="stack-group">
+      <div class="stack-group reveal-item">
         <span class="stack-group-label">Frontend</span>
         <div class="stack">
           <span class="pill">React</span>
@@ -318,7 +324,7 @@
           <span class="pill">Recharts</span>
         </div>
       </div>
-      <div class="stack-group">
+      <div class="stack-group reveal-item">
         <span class="stack-group-label">AI</span>
         <div class="stack">
           <span class="pill">Gemma</span>
@@ -327,12 +333,12 @@
           <span class="pill">Vector Search</span>
         </div>
       </div>
-      <div class="stack-group">
+      <div class="stack-group reveal-item">
         <span class="stack-group-label">Infrastructure</span>
         <div class="stack">
           <span class="pill">Cloud Run</span>
           <span class="pill">Cloud SQL</span>
-          
+
           <span class="pill">Vercel</span>
         </div>
       </div>
@@ -342,12 +348,12 @@
 
 <footer id="contact">
   <div class="wrap">
-    <div class="sec-head" style="border-bottom:none; margin-bottom:24px;">
+    <div class="sec-head sec-head-plain reveal">
       <span class="tag">06</span>
       <h2>Contact</h2>
     </div>
-    <div class="contact-heading">Let's Build Something Useful</div>
-    <p class="contact-desc">I enjoy working on problems where the data already exists, but the insights don't. If that sounds familiar, let's explore how we can solve it together.</p>
+    <div class="contact-heading reveal">Let's Build Something Useful</div>
+    <p class="contact-desc reveal">I enjoy working on problems where the data already exists, but the insights don't. If that sounds familiar, let's explore how we can solve it together.</p>
     <p class="contact-line">→ <a href="mailto:sushilkumarsenthilnathan@gmail.com">sushilkumarsenthilnathan@gmail.com</a></p>
     <p class="contact-line">→ <a href="https://linkedin.com/in/sushilkumar-s/" target="_blank" rel="noopener">linkedin.com/in/sushilkumar-s</a></p>
     <p class="contact-line">→ <a href="https://github.com/SushilDev13" target="_blank" rel="noopener">github.com/SushilDev13</a></p>
