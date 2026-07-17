@@ -154,51 +154,52 @@
             <div class="project-block reveal-item">
               <span class="project-block-label">How It Works</span>
               <div class="pipeline">
-                <span class="pipeline-step">Public Complaints</span>
-                <span class="pipeline-arrow" aria-hidden="true">→</span>
-                <span class="pipeline-step">Data Enrichment</span>
-                <span class="pipeline-arrow" aria-hidden="true">→</span>
-                <span class="pipeline-step">Ward Mapping</span>
-                <span class="pipeline-arrow" aria-hidden="true">→</span>
-                <span class="pipeline-step">Knowledge Layer</span>
-                <span class="pipeline-arrow" aria-hidden="true">→</span>
-                <span class="pipeline-step">Conversational Analytics</span>
-                <span class="pipeline-arrow" aria-hidden="true">→</span>
-                <span class="pipeline-step">Insights & Decisions</span>
+                <span class="pipeline-stage">Public Complaints</span>
+                <span class="pipeline-hop"><span class="pipeline-arrow" aria-hidden="true">→</span>Data Enrichment</span>
+                <span class="pipeline-hop"><span class="pipeline-arrow" aria-hidden="true">→</span>Ward Mapping</span>
+                <span class="pipeline-hop"><span class="pipeline-arrow" aria-hidden="true">→</span>Knowledge Layer</span>
+                <span class="pipeline-hop"><span class="pipeline-arrow" aria-hidden="true">→</span>Conversational Analytics</span>
+                <span class="pipeline-hop"><span class="pipeline-arrow" aria-hidden="true">→</span>Insights &amp; Decisions</span>
               </div>
             </div>
 
             <div class="project-block reveal-item">
               <span class="project-block-label">Engineering Decisions</span>
               <div class="decision-list">
-                <dl class="decision-row">
-                  <dt>Decision</dt>
-                  <dd>Local LLM</dd>
-                  <dt>Why</dt>
-                  <dd>Keeps conversational analytics responsive while reducing inference costs and avoiding dependence on external APIs.</dd>
-                  <dt>Tradeoffs</dt>
-                  <dd>Lower reasoning capability than frontier models, but significantly better control over latency, privacy, and operating cost.</dd>
-                </dl>
-                <dl class="decision-row">
-                  <dt>Decision</dt>
-                  <dd>PostgreSQL + Structured Knowledge Layer</dd>
-                  <dt>Why</dt>
-                  <dd>Public grievance data is highly structured and benefits from relational queries, spatial enrichment, and deterministic retrieval before language model inference.</dd>
-                  <dt>Tradeoffs</dt>
-                  <dd>More engineering effort during data ingestion, but produces more reliable and explainable answers.</dd>
-                </dl>
+                <div class="decision-row">
+                  <h4 class="decision-name">Local LLM</h4>
+                  <div class="decision-field">
+                    <span class="decision-field-label">Why</span>
+                    <p>Keeps conversational analytics responsive while reducing inference costs and avoiding dependence on external APIs.</p>
+                  </div>
+                  <div class="decision-field">
+                    <span class="decision-field-label">Tradeoffs</span>
+                    <p>Lower reasoning capability than frontier models, but significantly better control over latency, privacy, and operating cost.</p>
+                  </div>
+                </div>
+                <div class="decision-row">
+                  <h4 class="decision-name">PostgreSQL + Structured Knowledge Layer</h4>
+                  <div class="decision-field">
+                    <span class="decision-field-label">Why</span>
+                    <p>Public grievance data is highly structured and benefits from relational queries, spatial enrichment, and deterministic retrieval before language model inference.</p>
+                  </div>
+                  <div class="decision-field">
+                    <span class="decision-field-label">Tradeoffs</span>
+                    <p>More engineering effort during data ingestion, but produces more reliable and explainable answers.</p>
+                  </div>
+                </div>
               </div>
             </div>
 
             <div class="project-block reveal-item">
               <span class="project-block-label">Tech</span>
-              <div class="stack">
-                <span class="pill">FastAPI</span>
-                <span class="pill">PostgreSQL</span>
-                <span class="pill">Gemma4</span>
-                <span class="pill">Python</span>
-                <span class="pill">JavaScript</span>
-              </div>
+              <ul class="stack-flow">
+                <li>FastAPI</li>
+                <li>PostgreSQL</li>
+                <li>Gemma4</li>
+                <li>Python</li>
+                <li>JavaScript</li>
+              </ul>
             </div>
           </div>
 
@@ -235,12 +236,12 @@
 
           <div class="project-block reveal-item">
             <span class="project-block-label">Tech</span>
-            <div class="stack">
-              <span class="pill">Python / Flask</span>
-              <span class="pill">React + Vite</span>
-              <span class="pill">Recharts</span>
-              <span class="pill">PostgreSQL</span>
-            </div>
+            <ul class="stack-flow">
+              <li>Python / Flask</li>
+              <li>React + Vite</li>
+              <li>Recharts</li>
+              <li>PostgreSQL</li>
+            </ul>
           </div>
         </div>
 
