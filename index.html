@@ -35,7 +35,7 @@
     <p class="sub reveal-item">I spent four years helping Fortune 500 OEMs make sense of complex manufacturing data. Today, I'm applying the same systems thinking to build products that transform public and operational data into clear, actionable intelligence.</p>
     <p class="sub reveal-item">Whether you're working with operational data, internal documents, or large public datasets, I build decision systems that turn your data into information people can search, understand, and act on.</p>
     <div class="cta-group reveal-item">
-      <a href="#discovery" class="btn btn-primary">Book a Discovery Call</a>
+      <a href="#discovery" class="btn btn-primary">See What's Possible</a>
       <a href="#log" class="btn btn-secondary">View My Work</a>
     </div>
   </div>
@@ -112,134 +112,124 @@
         </div>
         <div class="commit-title">Publyq: Intelligence Layer for Public Grievance Data</div>
 
-        <div class="project-blocks reveal-group">
-            <div class="project-block reveal-item">
-              <span class="project-block-label">Solution</span>
-              <p class="project-block-body">Publyq transforms raw public grievance records into a searchable civic intelligence layer. By combining data enrichment, geospatial mapping, and conversational analytics, it helps users understand what is happening across a city instead of searching through thousands of individual complaints.</p>
-            </div>
+        <div class="tabs" role="tablist" aria-label="Publyq sections">
+          <button type="button" class="tab is-active" id="publyq-tab-overview" role="tab" aria-selected="true" aria-controls="publyq-panel-overview">Overview</button>
+          <button type="button" class="tab" id="publyq-tab-context" role="tab" aria-selected="false" tabindex="-1" aria-controls="publyq-panel-context">Context</button>
+          <button type="button" class="tab" id="publyq-tab-engineering" role="tab" aria-selected="false" tabindex="-1" aria-controls="publyq-panel-engineering">Engineering</button>
+        </div>
 
-            <div class="project-block reveal-item">
-              <span class="project-block-label">Proof / Metrics</span>
-              <div class="metric-row">
-                <div class="metric-item">
-                  <span class="metric-value">200</span>
-                  <span class="metric-label">Wards Covered</span>
-                </div>
-                <div class="metric-item">
-                  <span class="metric-value">3.4k+</span>
-                  <span class="metric-label">Complaints Indexed</span>
-                </div>
-                <div class="metric-item">
-                  <span class="metric-value">23</span>
-                  <span class="metric-label">Constituencies Mapped</span>
+        <div class="tab-panels">
+          <div class="tab-panel is-active" id="publyq-panel-overview" role="tabpanel" aria-labelledby="publyq-tab-overview" tabindex="0">
+            <div class="project-blocks">
+              <div class="project-block">
+                <span class="project-block-label">Solution</span>
+                <p class="project-block-body">Publyq transforms raw public grievance records into a searchable civic intelligence layer. By combining data enrichment, geospatial mapping, and conversational analytics, it helps users understand what is happening across a city instead of searching through thousands of individual complaints.</p>
+              </div>
+
+              <div class="project-block">
+                <span class="project-block-label">Proof / Metrics</span>
+                <div class="metric-row">
+                  <div class="metric-item">
+                    <span class="metric-value">200</span>
+                    <span class="metric-label">Wards Covered</span>
+                  </div>
+                  <div class="metric-item">
+                    <span class="metric-value">3.4k+</span>
+                    <span class="metric-label">Complaints Indexed</span>
+                  </div>
+                  <div class="metric-item">
+                    <span class="metric-value">23</span>
+                    <span class="metric-label">Constituencies Mapped</span>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="project-block reveal-item">
-              <span class="project-block-label">How It Works</span>
-              <div class="pipeline">
-                <span class="pipeline-chip">Public Complaints</span>
-                <span class="pipeline-arrow" aria-hidden="true">→</span>
-                <span class="pipeline-chip">Data Enrichment</span>
-                <span class="pipeline-arrow" aria-hidden="true">→</span>
-                <span class="pipeline-chip">Ward Mapping</span>
-                <span class="pipeline-arrow" aria-hidden="true">→</span>
-                <span class="pipeline-chip">Knowledge Layer</span>
-                <span class="pipeline-arrow" aria-hidden="true">→</span>
-                <span class="pipeline-chip">Conversational Analytics</span>
-                <span class="pipeline-arrow" aria-hidden="true">→</span>
-                <span class="pipeline-chip">Insights &amp; Decisions</span>
+              <div class="project-block">
+                <span class="project-block-label">How It Works</span>
+                <div class="pipeline">
+                  <span class="pipeline-chip">Public Complaints</span>
+                  <span class="pipeline-arrow" aria-hidden="true">→</span>
+                  <span class="pipeline-chip">Data Enrichment</span>
+                  <span class="pipeline-arrow" aria-hidden="true">→</span>
+                  <span class="pipeline-chip">Ward Mapping</span>
+                  <span class="pipeline-arrow" aria-hidden="true">→</span>
+                  <span class="pipeline-chip">Knowledge Layer</span>
+                  <span class="pipeline-arrow" aria-hidden="true">→</span>
+                  <span class="pipeline-chip">Conversational Analytics</span>
+                  <span class="pipeline-arrow" aria-hidden="true">→</span>
+                  <span class="pipeline-chip">Insights &amp; Decisions</span>
+                </div>
+              </div>
+
+              <div class="project-block">
+                <span class="project-block-label">Tech</span>
+                <ul class="stack-flow">
+                  <li>FastAPI</li>
+                  <li>PostgreSQL</li>
+                  <li>Gemma4</li>
+                  <li>Python</li>
+                  <li>JavaScript</li>
+                </ul>
               </div>
             </div>
+          </div>
 
-            <div class="project-block project-block-toggle reveal-item">
-              <button type="button" class="block-summary" id="publyq-problem-btn" aria-expanded="false" aria-controls="publyq-problem-panel">
+          <div class="tab-panel" id="publyq-panel-context" role="tabpanel" aria-labelledby="publyq-tab-context" tabindex="0" hidden>
+            <div class="project-blocks">
+              <div class="project-block">
                 <span class="project-block-label">Problem</span>
-                <span class="block-toggle-icon" aria-hidden="true"></span>
-              </button>
-              <div class="block-panel" id="publyq-problem-panel" role="region" aria-labelledby="publyq-problem-btn" inert>
-                <div class="block-panel-inner">
-                  <p class="project-block-body">Every day, cities receive thousands of public grievances covering roads, drainage, waste management, street lighting, and other civic issues. While this data is publicly available, it remains fragmented across individual complaints, making it difficult to identify recurring problems, accountability gaps, or city-wide trends.</p>
-                </div>
+                <p class="project-block-body">Every day, cities receive thousands of public grievances covering roads, drainage, waste management, street lighting, and other civic issues. While this data is publicly available, it remains fragmented across individual complaints, making it difficult to identify recurring problems, accountability gaps, or city-wide trends.</p>
               </div>
-            </div>
 
-            <div class="project-block project-block-toggle reveal-item">
-              <button type="button" class="block-summary" id="publyq-why-now-btn" aria-expanded="false" aria-controls="publyq-why-now-panel">
+              <div class="project-block">
                 <span class="project-block-label">Why Now</span>
-                <span class="block-toggle-icon" aria-hidden="true"></span>
-              </button>
-              <div class="block-panel" id="publyq-why-now-panel" role="region" aria-labelledby="publyq-why-now-btn" inert>
-                <div class="block-panel-inner">
-                  <p class="project-block-body">Governments are publishing more operational data than ever before, but most public systems are still built to track individual complaints rather than understand the bigger picture. Advances in modern search and language models now make it practical to explore large civic datasets using natural language instead of complex dashboards or SQL.</p>
-                </div>
+                <p class="project-block-body">Governments are publishing more operational data than ever before, but most public systems are still built to track individual complaints rather than understand the bigger picture. Advances in modern search and language models now make it practical to explore large civic datasets using natural language instead of complex dashboards or SQL.</p>
               </div>
-            </div>
 
-            <div class="project-block project-block-toggle reveal-item">
-              <button type="button" class="block-summary" id="publyq-why-me-btn" aria-expanded="false" aria-controls="publyq-why-me-panel">
+              <div class="project-block">
                 <span class="project-block-label">Why Me</span>
-                <span class="block-toggle-icon" aria-hidden="true"></span>
-              </button>
-              <div class="block-panel" id="publyq-why-me-panel" role="region" aria-labelledby="publyq-why-me-btn" inert>
-                <div class="block-panel-inner">
-                  <p class="project-block-body">I spent four years building enterprise analytics systems that helped engineering teams identify recurring failures across millions of manufacturing records. Publyq applies the same engineering mindset to public infrastructure, turning fragmented civic data into systems that support better decisions.</p>
-                </div>
+                <p class="project-block-body">I spent four years building enterprise analytics systems that helped engineering teams identify recurring failures across millions of manufacturing records. Publyq applies the same engineering mindset to public infrastructure, turning fragmented civic data into systems that support better decisions.</p>
               </div>
             </div>
+          </div>
 
-            <div class="project-block project-block-toggle reveal-item">
-              <button type="button" class="block-summary" id="publyq-decisions-btn" aria-expanded="false" aria-controls="publyq-decisions-panel">
+          <div class="tab-panel" id="publyq-panel-engineering" role="tabpanel" aria-labelledby="publyq-tab-engineering" tabindex="0" hidden>
+            <div class="project-blocks">
+              <div class="project-block">
                 <span class="project-block-label">Engineering Decisions</span>
-                <span class="block-toggle-icon" aria-hidden="true"></span>
-              </button>
-              <div class="block-panel" id="publyq-decisions-panel" role="region" aria-labelledby="publyq-decisions-btn" inert>
-                <div class="block-panel-inner">
-                  <div class="decision-list">
-                    <div class="decision-row">
-                      <h4 class="decision-name">Local LLM</h4>
-                      <div class="decision-field">
-                        <span class="decision-field-label">Why</span>
-                        <p>Keeps conversational analytics responsive while reducing inference costs and avoiding dependence on external APIs.</p>
-                      </div>
-                      <div class="decision-field">
-                        <span class="decision-field-label">Tradeoffs</span>
-                        <p>Lower reasoning capability than frontier models, but significantly better control over latency, privacy, and operating cost.</p>
-                      </div>
+                <div class="decision-list">
+                  <div class="decision-row">
+                    <h4 class="decision-name">Local LLM</h4>
+                    <div class="decision-field">
+                      <span class="decision-field-label">Why</span>
+                      <p>Keeps conversational analytics responsive while reducing inference costs and avoiding dependence on external APIs.</p>
                     </div>
-                    <div class="decision-row">
-                      <h4 class="decision-name">PostgreSQL + Structured Knowledge Layer</h4>
-                      <div class="decision-field">
-                        <span class="decision-field-label">Why</span>
-                        <p>Public grievance data is highly structured and benefits from relational queries, spatial enrichment, and deterministic retrieval before language model inference.</p>
-                      </div>
-                      <div class="decision-field">
-                        <span class="decision-field-label">Tradeoffs</span>
-                        <p>More engineering effort during data ingestion, but produces more reliable and explainable answers.</p>
-                      </div>
+                    <div class="decision-field">
+                      <span class="decision-field-label">Tradeoffs</span>
+                      <p>Lower reasoning capability than frontier models, but significantly better control over latency, privacy, and operating cost.</p>
+                    </div>
+                  </div>
+                  <div class="decision-row">
+                    <h4 class="decision-name">PostgreSQL + Structured Knowledge Layer</h4>
+                    <div class="decision-field">
+                      <span class="decision-field-label">Why</span>
+                      <p>Public grievance data is highly structured and benefits from relational queries, spatial enrichment, and deterministic retrieval before language model inference.</p>
+                    </div>
+                    <div class="decision-field">
+                      <span class="decision-field-label">Tradeoffs</span>
+                      <p>More engineering effort during data ingestion, but produces more reliable and explainable answers.</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
-            <div class="project-block project-block-tech reveal-item">
-              <span class="project-block-label">Tech</span>
-              <ul class="stack-flow">
-                <li>FastAPI</li>
-                <li>PostgreSQL</li>
-                <li>Gemma4</li>
-                <li>Python</li>
-                <li>JavaScript</li>
-              </ul>
-            </div>
           </div>
+        </div>
 
-          <div class="cta-group">
-            <a href="#" id="publyq" class="btn btn-primary">Explore Platform</a>
-            <a href="#" id="publyq-architecture" class="btn btn-secondary">System Architecture</a>
-          </div>
+        <div class="cta-group">
+          <a href="#" id="publyq" class="btn btn-primary">Explore Platform</a>
+          <a href="#" id="publyq-architecture" class="btn btn-secondary">System Architecture</a>
+        </div>
       </div>
     </div>
 
@@ -251,44 +241,134 @@
         </div>
         <div class="commit-title">Kashiq: Multi-Account Financial Intelligence</div>
 
-        <div class="project-blocks reveal-group">
-          <div class="project-block reveal-item">
-            <span class="project-block-label">Solution</span>
-            <p class="project-block-body">Kashiq automatically parses bank statements, categorises transactions, and combines multiple accounts into a single, searchable view of personal finances with intelligent transaction clustering.</p>
-          </div>
+        <div class="tabs" role="tablist" aria-label="Kashiq sections">
+          <button type="button" class="tab is-active" id="kashiq-tab-overview" role="tab" aria-selected="true" aria-controls="kashiq-panel-overview">Overview</button>
+          <button type="button" class="tab" id="kashiq-tab-context" role="tab" aria-selected="false" tabindex="-1" aria-controls="kashiq-panel-context">Context</button>
+          <button type="button" class="tab" id="kashiq-tab-engineering" role="tab" aria-selected="false" tabindex="-1" aria-controls="kashiq-panel-engineering">Engineering</button>
+        </div>
 
-          <div class="project-block project-block-toggle reveal-item">
-            <button type="button" class="block-summary" id="kashiq-problem-btn" aria-expanded="false" aria-controls="kashiq-problem-panel">
-              <span class="project-block-label">Problem</span>
-              <span class="block-toggle-icon" aria-hidden="true"></span>
-            </button>
-            <div class="block-panel" id="kashiq-problem-panel" role="region" aria-labelledby="kashiq-problem-btn" inert>
-              <div class="block-panel-inner">
-                <p class="project-block-body">Personal finances are often spread across multiple bank accounts, making it difficult to understand overall income, spending, and cash flow without manually consolidating statements.</p>
+        <div class="tab-panels">
+          <div class="tab-panel is-active" id="kashiq-panel-overview" role="tabpanel" aria-labelledby="kashiq-tab-overview" tabindex="0">
+            <div class="project-blocks">
+              <div class="project-block">
+                <span class="project-block-label">Solution</span>
+                <p class="project-block-body">Kashiq automatically parses bank statements, categorises transactions, and combines multiple accounts into a single, searchable view of personal finances with intelligent transaction clustering.</p>
+              </div>
+
+              <div class="project-block">
+                <span class="project-block-label">Proof / Metrics</span>
+                <div class="metric-row">
+                  <div class="metric-item">
+                    <span class="metric-value">4</span>
+                    <span class="metric-label">Classification Types</span>
+                  </div>
+                  <div class="metric-item">
+                    <span class="metric-value">10</span>
+                    <span class="metric-label">Date Formats Parsed</span>
+                  </div>
+                  <div class="metric-item">
+                    <span class="metric-value">26</span>
+                    <span class="metric-label">Bank Header Aliases</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-block">
+                <span class="project-block-label">How It Works</span>
+                <div class="pipeline">
+                  <span class="pipeline-chip">CSV Statement Upload</span>
+                  <span class="pipeline-arrow" aria-hidden="true">→</span>
+                  <span class="pipeline-chip">Parser Normalization</span>
+                  <span class="pipeline-arrow" aria-hidden="true">→</span>
+                  <span class="pipeline-chip">Auto-Clustering</span>
+                  <span class="pipeline-arrow" aria-hidden="true">→</span>
+                  <span class="pipeline-chip">Manual Classification</span>
+                  <span class="pipeline-arrow" aria-hidden="true">→</span>
+                  <span class="pipeline-chip">Dashboard Aggregation</span>
+                  <span class="pipeline-arrow" aria-hidden="true">→</span>
+                  <span class="pipeline-chip">Runway Forecast</span>
+                </div>
+              </div>
+
+              <div class="project-block">
+                <span class="project-block-label">Tech</span>
+                <ul class="stack-flow">
+                  <li>Python</li>
+                  <li>Flask</li>
+                  <li>pandas</li>
+                  <li>React</li>
+                  <li>Vite</li>
+                  <li>Recharts</li>
+                </ul>
               </div>
             </div>
           </div>
 
-          <div class="project-block project-block-toggle reveal-item">
-            <button type="button" class="block-summary" id="kashiq-status-btn" aria-expanded="false" aria-controls="kashiq-status-panel">
-              <span class="project-block-label">Status</span>
-              <span class="block-toggle-icon" aria-hidden="true"></span>
-            </button>
-            <div class="block-panel" id="kashiq-status-panel" role="region" aria-labelledby="kashiq-status-btn" inert>
-              <div class="block-panel-inner">
-                <p class="project-block-body">Currently rebuilding the data engine with PostgreSQL to support larger datasets, improved categorisation, and conversational analytics.</p>
+          <div class="tab-panel" id="kashiq-panel-context" role="tabpanel" aria-labelledby="kashiq-tab-context" tabindex="0" hidden>
+            <div class="project-blocks">
+              <div class="project-block">
+                <span class="project-block-label">Problem</span>
+                <p class="project-block-body">Every bank exports statements in its own format, with different column names, date formats, and transaction descriptions. Understanding real spending, savings, and runway across several accounts means opening each statement by hand and re-classifying the same recurring merchants every month, so most people fall back to a rough mental estimate of where their money goes.</p>
+              </div>
+
+              <div class="project-block">
+                <span class="project-block-label">Why Now</span>
+                <p class="project-block-body">Most personal finance apps solve this by linking your bank accounts through a third-party aggregator, which means handing over banking credentials to a service you don't control. Bank-exported CSV statements are already free, structured enough to parse reliably, and require no credential sharing at all. Treating recurring counterparties as first-class objects instead of one-off rows, and reconciling everything into one local, self-hosted record, is now practical without depending on a hosted account-aggregation service.</p>
+              </div>
+
+              <div class="project-block">
+                <span class="project-block-label">Why Me</span>
+                <p class="project-block-body">I spent four years building analytics systems that reconcile messy, multi-source enterprise data into a single trustworthy record. Kashiq applies the same discipline to my own bank statements: normalize every source into one schema, group by real-world identity rather than raw transaction rows, and classify a merchant once so the system applies it automatically from then on.</p>
               </div>
             </div>
           </div>
 
-          <div class="project-block project-block-tech reveal-item">
-            <span class="project-block-label">Tech</span>
-            <ul class="stack-flow">
-              <li>Python / Flask</li>
-              <li>React + Vite</li>
-              <li>Recharts</li>
-              <li>PostgreSQL</li>
-            </ul>
+          <div class="tab-panel" id="kashiq-panel-engineering" role="tabpanel" aria-labelledby="kashiq-tab-engineering" tabindex="0" hidden>
+            <div class="project-blocks">
+              <div class="project-block">
+                <span class="project-block-label">Engineering Decisions</span>
+                <div class="decision-list">
+                  <div class="decision-row">
+                    <h4 class="decision-name">Counterparty + Direction Clustering</h4>
+                    <div class="decision-field">
+                      <span class="decision-field-label">Why</span>
+                      <p>Clusters are keyed on the normalized counterparty and debit/credit direction only, not amount or bank. The same merchant, like rent or a food delivery app, is grouped into one cluster regardless of how much was spent or which account it came from, so it only needs to be classified once.</p>
+                    </div>
+                    <div class="decision-field">
+                      <span class="decision-field-label">Tradeoffs</span>
+                      <p>Correctness now depends entirely on the counterparty-extraction step being clean; two genuinely different payees with similar noisy descriptions can collide into the same cluster if the name-cleaning rules aren't precise enough.</p>
+                    </div>
+                  </div>
+                  <div class="decision-row">
+                    <h4 class="decision-name">Deterministic, Rule-Based Parsing</h4>
+                    <div class="decision-field">
+                      <span class="decision-field-label">Why</span>
+                      <p>Bank statement descriptions follow predictable prefixes (UPI, NEFT, RTGS, IMPS, ATM, POS), so a sequential regex pipeline extracts clean merchant names without calling a model per row, keeping parsing instant, free, and fully explainable.</p>
+                    </div>
+                    <div class="decision-field">
+                      <span class="decision-field-label">Tradeoffs</span>
+                      <p>Every new bank or statement format needs an explicit pattern added to the pipeline, and formats outside those rules fall back to a generic heuristic that's less accurate than the bank-specific matchers.</p>
+                    </div>
+                  </div>
+                  <div class="decision-row">
+                    <h4 class="decision-name">JSON Flat-File Storage</h4>
+                    <div class="decision-field">
+                      <span class="decision-field-label">Why</span>
+                      <p>For a single-user, self-hosted tool, a flat JSON file keeps the entire dataset transparent, portable, and trivial to back up or inspect, without the operational overhead of running a database.</p>
+                    </div>
+                    <div class="decision-field">
+                      <span class="decision-field-label">Tradeoffs</span>
+                      <p>It won't scale to concurrent multi-user access or very large transaction volumes, but for one person's transaction history it's simpler to reason about and debug than a full relational database.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-block">
+                <span class="project-block-label">Status</span>
+                <p class="project-block-body">Actively refining the auto-clustering logic and shipping the public-facing landing page and product site.</p>
+              </div>
+            </div>
           </div>
         </div>
 

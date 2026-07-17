@@ -99,19 +99,66 @@ function setupScrollTint() {
   update();
 }
 
-// ---------- build log accordion: collapsible project-block sections ----------
-function setupBuildLogAccordions() {
-  document.querySelectorAll(".block-summary").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const wrap = btn.closest(".project-block-toggle");
-      const panel = wrap.querySelector(".block-panel");
-      const isOpen = wrap.classList.toggle("is-open");
-      btn.setAttribute("aria-expanded", String(isOpen));
-      if (isOpen) {
-        panel.removeAttribute("inert");
-      } else {
-        panel.setAttribute("inert", "");
-      }
+// ---------- build log tabs: Overview / Context / Engineering ----------
+function setupProjectTabs() {
+  const FADE_MS = 160;
+
+  document.querySelectorAll(".tabs").forEach((tablist) => {
+    const tabs = Array.from(tablist.querySelectorAll(".tab"));
+    const panelsWrap = tablist.nextElementSibling;
+    if (!panelsWrap || !panelsWrap.classList.contains("tab-panels")) return;
+    const panels = Array.from(panelsWrap.querySelectorAll(".tab-panel"));
+
+    function activate(tab) {
+      if (tab.getAttribute("aria-selected") === "true") return;
+      const targetPanel = panels.find((p) => p.id === tab.getAttribute("aria-controls"));
+      const currentPanel = panels.find((p) => !p.hidden);
+      if (!targetPanel || targetPanel === currentPanel) return;
+
+      tabs.forEach((t) => {
+        const selected = t === tab;
+        t.setAttribute("aria-selected", String(selected));
+        t.tabIndex = selected ? 0 : -1;
+        t.classList.toggle("is-active", selected);
+      });
+
+      const startHeight = panelsWrap.getBoundingClientRect().height;
+      panelsWrap.style.height = startHeight + "px";
+
+      if (currentPanel) currentPanel.classList.remove("is-active");
+
+      window.setTimeout(() => {
+        if (currentPanel) currentPanel.hidden = true;
+        targetPanel.hidden = false;
+
+        const endHeight = targetPanel.scrollHeight;
+        panelsWrap.style.height = endHeight + "px";
+
+        // force a reflow so the opacity:0 starting state is committed
+        // before the class change, otherwise the fade-in never animates
+        void targetPanel.offsetHeight;
+        targetPanel.classList.add("is-active");
+
+        window.setTimeout(() => {
+          panelsWrap.style.height = "";
+        }, FADE_MS + 40);
+      }, FADE_MS);
+    }
+
+    tabs.forEach((tab, i) => {
+      tab.addEventListener("click", () => activate(tab));
+      tab.addEventListener("keydown", (e) => {
+        let next = null;
+        if (e.key === "ArrowRight") next = (i + 1) % tabs.length;
+        else if (e.key === "ArrowLeft") next = (i - 1 + tabs.length) % tabs.length;
+        else if (e.key === "Home") next = 0;
+        else if (e.key === "End") next = tabs.length - 1;
+        if (next !== null) {
+          e.preventDefault();
+          tabs[next].focus({ preventScroll: true });
+          activate(tabs[next]);
+        }
+      });
     });
   });
 }
@@ -120,5 +167,5 @@ document.addEventListener("DOMContentLoaded", () => {
   wireRepoLinks();
   setupScrollReveal();
   setupScrollTint();
-  setupBuildLogAccordions();
+  setupProjectTabs();
 });
