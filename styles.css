@@ -333,7 +333,14 @@ footer::before{
 }
 .contact-heading{font-family:var(--sans); font-weight:700; font-size:20px; color:var(--text); margin-bottom:8px;}
 .contact-desc{color:var(--text-dim); font-size:14.5px; margin-bottom:22px; max-width:480px;}
-.contact-line{font-family:var(--mono); font-size:14px; color:var(--text-dim); margin-bottom:10px;}
-.contact-line a{color:var(--accent);}
-.contact-line a:hover{text-decoration:underline;}
+
+.contact-icons{display:flex; gap:22px; margin-top:28px;}
+.icon-btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  color:var(--text-dim);
+  transition:color .15s, transform .15s;
+}
+.icon-btn svg{width:22px; height:22px;}
+.icon-btn:hover{color:var(--accent); transform:translateY(-2px);}
+
 .foot-note{margin-top:36px; font-family:var(--mono); font-size:12px; color:var(--text-faint);}
