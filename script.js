@@ -4,7 +4,7 @@
 // wire themselves up / drop their disabled state automatically.
 const REPO_LINKS = {
   publyq: "https://publyq.in",
-  publyqArchitecture: null,
+  publyqArchitecture: "https://publyq-kappa.vercel.app",
   kashiq: "https://kashiq.in"
 };
 
