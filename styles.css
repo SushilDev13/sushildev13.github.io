@@ -133,8 +133,23 @@ h1 span{color:var(--text-dim);}
   box-shadow:0 10px 28px -10px rgba(232,163,61,0.5);
 }
 .btn-primary:hover{box-shadow:0 14px 34px -8px rgba(232,163,61,0.65); transform:translateY(-1px);}
-.btn-secondary{color:var(--text-dim); border-color:var(--border);}
+.btn-secondary{
+  position:relative; isolation:isolate;
+  color:var(--text-dim); border-color:var(--border);
+  --btn-x:50%; --btn-y:50%;
+}
 .btn-secondary:hover{color:var(--text); border-color:var(--text-faint);}
+
+/* same toned-down cursor spotlight used on the tech/stack tags — no rotating halo */
+.btn-secondary::after{
+  content:""; position:absolute; inset:0; border-radius:inherit;
+  background:radial-gradient(70px circle at var(--btn-x) var(--btn-y), rgba(255,255,255,0.28), transparent 65%);
+  mix-blend-mode:overlay;
+  opacity:0;
+  transition:opacity .2s ease;
+  pointer-events:none;
+}
+.btn-secondary:hover::after, .btn-secondary.is-glowing::after{opacity:1;}
 .btn.is-disabled{opacity:0.45; cursor:default; pointer-events:none;}
 
 /* ---------- SECTION SCAFFOLD ---------- */

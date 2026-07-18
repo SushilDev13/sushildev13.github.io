@@ -233,6 +233,7 @@ function setupPointerGlow(selector, varX, varY, tapDurationMs) {
 function setupGlowEffects() {
   setupPointerGlow(".pipeline-chip", "--chip-x", "--chip-y", 900);
   setupPointerGlow(".stack-flow li", "--tag-x", "--tag-y", 500);
+  setupPointerGlow(".btn-secondary", "--btn-x", "--btn-y", 700);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
