@@ -202,10 +202,44 @@ function setupNavToggle() {
   });
 }
 
+// ---------- cursor-tracked glow: pipeline chips, stack/tech tags ----------
+// Tracks pointer position over each matched element as CSS custom properties so the
+// glow (defined in styles.css) can follow the cursor. On pointerdown it also toggles
+// a class briefly, since touch devices have no hover state to trigger the effect.
+function setupPointerGlow(selector, varX, varY, tapDurationMs) {
+  document.querySelectorAll(selector).forEach((el) => {
+    function setSpot(clientX, clientY) {
+      const rect = el.getBoundingClientRect();
+      el.style.setProperty(varX, ((clientX - rect.left) / rect.width) * 100 + "%");
+      el.style.setProperty(varY, ((clientY - rect.top) / rect.height) * 100 + "%");
+    }
+
+    el.addEventListener("pointermove", (e) => setSpot(e.clientX, e.clientY));
+    el.addEventListener("pointerleave", () => {
+      el.style.setProperty(varX, "50%");
+      el.style.setProperty(varY, "50%");
+    });
+    el.addEventListener("pointerdown", (e) => {
+      setSpot(e.clientX, e.clientY);
+      el.classList.add("is-glowing");
+      window.clearTimeout(el._glowTimer);
+      el._glowTimer = window.setTimeout(() => {
+        el.classList.remove("is-glowing");
+      }, tapDurationMs);
+    });
+  });
+}
+
+function setupGlowEffects() {
+  setupPointerGlow(".pipeline-chip", "--chip-x", "--chip-y", 900);
+  setupPointerGlow(".stack-flow li", "--tag-x", "--tag-y", 500);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   wireRepoLinks();
   setupScrollReveal();
   setupScrollTint();
   setupProjectTabs();
   setupNavToggle();
+  setupGlowEffects();
 });

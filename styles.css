@@ -259,12 +259,29 @@ section{padding:80px 0;}
 }
 
 .pipeline{display:flex; flex-wrap:wrap; align-items:center; gap:10px 8px;}
+
 .pipeline-chip{
+  position:relative; isolation:isolate;
   display:inline-flex; align-items:center;
   font-family:var(--mono); font-size:12px; color:var(--text-dim);
   padding:7px 14px; border-radius:var(--radius-sm);
-  background:var(--bg-raised); white-space:nowrap; line-height:1.4;
+  background:var(--bg-raised); border:1px solid transparent; white-space:nowrap; line-height:1.4;
+  transition:color .2s ease, border-color .2s ease;
+  --chip-x:50%; --chip-y:50%;
 }
+.pipeline-chip:hover{color:var(--text); border-color:var(--border);}
+
+/* cursor-tracked highlight, clipped to the chip's own rounded shape — a touch stronger than the stack/tech tags */
+.pipeline-chip::after{
+  content:""; position:absolute; inset:0; border-radius:inherit;
+  background:radial-gradient(95px circle at var(--chip-x) var(--chip-y), rgba(255,255,255,0.38), transparent 65%);
+  mix-blend-mode:overlay;
+  opacity:0;
+  transition:opacity .25s ease;
+  pointer-events:none;
+}
+.pipeline-chip:hover::after, .pipeline-chip.is-glowing::after{opacity:1;}
+
 .pipeline-arrow{color:var(--accent); opacity:.55; font-size:12px; flex-shrink:0;}
 
 .decision-list{display:flex; flex-direction:column; gap:24px;}
@@ -302,9 +319,27 @@ section{padding:80px 0;}
 .stack-icon{width:17px; height:17px; color:var(--accent); flex-shrink:0;}
 .stack-group-label{font-family:var(--mono); font-size:12px; color:var(--accent); text-transform:uppercase; letter-spacing:0.04em;}
 
-.stack-flow{list-style:none; display:flex; flex-wrap:wrap; font-size:15px; color:var(--text-dim); line-height:1.9;}
-.stack-flow li{position:relative; padding-right:16px;}
-.stack-flow li:not(:last-child)::after{content:"·"; position:absolute; right:5px; color:var(--text-faint);}
+.stack-flow{list-style:none; display:flex; flex-wrap:wrap; gap:8px 10px; font-family:var(--mono); font-size:13px; color:var(--text-dim);}
+.stack-flow li{
+  position:relative; isolation:isolate;
+  padding:6px 12px; border-radius:var(--radius-sm);
+  background:var(--bg-raised); border:1px solid transparent;
+  line-height:1.4;
+  transition:color .2s ease, border-color .2s ease;
+  --tag-x:50%; --tag-y:50%;
+}
+.stack-flow li:hover{color:var(--text); border-color:var(--border);}
+
+/* toned-down glow: cursor highlight only, no rotating halo — these tags are dense and informational */
+.stack-flow li::after{
+  content:""; position:absolute; inset:0; border-radius:inherit;
+  background:radial-gradient(70px circle at var(--tag-x) var(--tag-y), rgba(255,255,255,0.28), transparent 65%);
+  mix-blend-mode:overlay;
+  opacity:0;
+  transition:opacity .2s ease;
+  pointer-events:none;
+}
+.stack-flow li:hover::after, .stack-flow li.is-glowing::after{opacity:1;}
 
 /* ---------- BUILD LOG TABS (Overview / Context / Engineering) ---------- */
 .tabs{
