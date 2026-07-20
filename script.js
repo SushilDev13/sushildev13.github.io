@@ -151,6 +151,53 @@ function setupProjectTabs() {
   });
 }
 
+// ---------- FAQ accordion: independent expand/collapse per question ----------
+function setupFaqAccordion() {
+  document.querySelectorAll(".faq-item").forEach((item) => {
+    const question = item.querySelector(".faq-question");
+    const answer = item.querySelector(".faq-answer");
+    if (!question || !answer) return;
+
+    function expand() {
+      question.setAttribute("aria-expanded", "true");
+      answer.hidden = false;
+      const target = answer.scrollHeight;
+      answer.style.height = "0px";
+      void answer.offsetHeight;
+      answer.style.height = target + "px";
+
+      answer.addEventListener(
+        "transitionend",
+        () => {
+          answer.style.height = "";
+        },
+        { once: true }
+      );
+    }
+
+    function collapse() {
+      question.setAttribute("aria-expanded", "false");
+      answer.style.height = answer.scrollHeight + "px";
+      void answer.offsetHeight;
+      answer.style.height = "0px";
+
+      answer.addEventListener(
+        "transitionend",
+        () => {
+          answer.hidden = true;
+          answer.style.height = "";
+        },
+        { once: true }
+      );
+    }
+
+    question.addEventListener("click", () => {
+      const isOpen = question.getAttribute("aria-expanded") === "true";
+      isOpen ? collapse() : expand();
+    });
+  });
+}
+
 // ---------- mobile nav: hamburger toggle for the collapsed link list ----------
 function setupNavToggle() {
   const toggle = document.getElementById("nav-toggle");
@@ -229,6 +276,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupScrollReveal();
   setupScrollTint();
   setupProjectTabs();
+  setupFaqAccordion();
   setupNavToggle();
   setupGlowEffects();
 });

@@ -119,6 +119,11 @@ nav .wrap{display:flex; align-items:center; justify-content:space-between; paddi
   display:flex !important; position:static !important;
   margin:0 !important; padding:0 !important; border-bottom:none !important;
 }
+/* without JS there's no click handler to expand the accordion, so every
+   answer stays permanently readable instead of permanently hidden */
+.no-js .faq-answer[hidden]{display:block !important;}
+.no-js .faq-answer{height:auto !important;}
+.no-js .faq-icon{display:none;}
 
 /* ---------- HERO / ABOUT ---------- */
 header.hero{padding:88px 0 72px;}
@@ -219,7 +224,7 @@ section{padding:80px 0;}
   font-family:var(--mono); font-weight:600; font-size:12px; color:var(--accent);
   text-transform:uppercase; letter-spacing:0.04em; margin-bottom:12px; display:block;
 }
-.engagements ul{list-list-style: disc;padding-left: 18px;}
+.engagements ul{list-style: disc;padding-left: 18px;}
 .engagements li{color:var(--text-dim); font-size:13.5px; padding:4px 0 4px 8px; position:relative;}
 /*.engagements li::before{content:"–"; position:absolute; left:0; color:var(--text-faint);}*/
 
@@ -264,15 +269,30 @@ section{padding:80px 0;}
 }
 .project-block-body{color:var(--text-dim); font-size:15px; max-width:600px;}
 
-/* FAQ reuses .project-block for its Q&A pairs, but questions are full sentences,
-   not short tags, so they get a readable heading treatment instead of the
-   uppercase mono label used for "Problem" / "Solution" elsewhere */
-#faq .project-block-label{
-  font-family:var(--sans); font-weight:700; font-size:16px; color:var(--text);
-  text-transform:none; letter-spacing:normal; margin-bottom:10px;
+/* ---------- FAQ ACCORDION ---------- */
+.faq-list{display:flex; flex-direction:column;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-item:last-child{border-bottom:none;}
+.faq-question-wrap{font-weight:inherit;}
+
+.faq-question{
+  width:100%; display:flex; align-items:center; justify-content:space-between; gap:24px;
+  background:none; border:none; margin:0; cursor:pointer; text-align:left;
+  padding:22px 0; font-family:var(--sans); font-weight:600; font-size:16px;
+  color:var(--text-dim); transition:color .2s ease;
 }
-#faq .project-block{padding-bottom:24px; border-bottom:1px solid var(--border);}
-#faq .project-block:last-child{padding-bottom:0; border-bottom:none;}
+.faq-question:hover{color:var(--text);}
+.faq-question[aria-expanded="true"]{color:var(--text);}
+.faq-question:focus-visible{outline:2px solid var(--accent); outline-offset:4px; border-radius:2px;}
+
+.faq-icon{
+  width:18px; height:18px; flex-shrink:0; color:var(--text-faint);
+  transition:transform .3s ease, color .2s ease;
+}
+.faq-question[aria-expanded="true"] .faq-icon{transform:rotate(180deg); color:var(--accent);}
+
+.faq-answer{overflow:hidden; transition:height .28s ease;}
+.faq-answer-body{color:var(--text-dim); font-size:15px; line-height:1.6; max-width:640px; padding-bottom:24px;}
 
 .metric-row{display:flex; flex-wrap:wrap; gap:40px 56px;}
 .metric-item{display:flex; flex-direction:column;}
