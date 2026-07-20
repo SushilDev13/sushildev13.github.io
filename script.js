@@ -198,6 +198,32 @@ function setupFaqAccordion() {
   });
 }
 
+// ---------- copy-to-clipboard icon buttons (e.g. Discord username) ----------
+function setupCopyButtons() {
+  document.querySelectorAll("[data-copy]").forEach((btn) => {
+    const tooltip = btn.querySelector(".icon-tooltip");
+    const defaultText = tooltip ? tooltip.textContent : "";
+
+    btn.addEventListener("click", () => {
+      const value = btn.getAttribute("data-copy");
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(value).catch(() => {});
+      }
+      if (!tooltip) return;
+
+      tooltip.textContent = "Copied!";
+      tooltip.classList.add("is-visible");
+      window.clearTimeout(btn._copyTimer);
+      btn._copyTimer = window.setTimeout(() => {
+        tooltip.classList.remove("is-visible");
+        window.setTimeout(() => {
+          tooltip.textContent = defaultText;
+        }, 150);
+      }, 1400);
+    });
+  });
+}
+
 // ---------- mobile nav: hamburger toggle for the collapsed link list ----------
 function setupNavToggle() {
   const toggle = document.getElementById("nav-toggle");
@@ -277,6 +303,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupScrollTint();
   setupProjectTabs();
   setupFaqAccordion();
+  setupCopyButtons();
   setupNavToggle();
   setupGlowEffects();
 });

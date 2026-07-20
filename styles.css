@@ -441,6 +441,21 @@ footer::before{
 }
 .icon-btn svg{width:22px; height:22px;}
 .icon-btn:hover{color:var(--accent); transform:translateY(-2px);}
+.icon-btn-copy{position:relative; background:none; border:none; padding:0; cursor:pointer; font:inherit;}
+
+.icon-tooltip{
+  position:absolute; bottom:calc(100% + 10px); left:0;
+  transform:translateY(4px);
+  white-space:nowrap; font-family:var(--mono); font-size:11px; color:var(--text);
+  background:var(--bg-raised); border:1px solid var(--border); border-radius:6px;
+  padding:5px 9px; opacity:0; pointer-events:none;
+  transition:opacity .15s ease, transform .15s ease;
+}
+.icon-btn-copy:hover .icon-tooltip,
+.icon-btn-copy:focus-visible .icon-tooltip,
+.icon-tooltip.is-visible{
+  opacity:1; transform:translateY(0);
+}
 
 .foot-note{margin-top:36px; font-family:var(--mono); font-size:12px; color:var(--text-faint);}
 
