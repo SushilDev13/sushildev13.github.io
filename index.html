@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="UTF-8">
+<script>document.documentElement.classList.remove('no-js');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sushilkumar Senthilnathan - Portfolio</title>
+<title>Sushil - AI & Data Systems</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<noscript><style>.reveal,.reveal-group .reveal-item,.project-card{opacity:1!important; transform:none!important;} .nav-toggle{display:none!important;} .navlinks{display:flex!important; position:static!important; margin:0!important; padding:0!important; border-bottom:none!important;}</style></noscript>
 </head>
 <body>
 
@@ -24,10 +24,10 @@
     </button>
     <div class="navlinks" id="nav-links">
       <a href="#about">about</a>
-      <a href="#discovery">discovery</a>
-      <a href="#log">build log</a>
-      <a href="#impact">track record</a>
-      <a href="#stack">stack</a>
+      <a href="#capabilities">capabilities</a>
+      <a href="#log">case studies</a>
+      <a href="#impact">impact</a>
+      <a href="#discovery">how we'll work</a>
       <a href="#contact">contact</a>
     </div>
   </div>
@@ -35,45 +35,93 @@
 
 <header class="hero" id="about">
   <div class="wrap reveal-group">
-    <span class="eyebrow reveal-item">Engineering Better Decisions</span>
-    <h1 class="reveal-item">Building decision systems that transform complex operational data into actionable intelligence.</h1>
-    <p class="sub reveal-item">I spent four years helping Fortune 500 OEMs make sense of complex manufacturing data. Today, I'm applying the same systems thinking to build products that transform public and operational data into clear, actionable intelligence.</p>
-    <p class="sub reveal-item">Whether you're working with operational data, internal documents, or large public datasets, I build decision systems that turn your data into information people can search, understand, and act on.</p>
+    <span class="eyebrow reveal-item">Independent AI &amp; Data Systems Partner</span>
+    <h1 class="reveal-item">I turn the data you already have into decisions your team can act on.</h1>
+    <p class="sub reveal-item">For four years, I led analytics for one of the largest AI vendors serving Fortune 500 manufacturers, surfacing more than $15M in hidden quality losses from data already sitting in their systems. I now apply the same systems thinking directly for operators, founders, and data leaders who need a production-grade decision system, not another slide deck.</p>
     <div class="cta-group reveal-item">
-      <a href="#discovery" class="btn btn-primary">See What's Possible</a>
-      <a href="#log" class="btn btn-secondary">View My Work</a>
+      <a href="#discovery" class="btn btn-primary">Work With Me</a>
+      <a href="#log" class="btn btn-secondary">See Case Studies</a>
     </div>
   </div>
 </header>
 
-<section id="discovery">
+<section id="capabilities">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="tag">02</span>
-      <h2>Let's Solve The Right Problem</h2>
+      <h2>Capabilities</h2>
     </div>
+    <p class="section-sub reveal">Four capability areas, built on infrastructure your engineering team will recognize.</p>
 
-    <div class="discovery-card discovery-split reveal">
-      <div class="discovery-col discovery-col-main">
-        <div class="discovery-title">Book a 30-Minute Discovery Call</div>
-        <p class="discovery-desc">Every engagement starts with understanding the problem. Share what you're building, the data you're working with, and where you're getting stuck. I'll review your submission beforehand so we can focus on evaluating solutions, discussing trade-offs, and identifying the next steps.</p>
-
-        <div class="cta-group">
-          <a href="#" id="calendly" class="btn btn-primary">Book Discovery Call</a>
+    <div class="stack-groups reveal-group">
+      <div class="stack-group reveal-item">
+        <div class="stack-group-head">
+          <svg class="stack-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2.5 13.6 8 19 9.6l-5.4 1.6L12 17l-1.6-5.4L5 9.6l5.4-1.6L12 2.5Z"/>
+          </svg>
+          <span class="stack-group-label">Conversational Analytics &amp; Search</span>
         </div>
+        <p class="project-block-body">Transform documents, records, and knowledge bases into a system your team can query in plain language.</p>
+        <ul class="stack-flow">
+          <li>RAG</li>
+          <li>Vector Search</li>
+          <li>Gemma4</li>
+          <li>Ollama</li>
+        </ul>
       </div>
-
-      <div class="discovery-col discovery-col-aside">
-        <div class="engagements" id="calendly-placeholder">
-          <span class="engagements-label">Typical Engagements</span>
-          <ul>
-            <li>Conversational analytics on your knowledge base</li>
-            <li>Analytics pipelines for operational data</li>
-            <li>Search across internal documents</li>
-            <li>AI-powered decision systems</li>
-            <li>Custom data applications built around your workflows</li>
-          </ul>
+      <div class="stack-group reveal-item">
+        <div class="stack-group-head">
+          <svg class="stack-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <ellipse cx="12" cy="5" rx="8" ry="3"/>
+            <path d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/>
+            <path d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/>
+          </svg>
+          <span class="stack-group-label">Data Pipelines &amp; Automation</span>
         </div>
+        <p class="project-block-body">Clean, enrich, and automate operational data at scale, without manual reconciliation.</p>
+        <ul class="stack-flow">
+          <li>Python</li>
+          <li>SQL</li>
+          <li>PostgreSQL</li>
+          <li>Pandas</li>
+          <li>NumPy</li>
+          <li>GeoPandas</li>
+        </ul>
+      </div>
+      <div class="stack-group reveal-item">
+        <div class="stack-group-head">
+          <svg class="stack-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="5" width="20" height="14" rx="2"/>
+            <line x1="2" y1="9" x2="22" y2="9"/>
+          </svg>
+          <span class="stack-group-label">Custom Decision Applications</span>
+        </div>
+        <p class="project-block-body">Production applications and dashboards built around your workflow, not a generic template.</p>
+        <ul class="stack-flow">
+          <li>FastAPI</li>
+          <li>Flask</li>
+          <li>Pydantic</li>
+          <li>React</li>
+          <li>Vite</li>
+          <li>Tailwind CSS</li>
+          <li>Recharts</li>
+          <li>JavaScript</li>
+        </ul>
+      </div>
+      <div class="stack-group reveal-item">
+        <div class="stack-group-head">
+          <svg class="stack-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M17.5 19H7a5 5 0 1 1 1.09-9.88A6 6 0 0 1 19 11.5a4 4 0 0 1-1.5 7.5Z"/>
+          </svg>
+          <span class="stack-group-label">Infrastructure You Can Trust</span>
+        </div>
+        <p class="project-block-body">Deployed on infrastructure your engineering team already recognizes. No exotic dependencies, no lock-in.</p>
+        <ul class="stack-flow">
+          <li>Docker</li>
+          <li>Cloud Run</li>
+          <li>Cloud SQL</li>
+          <li>Vercel</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -82,34 +130,59 @@
 <section id="log">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="tag">03</span>
-      <h2>Build Log</h2>
+      <span class="tag">04</span>
+      <h2>Case Studies</h2>
     </div>
+    <p class="section-sub reveal">Two systems built end to end: one live in production, one in discovery.</p>
 
     <div class="build-log-primary">
       <div class="project-card">
         <div class="project-card-head">
-          <span class="commit-hash">#publyq01</span>
-          <span class="status building">Live</span>
+          <span class="commit-hash">CASE STUDY 01</span>
+          <span class="status shipped">Live in Production</span>
         </div>
-        <div class="commit-title">Publyq: Intelligence Layer for Public Grievance Data</div>
+        <div class="commit-title">Publyq: A Civic Intelligence Layer for Public Grievance Data</div>
 
         <div class="tabs" role="tablist" aria-label="Publyq sections">
-          <button type="button" class="tab is-active" id="publyq-tab-overview" role="tab" aria-selected="true" aria-controls="publyq-panel-overview">Overview</button>
-          <button type="button" class="tab" id="publyq-tab-context" role="tab" aria-selected="false" tabindex="-1" aria-controls="publyq-panel-context">Context</button>
-          <button type="button" class="tab" id="publyq-tab-engineering" role="tab" aria-selected="false" tabindex="-1" aria-controls="publyq-panel-engineering">Engineering</button>
+          <button type="button" class="tab is-active" id="publyq-tab-problem" role="tab" aria-selected="true" aria-controls="publyq-panel-problem">Problem</button>
+          <button type="button" class="tab" id="publyq-tab-solution" role="tab" aria-selected="false" tabindex="-1" aria-controls="publyq-panel-solution">Solution</button>
+          <button type="button" class="tab" id="publyq-tab-approach" role="tab" aria-selected="false" tabindex="-1" aria-controls="publyq-panel-approach">Engineering Approach</button>
         </div>
 
         <div class="tab-panels">
-          <div class="tab-panel is-active" id="publyq-panel-overview" role="tabpanel" aria-labelledby="publyq-tab-overview" tabindex="0">
+          <div class="tab-panel is-active" id="publyq-panel-problem" role="tabpanel" aria-labelledby="publyq-tab-problem" tabindex="0">
+            <div class="project-blocks">
+              <div class="project-block">
+                <span class="project-block-label">Problem</span>
+                <p class="project-block-body">Cities generate thousands of public grievances daily: roads, drainage, waste management, street lighting. This data is publicly available, yet it remains fragmented across individual complaints. Cities cannot identify recurring failures, accountability gaps, or citywide trends.</p>
+              </div>
+              <div class="project-block">
+                <span class="project-block-label">Why Now</span>
+                <p class="project-block-body">Governments now publish more operational data than ever. Most public systems, however, are still built to track individual complaints rather than surface citywide patterns. Advances in search and language models make it practical to query large civic datasets in plain language, replacing complex dashboards and SQL.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="publyq-panel-solution" role="tabpanel" aria-labelledby="publyq-tab-solution" tabindex="0" hidden>
             <div class="project-blocks">
               <div class="project-block">
                 <span class="project-block-label">Solution</span>
-                <p class="project-block-body">Publyq transforms raw public grievance records into a searchable civic intelligence layer. By combining data enrichment, geospatial mapping, and conversational analytics, it helps users understand what is happening across a city instead of searching through thousands of individual complaints.</p>
+                <p class="project-block-body">Publyq converts raw public grievance records into a searchable civic intelligence layer. By combining data enrichment, geospatial mapping, and conversational analytics, it lets users understand what is happening across a city instead of searching through thousands of individual complaints. The same systems thinking I applied to Fortune 500 manufacturing data, now directed at public infrastructure.</p>
               </div>
 
               <div class="project-block">
-                <span class="project-block-label">Proof / Metrics</span>
+                <span class="project-block-label">Capabilities Demonstrated</span>
+                <ul class="stack-flow">
+                  <li>Data Enrichment at Scale</li>
+                  <li>Geospatial Mapping</li>
+                  <li>Locally Hosted LLM Deployment</li>
+                  <li>Conversational Analytics on Unstructured Records</li>
+                  <li>Production Architecture (FastAPI + PostgreSQL)</li>
+                </ul>
+              </div>
+
+              <div class="project-block">
+                <span class="project-block-label">Outcome &amp; Scale</span>
                 <div class="metric-row">
                   <div class="metric-item">
                     <span class="metric-value">200</span>
@@ -130,21 +203,21 @@
                 <span class="project-block-label">How It Works</span>
                 <div class="pipeline">
                   <span class="pipeline-chip">Public Complaints</span>
-                  <span class="pipeline-arrow" aria-hidden="true">→</span>
+                  <span class="pipeline-arrow" aria-hidden="true">&rarr;</span>
                   <span class="pipeline-chip">Data Enrichment</span>
-                  <span class="pipeline-arrow" aria-hidden="true">→</span>
+                  <span class="pipeline-arrow" aria-hidden="true">&rarr;</span>
                   <span class="pipeline-chip">Ward Mapping</span>
-                  <span class="pipeline-arrow" aria-hidden="true">→</span>
+                  <span class="pipeline-arrow" aria-hidden="true">&rarr;</span>
                   <span class="pipeline-chip">Knowledge Layer</span>
-                  <span class="pipeline-arrow" aria-hidden="true">→</span>
+                  <span class="pipeline-arrow" aria-hidden="true">&rarr;</span>
                   <span class="pipeline-chip">Conversational Analytics</span>
-                  <span class="pipeline-arrow" aria-hidden="true">→</span>
+                  <span class="pipeline-arrow" aria-hidden="true">&rarr;</span>
                   <span class="pipeline-chip">Insights &amp; Decisions</span>
                 </div>
               </div>
 
               <div class="project-block">
-                <span class="project-block-label">Tech</span>
+                <span class="project-block-label">Built With</span>
                 <ul class="stack-flow">
                   <li>FastAPI</li>
                   <li>PostgreSQL</li>
@@ -156,26 +229,7 @@
             </div>
           </div>
 
-          <div class="tab-panel" id="publyq-panel-context" role="tabpanel" aria-labelledby="publyq-tab-context" tabindex="0" hidden>
-            <div class="project-blocks">
-              <div class="project-block">
-                <span class="project-block-label">Problem</span>
-                <p class="project-block-body">Every day, cities receive thousands of public grievances covering roads, drainage, waste management, street lighting, and other civic issues. While this data is publicly available, it remains fragmented across individual complaints, making it difficult to identify recurring problems, accountability gaps, or city-wide trends.</p>
-              </div>
-
-              <div class="project-block">
-                <span class="project-block-label">Why Now</span>
-                <p class="project-block-body">Governments are publishing more operational data than ever before, but most public systems are still built to track individual complaints rather than understand the bigger picture. Advances in modern search and language models now make it practical to explore large civic datasets using natural language instead of complex dashboards or SQL.</p>
-              </div>
-
-              <div class="project-block">
-                <span class="project-block-label">Why Me</span>
-                <p class="project-block-body">I spent four years building enterprise analytics systems that helped engineering teams identify recurring failures across millions of manufacturing records. Publyq applies the same engineering mindset to public infrastructure, turning fragmented civic data into systems that support better decisions.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-panel" id="publyq-panel-engineering" role="tabpanel" aria-labelledby="publyq-tab-engineering" tabindex="0" hidden>
+          <div class="tab-panel" id="publyq-panel-approach" role="tabpanel" aria-labelledby="publyq-tab-approach" tabindex="0" hidden>
             <div class="project-blocks">
               <div class="project-block">
                 <span class="project-block-label">Engineering Decisions</span>
@@ -184,22 +238,22 @@
                     <h4 class="decision-name">Local LLM</h4>
                     <div class="decision-field">
                       <span class="decision-field-label">Why</span>
-                      <p>Keeps conversational analytics responsive while reducing inference costs and avoiding dependence on external APIs.</p>
+                      <p>Keeps conversational analytics responsive while reducing inference cost and eliminating dependence on external APIs.</p>
                     </div>
                     <div class="decision-field">
                       <span class="decision-field-label">Tradeoffs</span>
-                      <p>Lower reasoning capability than frontier models, but significantly better control over latency, privacy, and operating cost.</p>
+                      <p>Lower reasoning capability than frontier models, offset by materially better control over latency, privacy, and operating cost.</p>
                     </div>
                   </div>
                   <div class="decision-row">
                     <h4 class="decision-name">PostgreSQL + Structured Knowledge Layer</h4>
                     <div class="decision-field">
                       <span class="decision-field-label">Why</span>
-                      <p>Public grievance data is highly structured and benefits from relational queries, spatial enrichment, and deterministic retrieval before language model inference.</p>
+                      <p>Public grievance data is highly structured. It benefits from relational queries, spatial enrichment, and deterministic retrieval ahead of language model inference.</p>
                     </div>
                     <div class="decision-field">
                       <span class="decision-field-label">Tradeoffs</span>
-                      <p>More engineering effort during data ingestion, but produces more reliable and explainable answers.</p>
+                      <p>Greater engineering effort during data ingestion, in exchange for more reliable and explainable answers.</p>
                     </div>
                   </div>
                 </div>
@@ -218,48 +272,70 @@
     <div class="build-log-secondary">
       <div class="project-card">
         <div class="project-card-head">
-          <span class="commit-hash">#kashiq01</span>
-          <span class="status building">in progress</span>
+          <span class="commit-hash">CASE STUDY 02</span>
+          <span class="status building">Discovery</span>
         </div>
-        <div class="commit-title">Kashiq: Multi-Account Financial Intelligence</div>
+        <div class="commit-title">Kashiq: An Intelligence Layer for Multi-Account Personal Finance</div>
 
         <div class="tabs" role="tablist" aria-label="Kashiq sections">
-          <button type="button" class="tab is-active" id="kashiq-tab-overview" role="tab" aria-selected="true" aria-controls="kashiq-panel-overview">Overview</button>
-          <button type="button" class="tab" id="kashiq-tab-context" role="tab" aria-selected="false" tabindex="-1" aria-controls="kashiq-panel-context">Context</button>
-          <button type="button" class="tab" id="kashiq-tab-engineering" role="tab" aria-selected="false" tabindex="-1" aria-controls="kashiq-panel-engineering">Engineering</button>
+          <button type="button" class="tab is-active" id="kashiq-tab-problem" role="tab" aria-selected="true" aria-controls="kashiq-panel-problem">Problem</button>
+          <button type="button" class="tab" id="kashiq-tab-solution" role="tab" aria-selected="false" tabindex="-1" aria-controls="kashiq-panel-solution">Solution</button>
+          <button type="button" class="tab" id="kashiq-tab-approach" role="tab" aria-selected="false" tabindex="-1" aria-controls="kashiq-panel-approach">Engineering Approach</button>
         </div>
 
         <div class="tab-panels">
-          <div class="tab-panel is-active" id="kashiq-panel-overview" role="tabpanel" aria-labelledby="kashiq-tab-overview" tabindex="0">
+          <div class="tab-panel is-active" id="kashiq-panel-problem" role="tabpanel" aria-labelledby="kashiq-tab-problem" tabindex="0">
+            <div class="project-blocks">
+              <div class="project-block">
+                <span class="project-block-label">Problem</span>
+                <p class="project-block-body">Every bank exports statements in its own format, with different column names, date formats, and transaction descriptions. Understanding real spending, savings, and runway across several accounts requires opening each statement by hand and reclassifying the same recurring merchants every month. Most people fall back to a rough mental estimate of where their money goes.</p>
+              </div>
+              <div class="project-block">
+                <span class="project-block-label">Why Now</span>
+                <p class="project-block-body">Bank-exported statements are universally available, yet remain fragmented across formats and institutions. Advances in document parsing and transaction intelligence now make it possible to consolidate these records into a single, structured financial ledger that works consistently across banks.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="kashiq-panel-solution" role="tabpanel" aria-labelledby="kashiq-tab-solution" tabindex="0" hidden>
             <div class="project-blocks">
               <div class="project-block">
                 <span class="project-block-label">Solution</span>
-                <p class="project-block-body">Kashiq automatically parses bank statements, categorises transactions, and combines multiple accounts into a single, searchable view of personal finances with intelligent transaction clustering.</p>
+                <p class="project-block-body">Kashiq automatically parses bank statements, categorizes transactions, and combines multiple accounts into a single, searchable view of personal finances, with intelligent transaction clustering.</p>
+              </div>
+              <div class="project-block">
+                <span class="project-block-label">Capabilities Demonstrated</span>
+                <ul class="stack-flow">
+                  <li>Deterministic Multi-Format Parsing</li>
+                  <li>Counterparty-Based Clustering</li>
+                  <li>Cross-Account Aggregation</li>
+                  <li>Runway Forecasting Logic</li>
+                </ul>
               </div>
               <div class="project-block">
                 <span class="project-block-label">How It Works</span>
                 <div class="pipeline">
                   <span class="pipeline-chip">Statement Upload</span>
-                  <span class="pipeline-arrow" aria-hidden="true">→</span>
+                  <span class="pipeline-arrow" aria-hidden="true">&rarr;</span>
                   <span class="pipeline-chip">Parser Normalization</span>
-                  <span class="pipeline-arrow" aria-hidden="true">→</span>
+                  <span class="pipeline-arrow" aria-hidden="true">&rarr;</span>
                   <span class="pipeline-chip">Auto-Clustering</span>
-                  <span class="pipeline-arrow" aria-hidden="true">→</span>
+                  <span class="pipeline-arrow" aria-hidden="true">&rarr;</span>
                   <span class="pipeline-chip">Dashboard Aggregation</span>
-                  <span class="pipeline-arrow" aria-hidden="true">→</span>
+                  <span class="pipeline-arrow" aria-hidden="true">&rarr;</span>
                   <span class="pipeline-chip">Runway Forecast</span>
-                  <span class="pipeline-arrow" aria-hidden="true">→</span>
+                  <span class="pipeline-arrow" aria-hidden="true">&rarr;</span>
                   <span class="pipeline-chip">User Validation</span>
                 </div>
               </div>
 
               <div class="project-block">
                 <span class="project-block-label">Status</span>
-                <p class="project-block-body">Strengthening the parsing and auto-clustering engine to enable multi-format document ingestion (PDF, CSV, XLSX) and MECE-based transaction classification.</p>
+                <p class="project-block-body">Strengthening the parsing and auto-clustering engine to support multi-format document ingestion (PDF, CSV, XLSX) and MECE-based transaction classification.</p>
               </div>
 
               <div class="project-block">
-                <span class="project-block-label">Tech</span>
+                <span class="project-block-label">Built With</span>
                 <ul class="stack-flow">
                   <li>Python</li>
                   <li>Flask</li>
@@ -272,22 +348,7 @@
             </div>
           </div>
 
-          <div class="tab-panel" id="kashiq-panel-context" role="tabpanel" aria-labelledby="kashiq-tab-context" tabindex="0" hidden>
-            <div class="project-blocks">
-              <div class="project-block">
-                <span class="project-block-label">Problem</span>
-                <p class="project-block-body">Every bank exports statements in its own format, with different column names, date formats, and transaction descriptions. Understanding real spending, savings, and runway across several accounts means opening each statement by hand and re-classifying the same recurring merchants every month, so most people fall back to a rough mental estimate of where their money goes.</p>
-              </div>
-
-              <div class="project-block">
-                <span class="project-block-label">Why Now</span>
-                <p class="project-block-body">Bank-exported statements are universally available, yet remain fragmented across formats and institutions. Advances in document parsing and transaction intelligence now enable these records to be consolidated into a single, structured financial ledger that works consistently across banks.</p>
-              </div>
-
-            </div>
-          </div>
-
-          <div class="tab-panel" id="kashiq-panel-engineering" role="tabpanel" aria-labelledby="kashiq-tab-engineering" tabindex="0" hidden>
+          <div class="tab-panel" id="kashiq-panel-approach" role="tabpanel" aria-labelledby="kashiq-tab-approach" tabindex="0" hidden>
             <div class="project-blocks">
               <div class="project-block">
                 <span class="project-block-label">Engineering Decisions</span>
@@ -296,38 +357,37 @@
                     <h4 class="decision-name">Counterparty + Direction Clustering</h4>
                     <div class="decision-field">
                       <span class="decision-field-label">Why</span>
-                      <p>Clusters are keyed on the normalized counterparty and debit/credit direction only, not amount or bank. The same merchant, like rent or a food delivery app, is grouped into one cluster regardless of how much was spent or which account it came from, so it only needs to be classified once.</p>
+                      <p>Clusters are keyed on the normalized counterparty and debit or credit direction only, not amount or bank. A recurring merchant, such as rent or a food delivery app, is grouped into a single cluster regardless of amount or account, so it is classified once.</p>
                     </div>
                     <div class="decision-field">
                       <span class="decision-field-label">Tradeoffs</span>
-                      <p>Correctness now depends entirely on the counterparty-extraction step being clean; two genuinely different payees with similar noisy descriptions can collide into the same cluster if the name-cleaning rules aren't precise enough.</p>
+                      <p>Correctness depends entirely on clean counterparty extraction. Two distinct payees with similar noisy descriptions can collide into the same cluster if the name-cleaning rules are not precise enough.</p>
                     </div>
                   </div>
                   <div class="decision-row">
                     <h4 class="decision-name">Deterministic, Rule-Based Parsing</h4>
                     <div class="decision-field">
                       <span class="decision-field-label">Why</span>
-                      <p>Bank statement descriptions follow predictable prefixes (UPI, NEFT, RTGS, IMPS, ATM, POS), so a sequential regex pipeline extracts clean merchant names without calling a model per row, keeping parsing instant, free, and fully explainable.</p>
+                      <p>Bank statement descriptions follow predictable prefixes, including UPI, NEFT, RTGS, IMPS, ATM, and POS. A sequential regex pipeline extracts clean merchant names without a model call per row, keeping parsing instant, free, and fully explainable.</p>
                     </div>
                     <div class="decision-field">
                       <span class="decision-field-label">Tradeoffs</span>
-                      <p>Every new bank or statement format needs an explicit pattern added to the pipeline, and formats outside those rules fall back to a generic heuristic that's less accurate than the bank-specific matchers.</p>
+                      <p>Each new bank or statement format requires an explicit pattern addition. Formats outside those rules fall back to a generic heuristic, less accurate than the bank-specific matchers.</p>
                     </div>
                   </div>
                   <div class="decision-row">
                     <h4 class="decision-name">JSON Flat-File Storage</h4>
                     <div class="decision-field">
                       <span class="decision-field-label">Why</span>
-                      <p>For a single-user, self-hosted tool, a flat JSON file keeps the entire dataset transparent, portable, and trivial to back up or inspect, without the operational overhead of running a database.</p>
+                      <p>For a single-user, self-hosted tool, a flat JSON file keeps the dataset transparent, portable, and simple to back up or inspect, without the operational overhead of running a database.</p>
                     </div>
                     <div class="decision-field">
                       <span class="decision-field-label">Tradeoffs</span>
-                      <p>It won't scale to concurrent multi-user access or very large transaction volumes, but for one person's transaction history it's simpler to reason about and debug than a full relational database.</p>
+                      <p>It will not scale to concurrent multi-user access or high transaction volumes. For one person's transaction history, it remains simpler to reason about and debug than a full relational database.</p>
                     </div>
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
@@ -343,8 +403,8 @@
 <section id="impact">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="tag">04</span>
-      <h2>Track Record</h2>
+      <span class="tag">05</span>
+      <h2>Impact</h2>
     </div>
     <div class="role-line reveal"><strong>Lead Analytics</strong> · Axion Ray (Vertical AI) · Apr 2022 – Apr 2026</div>
     <div class="role-text reveal">Scaled enterprise analytics across <strong>product, operations, and AI workflows</strong> for one of Axion Ray's largest customer portfolios.</div>
@@ -359,8 +419,8 @@
         <div class="impact-text">Served as the end-to-end analytics lead for one of Axion Ray's largest enterprise accounts, representing approximately 26% of company revenue, <strong>coordinating delivery, client priorities, and analytics operations</strong> across cross-functional teams.</div>
       </div>
       <div class="impact-row reveal-item">
-        <div class="impact-num">90%<span class="unit">ETL automation</span></div>
-        <div class="impact-text">Designed and deployed Python and LLM-powered automation pipelines that eliminated approximately 90% of manual ETL effort for failure-code extraction, <strong>reducing processing time while improving data consistency.</strong></div>
+        <div class="impact-num">90%<span class="unit">automation</span></div>
+        <div class="impact-text">Deployed LLM-powered automation pipelines that eliminated approximately 90% of manual ETL effort for failure-code extraction, <strong>reducing processing time while improving data consistency.</strong></div>
       </div>
       <div class="impact-row reveal-item">
         <div class="impact-num">24<span class="unit">analysts</span></div>
@@ -374,99 +434,85 @@
   </div>
 </section>
 
-<section id="stack">
+<section id="discovery">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="tag">05</span>
-      <h2>Preferred Stack</h2>
+      <span class="tag">06</span>
+      <h2>How We'll Work Together</h2>
     </div>
-    <div class="stack-groups reveal-group">
-      <div class="stack-group reveal-item">
-        <div class="stack-group-head">
-          <svg class="stack-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <polyline points="16 18 22 12 16 6"/>
-            <polyline points="8 6 2 12 8 18"/>
-          </svg>
-          <span class="stack-group-label">Languages</span>
-        </div>
-        <ul class="stack-flow">
-          <li>Python</li>
-          <li>SQL</li>
-          <li>JavaScript</li>
-        </ul>
+    <p class="section-sub reveal">No lengthy sales process. No account-manager layer. You work directly with the person building the system.</p>
+
+    <div class="reveal process-block">
+      <div class="pipeline">
+        <span class="pipeline-chip">Discovery Call</span>
+        <span class="pipeline-arrow" aria-hidden="true">&rarr;</span>
+        <span class="pipeline-chip">Scoped Proposal</span>
+        <span class="pipeline-arrow" aria-hidden="true">&rarr;</span>
+        <span class="pipeline-chip">Build &amp; Iterate</span>
+        <span class="pipeline-arrow" aria-hidden="true">&rarr;</span>
+        <span class="pipeline-chip">Handoff or Ongoing Support</span>
       </div>
-      <div class="stack-group reveal-item">
-        <div class="stack-group-head">
-          <svg class="stack-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <ellipse cx="12" cy="5" rx="8" ry="3"/>
-            <path d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/>
-            <path d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/>
-          </svg>
-          <span class="stack-group-label">Data</span>
+      <div class="impact-list">
+        <div class="impact-row">
+          <div class="impact-num">01</div>
+          <div class="impact-text"><strong>Discovery Call (30 Minutes).</strong> We discuss the problem, the data you are working with, and what success looks like. I review your submission in advance, so we spend the call on solutions, not scoping questions.</div>
         </div>
-        <ul class="stack-flow">
-          <li>PostgreSQL</li>
-          <li>Pandas</li>
-          <li>NumPy</li>
-          <li>GeoPandas</li>
-        </ul>
+        <div class="impact-row">
+          <div class="impact-num">02</div>
+          <div class="impact-text"><strong>Scoped Proposal.</strong> You receive a clear, fixed-scope proposal: what gets built, what it costs, and how long it takes. No open-ended hourly billing.</div>
+        </div>
+        <div class="impact-row">
+          <div class="impact-num">03</div>
+          <div class="impact-text"><strong>Build &amp; Iterate.</strong> I build in short, visible cycles, so you are reviewing working software early, not waiting for a single reveal at the end.</div>
+        </div>
+        <div class="impact-row">
+          <div class="impact-num">04</div>
+          <div class="impact-text"><strong>Handoff or Ongoing Support.</strong> You receive a clean, documented system your team can own outright, or I remain engaged to run and extend it. The choice is yours.</div>
+        </div>
       </div>
-      <div class="stack-group reveal-item">
-        <div class="stack-group-head">
-          <svg class="stack-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="2" y="4" width="20" height="16" rx="2"/>
-            <path d="m6 9 3 3-3 3"/>
-            <path d="M12 15h6"/>
-          </svg>
-          <span class="stack-group-label">Backend</span>
+    </div>
+
+    <div class="discovery-card discovery-split reveal">
+      <div class="discovery-col discovery-col-main">
+        <div class="discovery-title">Book a 30-Minute Discovery Call</div>
+        <p class="discovery-desc">Every engagement starts with a clear understanding of the problem. Share what you are building, the data you are working with, and where you are stuck. I review your submission before the call, so we spend our time evaluating solutions and discussing tradeoffs.</p>
+
+        <div class="cta-group">
+          <a href="#" id="calendly" class="btn btn-primary">Book a Discovery Call</a>
         </div>
-        <ul class="stack-flow">
-          <li>FastAPI</li>
-          <li>Flask</li>
-          <li>Pydantic</li>
-        </ul>
       </div>
-      <div class="stack-group reveal-item">
-        <div class="stack-group-head">
-          <svg class="stack-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="2" y="5" width="20" height="14" rx="2"/>
-            <line x1="2" y1="9" x2="22" y2="9"/>
-          </svg>
-          <span class="stack-group-label">Frontend</span>
-        </div>
-        <ul class="stack-flow">
-          <li>React</li>
-          <li>Vite</li>
-          <li>Tailwind CSS</li>
-          <li>Recharts</li>
-        </ul>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">07</span>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <p class="section-sub reveal">The questions I am asked most before a discovery call.</p>
+
+    <div class="reveal project-blocks">
+      <div class="project-block">
+        <span class="project-block-label">How Is This Different From Hiring An Agency?</span>
+        <p class="project-block-body">You work directly with me, the person who scopes, builds, and ships the system. There is no account-manager layer, no junior developers learning on your project, and no markup for a team you will never speak with.</p>
       </div>
-      <div class="stack-group reveal-item">
-        <div class="stack-group-head">
-          <svg class="stack-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M12 2.5 13.6 8 19 9.6l-5.4 1.6L12 17l-1.6-5.4L5 9.6l5.4-1.6L12 2.5Z"/>
-          </svg>
-          <span class="stack-group-label">AI</span>
-        </div>
-        <ul class="stack-flow">
-          <li>Gemma</li>
-          <li>Ollama</li>
-          <li>RAG</li>
-          <li>Vector Search</li>
-        </ul>
+      <div class="project-block">
+        <span class="project-block-label">What Does An Engagement Cost?</span>
+        <p class="project-block-body">Every engagement is scoped and fixed-price before work begins. We agree on scope and investment together once I understand what you need built, so there is no open-ended hourly billing and no surprises.</p>
       </div>
-      <div class="stack-group reveal-item">
-        <div class="stack-group-head">
-          <svg class="stack-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M17.5 19H7a5 5 0 1 1 1.09-9.88A6 6 0 0 1 19 11.5a4 4 0 0 1-1.5 7.5Z"/>
-          </svg>
-          <span class="stack-group-label">Infrastructure</span>
-        </div>
-        <ul class="stack-flow">
-          <li>Cloud Run</li>
-          <li>Cloud SQL</li>
-          <li>Vercel</li>
-        </ul>
+      <div class="project-block">
+        <span class="project-block-label">Can You Work With Our Existing Stack And Team?</span>
+        <p class="project-block-body">Yes. I build on infrastructure your team already recognizes, including PostgreSQL, FastAPI, React, and standard cloud platforms, so there is no lock-in and your engineers can extend or take over the system after handoff.</p>
+      </div>
+      <div class="project-block">
+        <span class="project-block-label">How Do You Handle Sensitive Or Proprietary Data?</span>
+        <p class="project-block-body">I am glad to sign an NDA before any detailed discussion. My default architecture is privacy-conscious, including locally hosted models where it matters, rather than routing your data through third-party APIs by default.</p>
+      </div>
+      <div class="project-block">
+        <span class="project-block-label">Is This A Replacement For A Full-Time Data Or AI Hire?</span>
+        <p class="project-block-body">Sometimes. More often, clients use me to move quickly on a defined system now, then hire in-house once the value is proven. I will tell you honestly which situation applies to you.</p>
       </div>
     </div>
   </div>
@@ -475,11 +521,15 @@
 <footer id="contact">
   <div class="wrap">
     <div class="sec-head sec-head-plain reveal">
-      <span class="tag">06</span>
+      <span class="tag">08</span>
       <h2>Contact</h2>
     </div>
-    <div class="contact-heading reveal">Let's Build Something Useful</div>
-    <p class="contact-desc reveal">I enjoy working on problems where the data already exists, but the insights don't. If that sounds familiar, let's explore how we can solve it together.</p>
+    <div class="contact-heading reveal">Ready to Talk?</div>
+    <p class="contact-desc reveal">I work best on problems where the data already exists and the insights do not. If that describes your situation, let's discuss how to solve it.</p>
+
+    <div class="cta-group reveal">
+      <a href="#discovery" class="btn btn-primary">Book a Discovery Call</a>
+    </div>
 
     <div class="contact-icons reveal">
       <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=sushilkumarsenthilnathan@gmail.com" target="_blank" rel="noopener" class="icon-btn" aria-label="Email me" title="Email">

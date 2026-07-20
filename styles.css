@@ -107,8 +107,21 @@ nav .wrap{display:flex; align-items:center; justify-content:space-between; paddi
   .navlinks a{padding:11px 0; font-size:13px; width:100%;}
 }
 
+/* ---------- NO-JS FALLBACK ---------- */
+/* the "no-js" class is removed by a tiny bootstrap script the instant JS runs;
+   if it's still present at paint time, JS never loaded, so skip the
+   JS-driven reveal animations and hamburger collapse entirely */
+.no-js .reveal,
+.no-js .reveal-group .reveal-item,
+.no-js .project-card{opacity:1 !important; transform:none !important;}
+.no-js .nav-toggle{display:none !important;}
+.no-js .navlinks{
+  display:flex !important; position:static !important;
+  margin:0 !important; padding:0 !important; border-bottom:none !important;
+}
+
 /* ---------- HERO / ABOUT ---------- */
-header.hero{padding:96px 0 72px;}
+header.hero{padding:88px 0 72px;}
 .eyebrow{
   font-family:var(--mono); font-size:13px; color:var(--accent);
   letter-spacing:0.04em; margin-bottom:18px; display:block;
@@ -121,6 +134,10 @@ h1 span{color:var(--text-dim);}
 .sub{
   margin-top:18px; font-size:18px; color:var(--text-dim); max-width:560px;
 }
+
+/* hero trust strip: the page's strongest proof point, so it overrides the
+   deemphasized .role-line treatment used elsewhere for byline metadata */
+header.hero .role-line{color:var(--text-dim);}
 
 .cta-group{display:flex; flex-wrap:wrap; gap:16px; margin-top:32px;}
 .btn{
@@ -189,19 +206,21 @@ section{padding:80px 0;}
 .reveal-group.in-view .reveal-item:nth-child(8){transition-delay:.56s;}
 
 /* ---------- DISCOVERY CALL ---------- */
-.discovery-split{display:grid; grid-template-columns:1.05fr 1fr; gap:40px 56px; align-items:start;}
+.process-block{margin-bottom:56px;}
+.process-block .pipeline{margin-bottom:36px;}
+.discovery-split{display:grid; grid-template-columns:1.4fr 1fr; gap:40px 56px; align-items:start;}
 .discovery-title{font-family:var(--sans); font-weight:700; font-size:20px; color:var(--text); margin-bottom:10px;}
 .discovery-desc{color:var(--text-dim); font-size:15px; margin-bottom:24px;}
 .discovery-meta{display:flex; flex-wrap:wrap; gap:24px; margin-top:18px; font-family:var(--mono); font-size:12px; color:var(--text-dim);}
 .discovery-meta strong{color:var(--text-faint); display:block; font-weight:500; margin-bottom:2px;}
 
-.engagements{margin-top:28px; padding-top:24px; border-top:1px solid var(--border);}
+.engagements{margin-top:28px; padding-top:24px;}
 .engagements-label{
-  font-family:var(--sans); font-weight:700; font-size:20px; color:var(--text);
-  letter-spacing:0.04em; margin-bottom:12px; display:block;
+  font-family:var(--mono); font-weight:600; font-size:12px; color:var(--accent);
+  text-transform:uppercase; letter-spacing:0.04em; margin-bottom:12px; display:block;
 }
 .engagements ul{list-list-style: disc;padding-left: 18px;}
-.engagements li{color:var(--text-dim); font-size:13.5px; padding:4px 0 4px 14px; position:relative;}
+.engagements li{color:var(--text-dim); font-size:13.5px; padding:4px 0 4px 8px; position:relative;}
 /*.engagements li::before{content:"–"; position:absolute; left:0; color:var(--text-faint);}*/
 
 /* ---------- BUILD LOG CARDS ---------- */
@@ -231,7 +250,7 @@ section{padding:80px 0;}
 .status.shipped{background:rgba(95,184,122,0.12); color:var(--add); border:1px solid rgba(95,184,122,0.3);}
 .status.building{background:rgba(232,163,61,0.12); color:var(--accent); border:1px solid rgba(232,163,61,0.3);}
 
-.commit-title{font-family:var(--sans); font-weight:700; font-size:19px; color:var(--text); margin-bottom:8px;}
+.commit-title{font-family:var(--sans); font-weight:700; font-size:21px; color:var(--text); margin-bottom:8px;}
 .commit-desc{color:var(--text-dim); font-size:15px; margin-bottom:16px; max-width:580px;}
 .diffstat{font-family:var(--mono); font-size:13px; margin-bottom:16px; color:var(--text-faint);}
 .diffstat .add{color:var(--add);}
@@ -244,6 +263,16 @@ section{padding:80px 0;}
   text-transform:uppercase; letter-spacing:0.04em; margin-bottom:8px; display:block;
 }
 .project-block-body{color:var(--text-dim); font-size:15px; max-width:600px;}
+
+/* FAQ reuses .project-block for its Q&A pairs, but questions are full sentences,
+   not short tags, so they get a readable heading treatment instead of the
+   uppercase mono label used for "Problem" / "Solution" elsewhere */
+#faq .project-block-label{
+  font-family:var(--sans); font-weight:700; font-size:16px; color:var(--text);
+  text-transform:none; letter-spacing:normal; margin-bottom:10px;
+}
+#faq .project-block{padding-bottom:24px; border-bottom:1px solid var(--border);}
+#faq .project-block:last-child{padding-bottom:0; border-bottom:none;}
 
 .metric-row{display:flex; flex-wrap:wrap; gap:40px 56px;}
 .metric-item{display:flex; flex-direction:column;}
@@ -311,11 +340,16 @@ section{padding:80px 0;}
 .role-text{color:var(--text-dim); font-size:17px; padding-top:2px;}
 .role-text strong{color:var(--text); font-weight:600;}
 
+/* one-line section intros (used under several sec-heads): capped measure so
+   they read at the same ~65-character line length as the rest of the body copy */
+.section-sub{color:var(--text-dim); font-size:17px; line-height:1.6; max-width:640px; margin-bottom:32px;}
+
 /* ---------- ENGINEERING STACK ---------- */
-.stack-groups{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:36px 32px;}
+.stack-groups{display:grid; grid-template-columns:repeat(2,1fr); gap:40px 48px;}
 .stack-group-head{display:flex; align-items:center; gap:10px; margin-bottom:14px;}
 .stack-icon{width:17px; height:17px; color:var(--accent); flex-shrink:0;}
 .stack-group-label{font-family:var(--mono); font-size:12px; color:var(--accent); text-transform:uppercase; letter-spacing:0.04em;}
+.stack-group .project-block-body{margin-bottom:12px;}
 
 .stack-flow{list-style:none; display:flex; flex-wrap:wrap; gap:8px 10px; font-family:var(--mono); font-size:13px; color:var(--text-dim);}
 .stack-flow li{
@@ -385,3 +419,17 @@ footer::before{
 .icon-btn:hover{color:var(--accent); transform:translateY(-2px);}
 
 .foot-note{margin-top:36px; font-family:var(--mono); font-size:12px; color:var(--text-faint);}
+
+/* ---------- RESPONSIVE (MOBILE) ---------- */
+@media (max-width:720px){
+  .stack-groups{grid-template-columns:1fr;}
+}
+@media (max-width:640px){
+  header.hero{padding:40px 0 32px;}
+  header.hero .eyebrow{margin-bottom:12px;}
+  header.hero .sub{margin-top:12px; font-size:16px;}
+  header.hero .role-line{font-size:13px; line-height:1.5; margin-bottom:14px;}
+  header.hero .cta-group{margin-top:20px;}
+  .discovery-split{grid-template-columns:1fr;}
+  .cta-group .btn{width:100%; justify-content:center;}
+}
