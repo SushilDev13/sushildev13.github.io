@@ -190,27 +190,10 @@ section{padding:80px 0;}
 
 /* ---------- DISCOVERY CALL ---------- */
 .discovery-split{display:grid; grid-template-columns:1.05fr 1fr; gap:40px 56px; align-items:start;}
-.discovery-col-aside .ask-before{margin-top:0; border-top:none; padding-top:0;}
-@media (max-width:760px){
-  .discovery-split{grid-template-columns:1fr; gap:32px;}
-  .discovery-col-aside .ask-before{margin-top:24px; border-top:1px solid var(--border); padding-top:18px;}
-}
 .discovery-title{font-family:var(--sans); font-weight:700; font-size:20px; color:var(--text); margin-bottom:10px;}
 .discovery-desc{color:var(--text-dim); font-size:15px; margin-bottom:24px;}
 .discovery-meta{display:flex; flex-wrap:wrap; gap:24px; margin-top:18px; font-family:var(--mono); font-size:12px; color:var(--text-dim);}
 .discovery-meta strong{color:var(--text-faint); display:block; font-weight:500; margin-bottom:2px;}
-
-.ask-before{margin-top:24px; border-top:1px solid var(--border); padding-top:18px;}
-.ask-before summary{cursor:pointer; font-family:var(--mono); font-size:13px; color:var(--accent); list-style:none;}
-.ask-before summary::-webkit-details-marker{display:none;}
-.ask-before summary::before{content:"+ ";}
-.ask-before[open] summary::before{content:"– ";}
-.ask-before ul{
-  margin-top:14px; list-style:none;
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:8px 20px;
-}
-.ask-before li{color:var(--text-dim); font-size:13.5px; padding-left:14px; position:relative;}
-.ask-before li::before{content:"•"; position:absolute; left:0; color:var(--text-faint);}
 
 .engagements{margin-top:28px; padding-top:24px; border-top:1px solid var(--border);}
 .engagements-label{
