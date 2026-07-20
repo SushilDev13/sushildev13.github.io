@@ -5,13 +5,16 @@
 const REPO_LINKS = {
   publyq: "https://publyq.in",
   publyqArchitecture: "https://publyq-kappa.vercel.app",
-  kashiq: "https://kashiq.in"
+  kashiq: "https://kashiq.in",
+  calendly: "https://calendly.com/sushilkumarsenthilnathan/30min",
 };
 
-function wireRepoLinks() {
+function wireRepoLinks() { 
   const actionMap = [
+    { id: "calendly", url: REPO_LINKS.calendly },
     { id: "publyq", url: REPO_LINKS.publyq },
-    { id: "publyq-architecture", url: REPO_LINKS.publyqArchitecture }
+    { id: "publyq-architecture", url: REPO_LINKS.publyqArchitecture },
+    { id: "kashiq", url: REPO_LINKS.kashiq }
   ];
 
   actionMap.forEach(({ id, url }) => {
@@ -28,21 +31,6 @@ function wireRepoLinks() {
       el.classList.add("is-disabled");
     }
   });
-
-  const kashiq = document.getElementById("kashiq");
-  if (kashiq) {
-    if (REPO_LINKS.kashiq) {
-      kashiq.href = REPO_LINKS.kashiq;
-      kashiq.target = "_blank";
-      kashiq.rel = "noopener";
-      kashiq.textContent = "View Landing Page";
-      kashiq.classList.remove("is-disabled");
-    } else {
-      kashiq.removeAttribute("href");
-      kashiq.textContent = "coming soon";
-      kashiq.classList.add("is-disabled");
-    }
-  }
 }
 
 // ---------- scroll reveal: build-log cards, section heads, staggered groups ----------
