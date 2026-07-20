@@ -58,6 +58,32 @@ function setupScrollReveal() {
   targets.forEach((t) => observer.observe(t));
 }
 
+// ---------- scroll spy: highlight the nav link for the section in view ----------
+function setupScrollSpy() {
+  const links = Array.from(document.querySelectorAll('.navlinks a[href^="#"]'));
+  if (!links.length || !("IntersectionObserver" in window)) return;
+
+  const linkForSection = new Map();
+  links.forEach((link) => {
+    const section = document.querySelector(link.getAttribute("href"));
+    if (section) linkForSection.set(section, link);
+  });
+  if (!linkForSection.size) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const activeLink = linkForSection.get(entry.target);
+        links.forEach((l) => l.classList.toggle("is-active", l === activeLink));
+      });
+    },
+    { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+  );
+
+  linkForSection.forEach((_link, section) => observer.observe(section));
+}
+
 // ---------- ambient background tint that drifts with scroll position ----------
 // Reinforces the "ideas evolving into software" narrative with a barely-there
 // hue shift — skipped entirely under reduced-motion since it's decorative.
@@ -300,6 +326,7 @@ function setupGlowEffects() {
 document.addEventListener("DOMContentLoaded", () => {
   wireRepoLinks();
   setupScrollReveal();
+  setupScrollSpy();
   setupScrollTint();
   setupProjectTabs();
   setupFaqAccordion();
