@@ -6,7 +6,7 @@ const REPO_LINKS = {
   publyq: "https://publyq.in",
   publyqArchitecture: "https://publyq-kappa.vercel.app",
   kashiq: "https://kashiq.in",
-  calendly: "https://calendly.com/sushilkumarsenthilnathan/30min",
+  calendly: "https://calendly.com/sushilkumarsenthilnathan/20mins",
 };
 
 function wireRepoLinks() { 
