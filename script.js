@@ -257,6 +257,107 @@ function setupCounters() {
   els.forEach((el) => observer.observe(el));
 }
 
+// ---------- Publyq: the record card follows the step in view ----------
+// Markup ships the finished record (step 4) so it reads correctly without JS.
+function setupRecordScrolly() {
+  const record = document.getElementById("record");
+  const steps = Array.from(document.querySelectorAll(".step[data-step]"));
+  if (!record || !steps.length || !("IntersectionObserver" in window)) return;
+
+  const fields = Array.from(record.querySelectorAll(".f[data-from]"));
+  const bars = Array.from(record.querySelectorAll(".record-progress i"));
+  const label = record.querySelector("[data-stage-label]");
+  const labels = ["Public post", "Raw record", "Placed in a ward", "Accountable record"];
+
+  function setStep(n) {
+    const prev = Number(record.dataset.step);
+    if (prev === n) return;
+    record.dataset.step = String(n);
+    fields.forEach((f) => {
+      const on = Number(f.dataset.from) <= n;
+      const wasOn = !f.classList.contains("is-off");
+      f.classList.toggle("is-off", !on);
+      f.classList.toggle("is-new", on && !wasOn && !reduceMotion.matches);
+    });
+    record.classList.toggle("has-ward", n >= 3);
+    bars.forEach((b, i) => b.classList.toggle("is-done", i < n));
+    if (label) label.textContent = labels[n - 1];
+    steps.forEach((s) => s.classList.toggle("is-current", Number(s.dataset.step) === n));
+  }
+
+  record.dataset.step = "0";
+  setStep(1);
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) setStep(Number(entry.target.dataset.step));
+      });
+    },
+    { rootMargin: "-50% 0px -40% 0px" }
+  );
+  steps.forEach((s) => observer.observe(s));
+}
+
+// ---------- Publyq: waffle of 100 records, 58 arriving without a ward ----------
+function setupWaffle() {
+  const waffle = document.getElementById("waffle");
+  const toggle = document.getElementById("waffle-toggle");
+  if (!waffle) return;
+
+  const UNPLACED = 58;
+  // scatter the 58 unplaced squares so the grid reads as "most of it", not a block
+  let seed = 11;
+  const rand = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+  const order = Array.from({ length: 100 }, (_, i) => i).sort(() => rand() - 0.5);
+  const unplaced = new Set(order.slice(0, UNPLACED));
+  const frag = document.createDocumentFragment();
+  const cells = [];
+  for (let i = 0; i < 100; i++) {
+    const cell = document.createElement("i");
+    if (unplaced.has(i)) cell.className = "is-unplaced";
+    frag.appendChild(cell);
+    cells.push(cell);
+  }
+  waffle.appendChild(frag);
+
+  const unplacedCells = cells.filter((c) => c.classList.contains("is-unplaced"));
+  function setResolved(resolved) {
+    if (!reduceMotion.matches) {
+      unplacedCells.forEach((c, i) => {
+        c.style.transitionDelay = resolved ? i * 14 + "ms" : "0ms";
+      });
+    }
+    waffle.classList.toggle("is-resolved", resolved);
+    if (toggle) {
+      toggle.setAttribute("aria-pressed", String(resolved));
+      toggle.textContent = resolved ? "Show the raw data" : "Place every record";
+    }
+  }
+
+  let touched = false;
+  if (toggle) {
+    toggle.addEventListener("click", () => {
+      touched = true;
+      setResolved(!waffle.classList.contains("is-resolved"));
+    });
+  }
+
+  // show the raw state first, then resolve once on first view unless the visitor already acted
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries[0].isIntersecting) return;
+        observer.disconnect();
+        setTimeout(() => {
+          if (!touched) setResolved(true);
+        }, 1400);
+      },
+      { threshold: 0.7 }
+    );
+    observer.observe(waffle);
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   wireLinks();
   setupNav();
@@ -264,5 +365,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupReveal();
   setupHeroStage();
   setupCounters();
+  setupRecordScrolly();
+  setupWaffle();
   startScrollLoop();
 });

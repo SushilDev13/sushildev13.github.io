@@ -364,3 +364,89 @@ button{font:inherit; color:inherit; background:none; border:0; cursor:pointer;}
   .stat:nth-child(3){border-left:0;}
   .stat:nth-child(n+3){border-top:1px solid var(--night-rule);}
 }
+
+/* =========================================================
+   PUBLYQ — a complaint becomes an accountable record
+   ========================================================= */
+.scrolly{display:grid; grid-template-columns:1fr 1fr; gap:clamp(32px, 6vw, 96px); margin-bottom:clamp(64px, 9vw, 120px);}
+.scrolly-sticky{position:sticky; top:clamp(88px, 14vh, 140px); align-self:start;}
+.steps{list-style:none;}
+.step{min-height:68vh; display:flex; flex-direction:column; justify-content:center; padding:24px 0; opacity:.28; transition:opacity .5s var(--ease);}
+.step:first-child{min-height:48vh; justify-content:flex-start; padding-top:12vh;}
+.step:last-child{min-height:56vh;}
+.step.is-current, .no-js .step{opacity:1;}
+.step-n{font-family:var(--mono); font-size:12px; color:var(--signal); letter-spacing:.06em; margin-bottom:14px;}
+.step h3{font-family:var(--serif); font-weight:400; font-size:clamp(30px, 3.2vw, 44px); line-height:1.08; letter-spacing:-.01em; margin-bottom:14px;}
+.step p{color:var(--ink-2); max-width:44ch;}
+.step strong{color:var(--ink); font-weight:600;}
+
+.record{
+  background:#FBFAF6; border:1px solid var(--rule); border-radius:18px; overflow:hidden;
+  box-shadow:0 1px 0 rgba(18,18,17,.04), 0 30px 60px -40px rgba(18,18,17,.35);
+}
+.record-bar{display:flex; justify-content:space-between; align-items:center; gap:12px; padding:14px 20px; border-bottom:1px solid var(--rule); font-family:var(--mono); font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-3);}
+.record-bar [data-stage-label]{color:var(--ink);}
+.record-post{display:flex; gap:12px; padding:18px 20px; border-bottom:1px solid var(--rule); font-size:14px; line-height:1.45;}
+.record-post .avatar{flex:none; width:34px; height:34px; border-radius:50%; background:var(--ink); color:var(--paper); display:grid; place-items:center; font-family:var(--mono); font-size:11px;}
+.record-post small{display:block; color:var(--ink-3); font-size:12px; margin-bottom:2px;}
+.record-post mark{background:var(--signal-soft); color:var(--signal); padding:0 4px; border-radius:3px; font-family:var(--mono); font-size:13px;}
+.record-fields{padding:6px 20px 10px;}
+.f{
+  display:grid; grid-template-columns:118px 1fr; gap:12px; align-items:baseline;
+  max-height:80px; padding:9px 0; border-top:1px solid #EEEAE0; overflow:hidden;
+  transition:max-height .6s var(--ease), opacity .5s var(--ease), padding .6s var(--ease), background-color .6s;
+}
+.f:first-child{border-top:0;}
+.f.is-off{max-height:0; opacity:0; padding:0; border-top-color:transparent;}
+.f dt{font-family:var(--mono); font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-3);}
+.f dd{font-size:14px; line-height:1.4;}
+.f.is-new dd{animation:flash 1.2s var(--ease);}
+@keyframes flash{0%{background:var(--signal-soft);} 100%{background:transparent;}}
+.ward-missing{color:var(--signal); font-family:var(--mono); font-size:13px;}
+.ward-found{display:none; font-weight:600;}
+.record.has-ward .ward-missing{display:none;}
+.record.has-ward .ward-found{display:inline;}
+.flag{display:inline-block; font-size:12px; padding:2px 8px; margin:0 4px 4px 0; border-radius:999px; background:var(--signal-soft); color:var(--signal);}
+.record-progress{display:flex; gap:6px; padding:0 20px 18px;}
+.record-progress i{flex:1; height:2px; background:var(--rule); position:relative; overflow:hidden;}
+.record-progress i::after{content:""; position:absolute; inset:0; background:var(--ink); transform:scaleX(0); transform-origin:left; transition:transform .6s var(--ease);}
+.record-progress i.is-done::after{transform:scaleX(1);}
+
+/* waffle + bars: the real totals */
+.data-panel{display:grid; grid-template-columns:1fr 1.15fr; gap:clamp(32px, 5vw, 72px); padding:clamp(28px, 4vw, 56px); border:1px solid var(--rule); border-radius:24px; background:#FBFAF6; margin-bottom:clamp(64px, 8vw, 104px);}
+.data-panel h3{font-family:var(--serif); font-weight:400; font-size:clamp(26px, 2.6vw, 36px); line-height:1.12; letter-spacing:-.01em; margin-bottom:24px;}
+.data-panel h3 em{color:var(--signal);}
+.waffle{display:grid; grid-template-columns:repeat(10, 1fr); gap:5px; max-width:340px;}
+.waffle i{aspect-ratio:1; border-radius:3px; background:var(--ink); transition:background-color .4s var(--ease), box-shadow .4s var(--ease);}
+.waffle i.is-unplaced{background:transparent; box-shadow:inset 0 0 0 1.5px var(--signal);}
+.waffle.is-resolved i.is-unplaced{background:var(--signal); box-shadow:inset 0 0 0 1.5px var(--signal);}
+.waffle-legend{display:flex; flex-wrap:wrap; gap:8px 20px; margin-top:18px; font-size:13px; color:var(--ink-2);}
+.waffle-legend span{display:inline-flex; align-items:center; gap:8px;}
+.waffle-legend i{width:10px; height:10px; border-radius:2px; background:var(--ink);}
+.waffle-legend i.alt{background:transparent; box-shadow:inset 0 0 0 1.5px var(--signal);}
+.waffle-toggle{margin-top:18px;}
+.bars{list-style:none;}
+.bars li{padding:14px 0; border-top:1px solid var(--rule);}
+.bars li:last-child{border-bottom:1px solid var(--rule);}
+.bars-row{display:flex; justify-content:space-between; gap:16px; font-size:14px; margin-bottom:10px;}
+.bars-row strong{font-family:var(--mono); font-weight:500;}
+.bar{height:8px; border-radius:4px; background:var(--paper-2); overflow:hidden;}
+.bar i{display:block; height:100%; width:var(--w); background:var(--ink); border-radius:4px; transform:scaleX(0); transform-origin:left; transition:transform 1.2s var(--ease);}
+.bars li:nth-child(2) .bar i{transition-delay:.1s; background:var(--signal);}
+.bars li:nth-child(3) .bar i{transition-delay:.2s;}
+.bars li:nth-child(4) .bar i{transition-delay:.3s; background:var(--signal);}
+.bars.in-view .bar i, .no-js .bar i{transform:scaleX(1);}
+.data-source{margin-top:16px; font-family:var(--mono); font-size:11px; color:var(--ink-3); letter-spacing:.03em;}
+.data-source a{text-underline-offset:3px;}
+
+@media (max-width:900px){
+  .scrolly{grid-template-columns:1fr; gap:0;}
+  .scrolly-sticky{top:72px; z-index:2; padding-bottom:12px; background:linear-gradient(var(--paper) 88%, transparent);}
+  .record-post{padding:12px 16px; font-size:13px;}
+  .record-bar{padding:10px 16px;}
+  .record-fields{padding:2px 16px 6px;}
+  .f{grid-template-columns:96px 1fr; padding:6px 0;}
+  .f dd{font-size:13px;}
+  .step, .step:first-child, .step:last-child{min-height:62vh; padding-top:0; justify-content:flex-end; padding-bottom:10vh;}
+  .data-panel{grid-template-columns:1fr;}
+}

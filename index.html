@@ -185,6 +185,104 @@
   </div>
 </article>
 
+<article class="case" id="publyq" aria-labelledby="publyq-title">
+  <div class="wrap">
+    <header class="case-head">
+      <p class="case-meta reveal"><span class="case-num">02</span><span>Publyq</span><span>&middot;</span><span>Founder &amp; builder</span><span>&middot;</span><span class="case-status is-live">Live, updated daily</span></p>
+      <h2 class="display case-title reveal reveal-d1" id="publyq-title">Chennai complains in public. Publyq makes it <em>add up.</em></h2>
+      <p class="lede reveal reveal-d2">Every day, residents report overflowing bins and dead streetlights to the Greater Chennai Corporation, in public. On its own, each complaint is a dead end. Publyq turns them into a map of what is failing, where, and who is responsible for fixing it.</p>
+    </header>
+
+    <div class="scrolly">
+      <div class="scrolly-sticky">
+        <figure class="record has-ward" id="record" data-step="4" aria-label="One complaint, from public post to accountable record">
+          <div class="record-bar"><span>Sample record</span><span data-stage-label>Accountable record</span></div>
+          <div class="record-post">
+            <span class="avatar" aria-hidden="true">GCC</span>
+            <p><small>@chennaicorp replying to a resident</small>Your complaint has been registered. Complaint ID <mark>#2026&hairsp;&middot;&hairsp;4417</mark></p>
+          </div>
+          <dl class="record-fields">
+            <div class="f" data-from="2"><dt>Complaint</dt><dd>Garbage bin overflowing, not cleared for four days</dd></div>
+            <div class="f" data-from="2"><dt>Department</dt><dd>Solid Waste Management</dd></div>
+            <div class="f" data-from="2"><dt>Location</dt><dd>&ldquo;Near bus stop, OMR service road&rdquo;</dd></div>
+            <div class="f" data-from="2"><dt>Ward</dt><dd><span class="ward-missing">&mdash; not provided</span><span class="ward-found">Ward 200 &middot; Zone 15</span></dd></div>
+            <div class="f" data-from="3"><dt>Constituency</dt><dd>Sholinganallur</dd></div>
+            <div class="f" data-from="4"><dt>Flags</dt><dd><span class="flag">Repeat issue</span><span class="flag">Overdue</span></dd></div>
+            <div class="f" data-from="4"><dt>Accountable</dt><dd>MLA &middot; Zonal officer, Zone 15 &middot; SWM department</dd></div>
+            <div class="f" data-from="4"><dt>Languages</dt><dd>English &middot; தமிழ்</dd></div>
+          </dl>
+          <div class="record-progress" aria-hidden="true"><i class="is-done"></i><i class="is-done"></i><i class="is-done"></i><i class="is-done"></i></div>
+        </figure>
+        <p class="case-caption">Illustrative record. The structure and the pipeline are real.</p>
+      </div>
+
+      <ol class="steps">
+        <li class="step" data-step="1">
+          <p class="step-n">01 / Collect</p>
+          <h3>It starts as a post.</h3>
+          <p>Residents raise issues on X. The Corporation replies with a complaint ID. Publyq collects those IDs <strong>every day</strong>.</p>
+        </li>
+        <li class="step" data-step="2">
+          <p class="step-n">02 / Read</p>
+          <h3>Then a record with no address.</h3>
+          <p>Each ID opens the Corporation&rsquo;s own grievance record: department, complaint type, free-text location. <strong>About 58% arrive without a ward</strong>, so they can&rsquo;t be counted against anyone.</p>
+        </li>
+        <li class="step" data-step="3">
+          <p class="step-n">03 / Place</p>
+          <h3>Then a place.</h3>
+          <p>Area, locality and street are matched against <strong>3,484 known locations</strong> mapped to official ward boundaries. Every record leaves with a ward; zone and constituency follow.</p>
+        </li>
+        <li class="step" data-step="4">
+          <p class="step-n">04 / Own</p>
+          <h3>Finally, an owner.</h3>
+          <p>Each record gets one of <strong>18 categories</strong>, safety, repeat and overdue flags, English and Tamil text, and the people responsible: the MLA, the zonal officer and the department.</p>
+        </li>
+      </ol>
+    </div>
+
+    <div class="data-panel">
+      <div>
+        <h3>58 of every 100 records arrive with no ward. After Publyq, <em>100 of 100</em> have one.</h3>
+        <div class="waffle" id="waffle" role="img" aria-label="100 squares. 58 represent records that arrived without a ward; all 100 are placed in a ward after processing."></div>
+        <div class="waffle-legend" aria-hidden="true"><span><i></i>Arrived with a ward</span><span><i class="alt"></i>Arrived without one</span></div>
+        <button type="button" class="btn btn-line waffle-toggle" id="waffle-toggle" aria-pressed="false" aria-controls="waffle">Place every record</button>
+      </div>
+      <div>
+        <h3>Once every complaint has a place, patterns appear.</h3>
+        <ul class="bars" data-inview>
+          <li><div class="bars-row"><span>Received an officer reply</span><strong>8,669</strong></div><div class="bar"><i style="--w:79.5%"></i></div></li>
+          <li><div class="bars-row"><span>Repeat issues</span><strong>2,888</strong></div><div class="bar"><i style="--w:26.5%"></i></div></li>
+          <li><div class="bars-row"><span>Overdue against target</span><strong>1,781</strong></div><div class="bar"><i style="--w:16.3%"></i></div></li>
+          <li><div class="bars-row"><span>Safety risks flagged</span><strong>1,191</strong></div><div class="bar"><i style="--w:10.9%"></i></div></li>
+        </ul>
+        <p class="data-source">Of 10,902 complaints, Jan&ndash;Oct 2026. Source: <a href="#" data-link="publyqData">publyq.in/data</a></p>
+      </div>
+    </div>
+
+    <ol class="story">
+      <li class="reveal"><h3>Problem</h3><p>The Corporation answers public complaints on X with an ID. The records are public, but each lives alone, and most arrive without a ward. Nobody can be held to account for a pattern nobody can see.</p></li>
+      <li class="story-key reveal reveal-d1"><h3>First-principles insight</h3><p>Accountability is geographic.</p><p>A complaint becomes actionable the moment it has a place and an owner. So the hard problem wasn&rsquo;t the AI layer. It was location resolution.</p></li>
+      <li class="reveal reveal-d2"><h3>What I built</h3><p>A daily pipeline from public post to accountable record: a location index of 3,484 places mapped to ward boundaries, enrichment into 18 categories with risk flags in English and Tamil, and a ward-level explorer.</p></li>
+      <li class="reveal reveal-d3"><h3>Outcome</h3><p>10,902 complaints, 100% placed across 200 wards, 15 zones and 23 constituencies. 2,888 repeat issues and 1,191 safety risks made visible, published daily for anyone to explore.</p></li>
+    </ol>
+
+    <details class="notes">
+      <summary>Implementation notes</summary>
+      <div class="notes-body">
+        <div><h4>Deterministic first, models second</h4><p>Grievance data is highly structured, so PostgreSQL and a structured knowledge layer handle retrieval and spatial enrichment before any language model runs. More effort at ingestion, in exchange for answers that are reliable and explainable.</p></div>
+        <div><h4>A locally hosted LLM</h4><p>Conversational analytics run on a local model to keep latency and cost low and avoid dependence on external APIs. Less raw reasoning than frontier models; far more control over privacy and operating cost.</p></div>
+        <div><h4>Toolkit</h4><ul class="tags"><li>Python</li><li>FastAPI</li><li>PostgreSQL</li><li>Gemma</li><li>JavaScript</li></ul></div>
+      </div>
+    </details>
+
+    <div class="case-actions">
+      <a href="#" class="btn btn-ink" data-link="publyq">Explore Publyq <span class="arrow" aria-hidden="true">&nearr;</span></a>
+      <a href="#" class="link-arrow" data-link="publyqData">How the data works</a>
+      <a href="#" class="link-arrow" data-link="publyqArchitecture">System architecture</a>
+    </div>
+  </div>
+</article>
+
 </main>
 
 <script src="script.js" defer></script>
