@@ -222,11 +222,47 @@ function setupHeroStage() {
   onScrollFrame(() => render(progress()));
 }
 
+// ---------- number counters: count up once when first seen ----------
+// Markup already holds the final value, so no-JS and reduced-motion visitors
+// see the real number; this only animates toward it.
+function setupCounters() {
+  const els = document.querySelectorAll("[data-count]");
+  if (reduceMotion.matches || !("IntersectionObserver" in window)) return;
+  const format = (el, v) => {
+    const n = Number(el.dataset.count);
+    const value = n >= 1000 ? Math.round(v).toLocaleString("en-US") : Math.round(v);
+    return (el.dataset.prefix || "") + value + (el.dataset.suffix || "");
+  };
+  const run = (el) => {
+    const target = Number(el.dataset.count);
+    const duration = 1400;
+    const start = performance.now();
+    const step = (now) => {
+      const t = clamp01((now - start) / duration);
+      el.textContent = format(el, target * (1 - Math.pow(1 - t, 3)));
+      if (t < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        run(entry.target);
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.6 }
+  );
+  els.forEach((el) => observer.observe(el));
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   wireLinks();
   setupNav();
   setupScrollSpy();
   setupReveal();
   setupHeroStage();
+  setupCounters();
   startScrollLoop();
 });

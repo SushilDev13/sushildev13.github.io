@@ -101,7 +101,90 @@
 </header>
 
 <main id="main">
-<!-- sections -->
+
+<section class="section work-index" id="work" aria-labelledby="work-title">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker reveal">Selected work</span>
+      <h2 class="display reveal reveal-d1" id="work-title">Three messes. <em>Three systems.</em></h2>
+      <p class="lede reveal reveal-d2">Different industries, same pattern: the answer was already in the data, just scattered across too many places for anyone to see it.</p>
+    </div>
+    <ol class="work-list">
+      <li class="reveal"><a class="work-row" href="#axion">
+        <span class="work-num">01</span>
+        <span class="work-name">Axion Ray</span>
+        <span class="work-domain">Enterprise quality analytics</span>
+        <span class="work-outcome">$60k pilot &rarr; $3M ARR strategic account</span>
+        <span class="work-arrow" aria-hidden="true">&darr;</span>
+      </a></li>
+      <li class="reveal reveal-d1"><a class="work-row" href="#publyq">
+        <span class="work-num">02</span>
+        <span class="work-name">Publyq</span>
+        <span class="work-domain">Civic intelligence, Chennai</span>
+        <span class="work-outcome">10,902 complaints, every one placed in its ward</span>
+        <span class="work-arrow" aria-hidden="true">&darr;</span>
+      </a></li>
+      <li class="reveal reveal-d2"><a class="work-row" href="#relmir">
+        <span class="work-num">03</span>
+        <span class="work-name">Relmir</span>
+        <span class="work-domain">Manufacturing operating layer</span>
+        <span class="work-outcome">One shared timeline from brief to delivery</span>
+        <span class="work-arrow" aria-hidden="true">&darr;</span>
+      </a></li>
+    </ol>
+  </div>
+</section>
+
+<article class="case" id="axion" data-theme="dark" aria-labelledby="axion-title">
+  <div class="wrap">
+    <header class="case-head">
+      <p class="case-meta reveal"><span class="case-num">01</span><span>Axion Ray</span><span>&middot;</span><span>Lead Analytics</span><span>&middot;</span><span>2022&ndash;2026</span></p>
+      <h2 class="display case-title reveal reveal-d1" id="axion-title">A $60k pilot became a <em>$3M</em> strategic account.</h2>
+      <p class="lede reveal reveal-d2">Cummins came to Axion Ray as a pilot. I helped turn it into a $3M ARR strategic account by making one thing undeniable: the quality losses were already sitting in their data.</p>
+    </header>
+
+    <figure class="case-visual">
+      <div class="scale" data-inview>
+        <div class="scale-row">
+          <p class="scale-label"><strong data-count="60" data-prefix="$" data-suffix="k">$60k</strong>Pilot</p>
+          <div class="scale-track"><div class="scale-bar" style="--w:2%"></div></div>
+        </div>
+        <div class="scale-row is-big">
+          <p class="scale-label"><strong data-count="3" data-prefix="$" data-suffix="M">$3M</strong>Annual recurring revenue</p>
+          <div class="scale-track"><div class="scale-bar" style="--w:100%"></div></div>
+        </div>
+        <div class="scale-x">
+          <span>Same customer. Bars drawn to scale.</span>
+          <strong>50&times;</strong>
+        </div>
+      </div>
+      <div class="stat-grid">
+        <div class="stat"><strong data-count="15" data-prefix="$" data-suffix="M+">$15M+</strong><span>in quality losses surfaced from data the customer already had</span></div>
+        <div class="stat"><strong data-count="24">24</strong><span>member delivery team managed end to end</span></div>
+        <div class="stat"><strong data-count="95" data-suffix="%+">95%+</strong><span>SLA adherence held across workstreams</span></div>
+        <div class="stat"><strong data-count="90" data-prefix="~" data-suffix="%">~90%</strong><span>of manual ETL for failure-code extraction automated with LLMs</span></div>
+      </div>
+      <figcaption class="case-caption">Cummins account at Axion Ray, pilot to strategic account. Figures as reported in my role as analytics lead.</figcaption>
+    </figure>
+
+    <ol class="story">
+      <li class="reveal"><h3>Problem</h3><p>Warranty claims, work orders and service escalations lived in separate systems, written by different people in different words. One recurring engine failure looked like hundreds of unrelated tickets.</p></li>
+      <li class="story-key reveal reveal-d1"><h3>First-principles insight</h3><p>The losses weren&rsquo;t hidden. They were fragmented.</p><p>A failure pattern only exists once the same failure is connected across claims, repairs and escalations. The job wasn&rsquo;t a better dashboard. It was a better join.</p></li>
+      <li class="reveal reveal-d2"><h3>What I built</h3><p>Analytics workflows that link recurring failure patterns across sources, and LLM pipelines that replaced most of the manual ETL behind failure-code extraction. Around it, the delivery engine: a 24-member team with standardised workflows.</p></li>
+      <li class="reveal reveal-d3"><h3>Outcome</h3><p>$15M+ in potential quality losses surfaced for engineering to prioritise, 95%+ SLA adherence, and an account that grew from a $60k pilot to $3M ARR.</p></li>
+    </ol>
+
+    <details class="notes">
+      <summary>Implementation notes</summary>
+      <div class="notes-body">
+        <div><h4>Failure-code extraction</h4><p>LLM-powered pipelines turned free-text failure descriptions into consistent, structured codes, removing roughly 90% of the manual ETL effort and improving consistency across sources.</p></div>
+        <div><h4>Product analytics</h4><p>Funnel analyses, WAU/MAU reporting and feature-flag experiments across an enterprise AI platform used by 450+ client stakeholders, feeding product and operations decisions.</p></div>
+        <div><h4>Toolkit</h4><ul class="tags"><li>Python</li><li>SQL</li><li>PostgreSQL</li><li>pandas</li><li>LLM pipelines</li></ul></div>
+      </div>
+    </details>
+  </div>
+</article>
+
 </main>
 
 <script src="script.js" defer></script>
