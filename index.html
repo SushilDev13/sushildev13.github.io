@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sushil — I make messy systems legible</title>
 <meta name="description" content="Sushilkumar S builds data systems, products and websites that turn fragmented, ambiguous problems into decisions. Axion Ray, Publyq, Relmir.">
-<meta name="theme-color" content="#F4F1EA">
+<meta name="theme-color" content="#0A0A0A">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.sushil.one/">
 <meta property="og:title" content="Sushil — I make messy systems legible">
@@ -20,7 +20,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -135,7 +135,7 @@
   </div>
 </section>
 
-<article class="case" id="axion" data-theme="dark" aria-labelledby="axion-title">
+<article class="case" id="axion" aria-labelledby="axion-title">
   <div class="wrap">
     <header class="case-head">
       <p class="case-meta reveal"><span class="case-num">01</span><span>Axion Ray</span><span>&middot;</span><span>Lead Analytics</span><span>&middot;</span><span>2022&ndash;2026</span></p>
@@ -185,7 +185,7 @@
   </div>
 </article>
 
-<article class="case" id="publyq" aria-labelledby="publyq-title">
+<article class="case" id="publyq" data-theme="light" aria-labelledby="publyq-title">
   <div class="wrap">
     <header class="case-head">
       <p class="case-meta reveal"><span class="case-num">02</span><span>Publyq</span><span>&middot;</span><span>Founder &amp; builder</span><span>&middot;</span><span class="case-status is-live">Live, updated daily</span></p>
@@ -242,9 +242,9 @@
 
     <div class="data-panel">
       <div>
-        <h3>58 of every 100 records arrive with no ward. After Publyq, <em>100 of 100</em> have one.</h3>
+        <h3>58 of every 100 records arrive with no ward. After Publyq, <span class="hl">100 of 100</span> have one.</h3>
         <div class="waffle" id="waffle" role="img" aria-label="100 squares. 58 represent records that arrived without a ward; all 100 are placed in a ward after processing."></div>
-        <div class="waffle-legend" aria-hidden="true"><span><i></i>Arrived with a ward</span><span><i class="alt"></i>Arrived without one</span></div>
+        <div class="waffle-legend" aria-hidden="true"><span><i></i>Arrived with a ward</span><span><i class="alt"></i>Arrived without one</span><span><i class="sun"></i>Placed by Publyq</span></div>
         <button type="button" class="btn btn-line waffle-toggle" id="waffle-toggle" aria-pressed="false" aria-controls="waffle">Place every record</button>
       </div>
       <div>
@@ -283,7 +283,7 @@
   </div>
 </article>
 
-<article class="case case-tint" id="relmir" aria-labelledby="relmir-title">
+<article class="case" id="relmir" aria-labelledby="relmir-title">
   <div class="wrap">
     <header class="case-head">
       <p class="case-meta reveal"><span class="case-num">03</span><span>Relmir</span><span>&middot;</span><span>Co-founder &amp; CTO</span><span>&middot;</span><span class="case-status">In build</span></p>
@@ -309,7 +309,7 @@
         <span class="converge-target">One shared record</span>
       </div>
 
-      <div class="proto">
+      <div class="proto" data-theme="light">
         <div class="proto-chrome" aria-hidden="true"><i></i><i></i><i></i><span>relmir &middot; production</span></div>
         <div class="proto-head">
           <div>
@@ -377,17 +377,17 @@
       <p class="lede reveal reveal-d2">Most technical builders hand the website and the words to someone else. I don&rsquo;t. I write the positioning, the copy and the front end myself, so what people read is as precise as what runs underneath.</p>
     </div>
     <ul class="sites">
-      <li class="reveal"><a class="site" href="#" data-link="publyq">
+      <li class="reveal"><a class="site" href="#" data-link="publyq" data-theme="light">
         <span class="site-chrome" aria-hidden="true"><i></i><i></i><i></i><span>publyq.in</span></span>
         <span class="site-body"><span class="site-title">Public data. <em>Real accountability.</em></span><small>See it &rarr; Understand it &rarr; Track it</small></span>
         <span class="site-foot"><span>Civic platform</span><span aria-hidden="true">&nearr;</span></span>
       </a></li>
-      <li class="reveal reveal-d1"><a class="site is-dark" href="#" data-link="relmir">
+      <li class="reveal reveal-d1"><a class="site" href="#" data-link="relmir">
         <span class="site-chrome" aria-hidden="true"><i></i><i></i><i></i><span>relmir.com</span></span>
         <span class="site-body"><span class="site-title">The operating layer for <em>outsourced manufacturing.</em></span><small>For wellness brands and manufacturers</small></span>
         <span class="site-foot"><span>B2B platform</span><span aria-hidden="true">&nearr;</span></span>
       </a></li>
-      <li class="reveal reveal-d2"><div class="site">
+      <li class="reveal reveal-d2"><div class="site" data-theme="sun">
         <span class="site-chrome" aria-hidden="true"><i></i><i></i><i></i><span>sushil.one</span></span>
         <span class="site-body"><span class="site-title">I make messy systems <em>legible.</em></span><small>The page you&rsquo;re reading</small></span>
         <span class="site-foot"><span>Portfolio</span><span>You are here</span></span>
@@ -418,7 +418,7 @@
   </div>
 </section>
 
-<section class="section" id="proof" aria-labelledby="proof-title" style="padding-top:0">
+<section class="section" id="proof" data-theme="light" aria-labelledby="proof-title">
   <div class="wrap">
     <div class="section-head">
       <span class="kicker">Proof</span>
@@ -465,17 +465,23 @@
 
 </main>
 
-<footer class="contact" id="contact" data-theme="dark" aria-labelledby="contact-title">
+<footer class="contact" id="contact" data-theme="sun" aria-labelledby="contact-title">
   <div class="wrap">
-    <span class="kicker reveal">Contact</span>
-    <h2 class="display reveal reveal-d1" id="contact-title" style="margin-top:24px">Have a messy problem? <em>Let&rsquo;s make it legible.</em></h2>
-    <p class="lede reveal reveal-d2">I do my best work where the data already exists and the answers don&rsquo;t. Twenty minutes is usually enough to know whether I can help.</p>
-    <div class="contact-actions reveal reveal-d3">
-      <a href="#" class="btn btn-ink" data-link="calendly">Book a 20-min call <span class="arrow" aria-hidden="true">&rarr;</span></a>
-      <button type="button" class="copy-btn" data-copy="sushilkumarsenthilnathan@gmail.com">
-        <span class="copy-addr">sushilkumarsenthilnathan@gmail.com</span><span class="copy-hint">Copy</span>
-      </button>
+    <div class="contact-copy">
+      <span class="kicker reveal">Contact</span>
+      <h2 class="display reveal reveal-d1" id="contact-title">Have a messy problem? <em>Let&rsquo;s make it legible.</em></h2>
+      <p class="lede reveal reveal-d2">I do my best work where the data already exists and the answers don&rsquo;t. Twenty minutes is usually enough to know whether I can help.</p>
+      <div class="contact-actions reveal reveal-d3">
+        <a href="#" class="btn btn-ink" data-link="calendly">Book a 20-min call <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        <button type="button" class="copy-btn" data-copy="sushilkumarsenthilnathan@gmail.com">
+          <span class="copy-addr">sushilkumarsenthilnathan@gmail.com</span><span class="copy-hint">Copy</span>
+        </button>
+      </div>
     </div>
+    <!-- the road from the logo: a hairline at the horizon, widening toward you; it draws in as you arrive -->
+    <svg class="road" id="road" viewBox="0 0 400 420" aria-hidden="true" focusable="false">
+      <path d="M400 6 C300 8 150 30 95 85 C45 135 120 170 205 215 C290 260 270 330 180 420 L330 420 C380 330 360 245 260 195 C175 152 150 120 175 90 C215 45 320 14 400 6 Z"/>
+    </svg>
     <ul class="socials">
       <li><a href="#" data-link="linkedin">LinkedIn &nearr;</a></li>
       <li><a href="#" data-link="github">GitHub &nearr;</a></li>
