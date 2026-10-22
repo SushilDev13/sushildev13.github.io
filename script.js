@@ -5,10 +5,8 @@ const LINKS = {
   calendly: "https://calendly.com/sushilkumarsenthilnathan/20mins",
   publyq: "https://publyq.in",
   publyqData: "https://publyq.in/data",
-  relmir: "https://relmir.com",
   axionCummins: "https://www.axion.com/news/cummins-ai-transformation-partnering-with-axion-for-customer-uptime-warranty-and-customer-experience",
   linkedin: "https://linkedin.com/in/sushilkumar-s/",
-  github: "https://github.com/SushilDev13",
 };
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -272,212 +270,7 @@ function setupField() {
   play();
 }
 
-// ---------- number counters: count up once when first seen ----------
-// Markup already holds the final value, so no-JS and reduced-motion visitors
-// see the real number; this only animates toward it.
-function setupCounters() {
-  const els = document.querySelectorAll("[data-count]");
-  if (reduceMotion.matches || !("IntersectionObserver" in window)) return;
-  const format = (el, v) => {
-    const n = Number(el.dataset.count);
-    const value = n >= 1000 ? Math.round(v).toLocaleString("en-US") : Math.round(v);
-    return (el.dataset.prefix || "") + value + (el.dataset.suffix || "");
-  };
-  const run = (el) => {
-    const target = Number(el.dataset.count);
-    const duration = 1400;
-    const start = performance.now();
-    const step = (now) => {
-      const t = clamp01((now - start) / duration);
-      el.textContent = format(el, target * (1 - Math.pow(1 - t, 3)));
-      if (t < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  };
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        run(entry.target);
-        observer.unobserve(entry.target);
-      });
-    },
-    { threshold: 0.6 }
-  );
-  els.forEach((el) => observer.observe(el));
-}
-
-// ---------- Publyq: the record card follows the step in view ----------
-// Markup ships the finished record (step 4) so it reads correctly without JS.
-function setupRecordScrolly() {
-  const record = document.getElementById("record");
-  const steps = Array.from(document.querySelectorAll(".step[data-step]"));
-  if (!record || !steps.length || !("IntersectionObserver" in window)) return;
-
-  const fields = Array.from(record.querySelectorAll(".f[data-from]"));
-  const bars = Array.from(record.querySelectorAll(".record-progress i"));
-  const label = record.querySelector("[data-stage-label]");
-  const labels = ["Public post", "Raw record", "Placed in a ward", "Accountable record"];
-
-  function setStep(n) {
-    const prev = Number(record.dataset.step);
-    if (prev === n) return;
-    record.dataset.step = String(n);
-    fields.forEach((f) => {
-      const on = Number(f.dataset.from) <= n;
-      const wasOn = !f.classList.contains("is-off");
-      f.classList.toggle("is-off", !on);
-      f.classList.toggle("is-new", on && !wasOn && !reduceMotion.matches);
-    });
-    record.classList.toggle("has-ward", n >= 3);
-    bars.forEach((b, i) => b.classList.toggle("is-done", i < n));
-    if (label) label.textContent = labels[n - 1];
-    steps.forEach((s) => s.classList.toggle("is-current", Number(s.dataset.step) === n));
-  }
-
-  // Reserve the finished card's height so fields appearing mid-scroll never
-  // shift the content below (which would break anchor jumps on mobile).
-  const wrap = record.parentElement;
-  function reserveHeight() {
-    const clone = record.cloneNode(true);
-    clone.removeAttribute("id");
-    clone.classList.add("has-ward");
-    clone.querySelectorAll(".f").forEach((f) => {
-      f.classList.remove("is-off", "is-new");
-      f.style.transition = "none";
-    });
-    Object.assign(clone.style, { position: "absolute", visibility: "hidden", width: record.offsetWidth + "px" });
-    wrap.appendChild(clone);
-    const extra = wrap.offsetHeight - record.offsetHeight;
-    wrap.style.minHeight = clone.offsetHeight + extra + "px";
-    clone.remove();
-  }
-  reserveHeight();
-  let resizeTimer;
-  window.addEventListener("resize", () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-      wrap.style.minHeight = "";
-      reserveHeight();
-    }, 150);
-  });
-
-  record.dataset.step = "0";
-  setStep(1);
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) setStep(Number(entry.target.dataset.step));
-      });
-    },
-    { rootMargin: "-50% 0px -40% 0px" }
-  );
-  steps.forEach((s) => observer.observe(s));
-}
-
-// ---------- Publyq: waffle of 100 records, 58 arriving without a ward ----------
-function setupWaffle() {
-  const waffle = document.getElementById("waffle");
-  const toggle = document.getElementById("waffle-toggle");
-  if (!waffle) return;
-
-  const UNPLACED = 58;
-  // scatter the 58 unplaced squares so the grid reads as "most of it", not a block
-  let seed = 11;
-  const rand = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
-  const order = Array.from({ length: 100 }, (_, i) => i).sort(() => rand() - 0.5);
-  const unplaced = new Set(order.slice(0, UNPLACED));
-  const frag = document.createDocumentFragment();
-  const cells = [];
-  for (let i = 0; i < 100; i++) {
-    const cell = document.createElement("i");
-    if (unplaced.has(i)) cell.className = "is-unplaced";
-    frag.appendChild(cell);
-    cells.push(cell);
-  }
-  waffle.appendChild(frag);
-
-  const unplacedCells = cells.filter((c) => c.classList.contains("is-unplaced"));
-  function setResolved(resolved) {
-    if (!reduceMotion.matches) {
-      unplacedCells.forEach((c, i) => {
-        c.style.transitionDelay = resolved ? i * 14 + "ms" : "0ms";
-      });
-    }
-    waffle.classList.toggle("is-resolved", resolved);
-    if (toggle) {
-      toggle.setAttribute("aria-pressed", String(resolved));
-      toggle.textContent = resolved ? "Show the raw data" : "Place every record";
-    }
-  }
-
-  let touched = false;
-  if (toggle) {
-    toggle.addEventListener("click", () => {
-      touched = true;
-      setResolved(!waffle.classList.contains("is-resolved"));
-    });
-  }
-
-  // show the raw state first, then resolve once on first view unless the visitor already acted
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (!entries[0].isIntersecting) return;
-        observer.disconnect();
-        setTimeout(() => {
-          if (!touched) setResolved(true);
-        }, 1400);
-      },
-      { threshold: 0.7 }
-    );
-    observer.observe(waffle);
-  }
-}
-
-// ---------- tabs (Relmir production timeline): click + arrow/Home/End keys ----------
-function setupTabs() {
-  document.querySelectorAll('[role="tablist"]').forEach((tablist) => {
-    const tabs = Array.from(tablist.querySelectorAll('[role="tab"]'));
-
-    // on narrow screens the stage list scrolls sideways; keep the active stage in view
-    function reveal(tab) {
-      if (tablist.scrollWidth <= tablist.clientWidth) return;
-      tablist.scrollTo({ left: Math.max(0, tab.offsetLeft - 24), behavior: reduceMotion.matches ? "auto" : "smooth" });
-    }
-
-    function activate(tab) {
-      reveal(tab);
-      tabs.forEach((t) => {
-        const selected = t === tab;
-        t.setAttribute("aria-selected", String(selected));
-        t.tabIndex = selected ? 0 : -1;
-        const panel = document.getElementById(t.getAttribute("aria-controls"));
-        if (panel) panel.hidden = !selected;
-      });
-    }
-
-    tabs.forEach((tab, i) => {
-      tab.addEventListener("click", () => activate(tab));
-      tab.addEventListener("keydown", (e) => {
-        let next = null;
-        if (e.key === "ArrowRight") next = (i + 1) % tabs.length;
-        else if (e.key === "ArrowLeft") next = (i - 1 + tabs.length) % tabs.length;
-        else if (e.key === "Home") next = 0;
-        else if (e.key === "End") next = tabs.length - 1;
-        if (next === null) return;
-        e.preventDefault();
-        tabs[next].focus({ preventScroll: true });
-        activate(tabs[next]);
-      });
-    });
-
-    const selected = tabs.find((t) => t.getAttribute("aria-selected") === "true");
-    if (selected) tablist.scrollLeft = Math.max(0, selected.offsetLeft - 24);
-  });
-}
-
-// ---------- copy-to-clipboard (email, Discord), announced to screen readers ----------
+// ---------- copy-to-clipboard (email), announced to screen readers ----------
 function setupCopyButtons() {
   const status = document.getElementById("copy-status");
   document.querySelectorAll("[data-copy]").forEach((btn) => {
@@ -521,10 +314,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setupScrollSpy();
   setupReveal();
   setupField();
-  setupCounters();
-  setupRecordScrolly();
-  setupWaffle();
-  setupTabs();
   setupCopyButtons();
   startScrollLoop();
 });
