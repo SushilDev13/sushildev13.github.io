@@ -163,7 +163,8 @@ function setupHeroStage() {
       chip.style.setProperty("--q", 0);
       const c = chip.getBoundingClientRect();
       const s = scatter[i];
-      const spreadX = box.width * 1.05;
+      // keep every scattered chip inside the stage's horizontal bounds
+      const spreadX = Math.max(0, box.width - c.width);
       const spreadY = box.height * 1.1;
       const tx = (s.x - 0.5) * spreadX + box.width / 2 - (c.left - box.left) - c.width / 2;
       const ty = (s.y - 0.5) * spreadY + box.height / 2 - (c.top - box.top) - c.height / 2;
@@ -285,6 +286,33 @@ function setupRecordScrolly() {
     steps.forEach((s) => s.classList.toggle("is-current", Number(s.dataset.step) === n));
   }
 
+  // Reserve the finished card's height so fields appearing mid-scroll never
+  // shift the content below (which would break anchor jumps on mobile).
+  const wrap = record.parentElement;
+  function reserveHeight() {
+    const clone = record.cloneNode(true);
+    clone.removeAttribute("id");
+    clone.classList.add("has-ward");
+    clone.querySelectorAll(".f").forEach((f) => {
+      f.classList.remove("is-off", "is-new");
+      f.style.transition = "none";
+    });
+    Object.assign(clone.style, { position: "absolute", visibility: "hidden", width: record.offsetWidth + "px" });
+    wrap.appendChild(clone);
+    const extra = wrap.offsetHeight - record.offsetHeight;
+    wrap.style.minHeight = clone.offsetHeight + extra + "px";
+    clone.remove();
+  }
+  reserveHeight();
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      wrap.style.minHeight = "";
+      reserveHeight();
+    }, 150);
+  });
+
   record.dataset.step = "0";
   setStep(1);
   const observer = new IntersectionObserver(
@@ -363,7 +391,14 @@ function setupTabs() {
   document.querySelectorAll('[role="tablist"]').forEach((tablist) => {
     const tabs = Array.from(tablist.querySelectorAll('[role="tab"]'));
 
+    // on narrow screens the stage list scrolls sideways; keep the active stage in view
+    function reveal(tab) {
+      if (tablist.scrollWidth <= tablist.clientWidth) return;
+      tablist.scrollTo({ left: Math.max(0, tab.offsetLeft - 24), behavior: reduceMotion.matches ? "auto" : "smooth" });
+    }
+
     function activate(tab) {
+      reveal(tab);
       tabs.forEach((t) => {
         const selected = t === tab;
         t.setAttribute("aria-selected", String(selected));
@@ -383,9 +418,50 @@ function setupTabs() {
         else if (e.key === "End") next = tabs.length - 1;
         if (next === null) return;
         e.preventDefault();
-        tabs[next].focus();
+        tabs[next].focus({ preventScroll: true });
         activate(tabs[next]);
       });
+    });
+
+    const selected = tabs.find((t) => t.getAttribute("aria-selected") === "true");
+    if (selected) tablist.scrollLeft = Math.max(0, selected.offsetLeft - 24);
+  });
+}
+
+// ---------- copy-to-clipboard (email, Discord), announced to screen readers ----------
+function setupCopyButtons() {
+  const status = document.getElementById("copy-status");
+  document.querySelectorAll("[data-copy]").forEach((btn) => {
+    const hint = btn.querySelector(".copy-hint");
+    const defaultHint = hint ? hint.textContent : "";
+
+    btn.addEventListener("click", async () => {
+      const value = btn.dataset.copy;
+      let ok = false;
+      try {
+        await navigator.clipboard.writeText(value);
+        ok = true;
+      } catch (_) {
+        // clipboard blocked (insecure context, permissions): fall back to a hidden textarea
+        const ta = document.createElement("textarea");
+        ta.value = value;
+        ta.setAttribute("readonly", "");
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.select();
+        try { ok = document.execCommand("copy"); } catch (_e) { ok = false; }
+        ta.remove();
+      }
+      if (status) status.textContent = ok ? `Copied ${value}` : `Copy failed. ${value}`;
+      if (!hint) return;
+      hint.textContent = ok ? "Copied" : "Copy failed";
+      btn.classList.toggle("is-copied", ok);
+      clearTimeout(btn._copyTimer);
+      btn._copyTimer = setTimeout(() => {
+        hint.textContent = defaultHint;
+        btn.classList.remove("is-copied");
+      }, 1800);
     });
   });
 }
@@ -400,5 +476,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setupRecordScrolly();
   setupWaffle();
   setupTabs();
+  setupCopyButtons();
   startScrollLoop();
 });
