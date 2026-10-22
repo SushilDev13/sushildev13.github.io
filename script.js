@@ -61,15 +61,18 @@ function setupNav() {
   const links = document.getElementById("nav-links");
   if (!nav) return;
 
-  const darkSections = Array.from(document.querySelectorAll("[data-theme='dark']"));
+  // the page is dark by default; flip the nav over full-width light or sun sections
+  const themed = Array.from(document.querySelectorAll("section[data-theme], article[data-theme], footer[data-theme]"));
   onScrollFrame(() => {
     nav.classList.toggle("is-scrolled", window.scrollY > 24);
     const probe = 32;
-    const overDark = darkSections.some((s) => {
+    const under = themed.find((s) => {
       const r = s.getBoundingClientRect();
       return r.top <= probe && r.bottom >= probe;
     });
-    nav.classList.toggle("is-dark", overDark);
+    const theme = under ? under.dataset.theme : "dark";
+    nav.classList.toggle("is-light", theme === "light");
+    nav.classList.toggle("is-sun", theme === "sun");
   });
 
   if (!toggle || !links) return;
@@ -466,6 +469,19 @@ function setupCopyButtons() {
   });
 }
 
+// ---------- contact: the logo's road draws in from the horizon as you arrive ----------
+function setupRoad() {
+  const road = document.getElementById("road");
+  if (!road || reduceMotion.matches) return;
+  onScrollFrame(() => {
+    const r = road.getBoundingClientRect();
+    const vh = window.innerHeight;
+    // 0 when the road's top enters the viewport, 1 once most of it is visible
+    const p = clamp01((vh - r.top) / (r.height * 0.9));
+    road.style.setProperty("--road-p", easeInOut(p).toFixed(3));
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   wireLinks();
   setupNav();
@@ -477,5 +493,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setupWaffle();
   setupTabs();
   setupCopyButtons();
+  setupRoad();
   startScrollLoop();
 });
