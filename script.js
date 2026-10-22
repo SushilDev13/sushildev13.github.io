@@ -515,19 +515,6 @@ function setupCopyButtons() {
   });
 }
 
-// ---------- contact: the logo's road draws in from the horizon as you arrive ----------
-function setupRoad() {
-  const road = document.getElementById("road");
-  if (!road || reduceMotion.matches) return;
-  onScrollFrame(() => {
-    const r = road.getBoundingClientRect();
-    const vh = window.innerHeight;
-    // 0 when the road's top enters the viewport, 1 once most of it is visible
-    const p = clamp01((vh - r.top) / (r.height * 0.9));
-    road.style.setProperty("--road-p", easeInOut(p).toFixed(3));
-  });
-}
-
 document.addEventListener("DOMContentLoaded", () => {
   wireLinks();
   setupNav();
@@ -539,6 +526,5 @@ document.addEventListener("DOMContentLoaded", () => {
   setupWaffle();
   setupTabs();
   setupCopyButtons();
-  setupRoad();
   startScrollLoop();
 });

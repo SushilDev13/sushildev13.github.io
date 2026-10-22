@@ -481,44 +481,55 @@ button{font:inherit; color:inherit; background:none; border:0; cursor:pointer;}
 .faq details[open] p{animation:fadeUp .4s var(--ease);}
 
 /* =========================================================
-   CONTACT: the page ends inside the logo, a road across the sun
+   CONTACT: one primary action, then every channel in one consistent list
    ========================================================= */
-.contact{padding:clamp(120px, 15vw, 200px) 0 40px; position:relative; overflow:clip;}
-.contact .wrap{position:relative;}
-.contact-copy{position:relative; z-index:1; max-width:660px;}
-.contact h2{font-size:clamp(48px, 7.2vw, 112px); max-width:11ch; margin-top:24px;}
-.contact .lede{margin-top:32px;}
-.contact-actions{display:flex; flex-wrap:wrap; align-items:center; gap:14px; margin-top:48px;}
+.contact{padding:clamp(112px, 14vw, 184px) 0 36px;}
+.contact-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:clamp(40px, 6vw, 96px); align-items:end;}
+.contact h2{font-size:clamp(46px, 6.4vw, 100px); max-width:11ch; margin-top:24px;}
+.contact .lede{margin-top:28px; max-width:44ch;}
+.contact-actions{display:flex; flex-wrap:wrap; align-items:center; gap:12px 20px; margin-top:40px;}
 .contact .btn-ink{height:56px; padding:0 28px; font-size:16px;}
 .contact .btn-ink:hover{background:#262626;}
-.copy-btn{
-  display:inline-flex; align-items:center; gap:10px; height:56px; padding:0 22px; border-radius:999px;
-  border:1.5px solid var(--road); font-size:15px; font-weight:500; transition:background-color .3s;
+.contact-note{font-size:14px; color:var(--fg-2);}
+
+.channels-title{margin-bottom:8px; font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.08em; text-transform:uppercase; color:var(--fg-2);}
+.channels ul{list-style:none; border-top:1.5px solid var(--road);}
+.channels li{border-bottom:1px solid var(--line);}
+/* every row reads the same way: what it is, the handle, what a click does */
+.channel{
+  display:grid; grid-template-columns:1fr auto; grid-template-areas:"label action" "value action"; align-items:center; gap:2px 16px;
+  padding:16px 12px; margin:0 -12px; width:calc(100% + 24px);
+  text-align:left; text-decoration:none; color:var(--fg); border-radius:10px;
+  transition:background-color .2s var(--ease);
 }
-.copy-btn:hover{background:rgba(8,8,8,.08);}
-.copy-hint{font-family:var(--mono); font-size:11px; letter-spacing:.04em; text-transform:uppercase; opacity:.75;}
-.is-copied .copy-hint{opacity:1; font-weight:600;}
-/* the road from the logo: a hairline at the horizon that widens toward you */
-.road{
-  position:absolute; right:calc(var(--gutter) * -1); bottom:-40px; width:min(48vw, 620px); z-index:0; pointer-events:none;
-  clip-path:inset(0 0 calc((1 - var(--road-p, 1)) * 100%) 0);
+.channel:hover{background:rgba(8,8,8,.07);}
+.channel:focus-visible{outline-offset:-2px;}
+.channel-label{grid-area:label; font-family:var(--mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--fg-2);}
+.channel-value{grid-area:value; min-width:0; font-size:17px; font-weight:600; letter-spacing:-.01em; overflow-wrap:break-word;}
+.channel-action{
+  grid-area:action; justify-self:end; min-width:76px; padding:7px 14px; border-radius:999px; border:1.5px solid var(--road);
+  font-family:var(--mono); font-size:12px; font-weight:500; text-align:center; white-space:nowrap;
+  transition:background-color .2s var(--ease), color .2s var(--ease);
 }
-.road path{fill:var(--road);}
-.socials{display:flex; flex-wrap:wrap; gap:8px 28px; margin-top:72px; padding-top:28px; border-top:1px solid var(--line); list-style:none; font-size:15px; font-weight:500; position:relative; z-index:1; max-width:660px;}
-.socials a, .socials button{color:var(--fg); text-decoration:none; padding:3px 0;}
-.socials a:hover, .socials button:hover{text-decoration:underline; text-underline-offset:4px;}
-.socials .copy-hint{margin-left:6px;}
-.site-foot-bar{display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; margin-top:96px; font-size:13px; color:var(--fg-2); position:relative; z-index:1; max-width:660px;}
+.channel:hover .channel-action{background:var(--road); color:var(--sun-1);}
+.channel.is-copied .channel-action{background:var(--road); color:var(--sun-1);}
+
+.site-foot-bar{
+  grid-column:1 / -1; display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px;
+  margin-top:clamp(56px, 8vw, 104px); padding-top:20px; border-top:1px solid var(--line); font-size:13px; color:var(--fg-2);
+}
 .site-foot-bar a{text-decoration:none; padding:6px 0;}
 .site-foot-bar a:hover{text-decoration:underline;}
+
 @media (max-width:900px){
-  .road{position:relative; right:auto; bottom:auto; width:min(80%, 420px); margin:48px -8px -40px auto;}
-  .site-foot-bar{margin-top:56px;}
+  .contact-grid{grid-template-columns:1fr; gap:56px;}
 }
 @media (max-width:600px){
-  .copy-btn{height:auto; min-height:56px; padding:12px 20px; flex-wrap:wrap; width:100%; justify-content:space-between;}
   .contact .btn-ink{width:100%; justify-content:center;}
-  .copy-btn .copy-addr{font-size:14px; word-break:break-all;}
+  .contact-note{width:100%; text-align:center;}
+  .channel{padding:14px 8px; margin:0 -8px; width:calc(100% + 16px);}
+  .channel-value{font-size:16px;}
+  .channel-action{min-width:68px; padding:6px 12px;}
 }
 
 @media (prefers-reduced-motion: reduce){
