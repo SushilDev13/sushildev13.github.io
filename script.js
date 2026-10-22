@@ -358,6 +358,38 @@ function setupWaffle() {
   }
 }
 
+// ---------- tabs (Relmir production timeline): click + arrow/Home/End keys ----------
+function setupTabs() {
+  document.querySelectorAll('[role="tablist"]').forEach((tablist) => {
+    const tabs = Array.from(tablist.querySelectorAll('[role="tab"]'));
+
+    function activate(tab) {
+      tabs.forEach((t) => {
+        const selected = t === tab;
+        t.setAttribute("aria-selected", String(selected));
+        t.tabIndex = selected ? 0 : -1;
+        const panel = document.getElementById(t.getAttribute("aria-controls"));
+        if (panel) panel.hidden = !selected;
+      });
+    }
+
+    tabs.forEach((tab, i) => {
+      tab.addEventListener("click", () => activate(tab));
+      tab.addEventListener("keydown", (e) => {
+        let next = null;
+        if (e.key === "ArrowRight") next = (i + 1) % tabs.length;
+        else if (e.key === "ArrowLeft") next = (i - 1 + tabs.length) % tabs.length;
+        else if (e.key === "Home") next = 0;
+        else if (e.key === "End") next = tabs.length - 1;
+        if (next === null) return;
+        e.preventDefault();
+        tabs[next].focus();
+        activate(tabs[next]);
+      });
+    });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   wireLinks();
   setupNav();
@@ -367,5 +399,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setupCounters();
   setupRecordScrolly();
   setupWaffle();
+  setupTabs();
   startScrollLoop();
 });

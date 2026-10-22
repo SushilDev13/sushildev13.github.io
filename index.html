@@ -283,6 +283,92 @@
   </div>
 </article>
 
+<article class="case case-tint" id="relmir" aria-labelledby="relmir-title">
+  <div class="wrap">
+    <header class="case-head">
+      <p class="case-meta reveal"><span class="case-num">03</span><span>Relmir</span><span>&middot;</span><span>Co-founder &amp; CTO</span><span>&middot;</span><span class="case-status">In build</span></p>
+      <h2 class="display case-title reveal reveal-d1" id="relmir-title">Outsourced manufacturing runs on WhatsApp. Relmir gives it <em>one timeline.</em></h2>
+      <p class="lede reveal reveal-d2">Wellness brands rely on contract manufacturers they can&rsquo;t see inside. Relmir is the operating layer between them: shared production timelines, compliance records and batch-level traceability, so both sides work from the same truth.</p>
+    </header>
+
+    <figure class="case-visual">
+      <div class="converge" data-inview aria-hidden="true">
+        <ul class="converge-sources">
+          <li>Supplier email</li>
+          <li>WhatsApp thread</li>
+          <li>Spreadsheet v7</li>
+          <li>COA.pdf</li>
+        </ul>
+        <svg viewBox="0 0 400 180" preserveAspectRatio="none">
+          <path pathLength="1" vector-effect="non-scaling-stroke" d="M0 18 C 170 18, 150 90, 320 90"/>
+          <path pathLength="1" vector-effect="non-scaling-stroke" d="M0 64 C 170 64, 150 90, 320 90"/>
+          <path pathLength="1" vector-effect="non-scaling-stroke" d="M0 116 C 170 116, 150 90, 320 90"/>
+          <path pathLength="1" vector-effect="non-scaling-stroke" d="M0 162 C 170 162, 150 90, 320 90"/>
+          <path class="out" pathLength="1" vector-effect="non-scaling-stroke" d="M320 90 L 400 90"/>
+        </svg>
+        <span class="converge-target">One shared record</span>
+      </div>
+
+      <div class="proto">
+        <div class="proto-chrome" aria-hidden="true"><i></i><i></i><i></i><span>relmir &middot; production</span></div>
+        <div class="proto-head">
+          <div>
+            <h3>Ashwagandha capsules &middot; 60 ct</h3>
+            <p>Batch #2305 &middot; Brand and manufacturer, one workspace</p>
+          </div>
+          <ul class="certs" aria-label="Manufacturer certifications on file"><li>GMP</li><li>FSSAI</li><li>ISO 22716</li></ul>
+        </div>
+        <div class="timeline" role="tablist" aria-label="Production stages">
+          <button type="button" role="tab" class="stage-tab is-done" id="st-setup" aria-controls="sp-setup" aria-selected="false" tabindex="-1">Setup<small>Done</small></button>
+          <button type="button" role="tab" class="stage-tab is-done" id="st-proc" aria-controls="sp-proc" aria-selected="false" tabindex="-1">Procurement<small>Done</small></button>
+          <button type="button" role="tab" class="stage-tab is-done" id="st-mfg" aria-controls="sp-mfg" aria-selected="false" tabindex="-1">Manufacturing<small>Done</small></button>
+          <button type="button" role="tab" class="stage-tab is-attn" id="st-qa" aria-controls="sp-qa" aria-selected="true" tabindex="0">QA<small>Needs attention</small></button>
+          <button type="button" role="tab" class="stage-tab" id="st-dispatch" aria-controls="sp-dispatch" aria-selected="false" tabindex="-1">Dispatch<small>Waiting</small></button>
+          <button type="button" role="tab" class="stage-tab" id="st-delivery" aria-controls="sp-delivery" aria-selected="false" tabindex="-1">Delivery<small>Waiting</small></button>
+        </div>
+        <div class="stage-panels">
+          <div class="stage-panel" role="tabpanel" id="sp-setup" aria-labelledby="st-setup" tabindex="0" hidden>
+            <div><h4>Records</h4><ul class="recs"><li>Product spec v3, approved by both sides<em class="ok">Signed</em></li><li>Commercial terms and MOQ<em class="ok">Agreed</em></li><li>Manufacturer GMP certificate<em class="ok">Valid</em></li></ul></div>
+            <div><h4>Why it matters</h4><p class="memory">One version of the spec. No &ldquo;which PDF is final?&rdquo; three weeks into production.</p></div>
+          </div>
+          <div class="stage-panel" role="tabpanel" id="sp-proc" aria-labelledby="st-proc" tabindex="0" hidden>
+            <div><h4>Records</h4><ul class="recs"><li>Ashwagandha root extract &middot; supplier COA<em class="ok">Attached</em></li><li>Capsule shells &middot; supplier COA<em class="ok">Attached</em></li><li>Raw material lot numbers<em class="ok">Linked to batch</em></li></ul></div>
+            <div><h4>Why it matters</h4><p class="memory">Every ingredient lot is tied to the batch it went into, so a supplier issue can be traced forward in minutes.</p></div>
+          </div>
+          <div class="stage-panel" role="tabpanel" id="sp-mfg" aria-labelledby="st-mfg" tabindex="0" hidden>
+            <div><h4>Records</h4><ul class="recs"><li>Batch manufacturing record<em class="ok">Uploaded</em></li><li>Line and shift<em>Line 2 &middot; Day</em></li><li>Yield against plan<em class="ok">Within range</em></li></ul></div>
+            <div><h4>Why it matters</h4><p class="memory">The brand sees progress as it happens instead of asking for updates on WhatsApp.</p></div>
+          </div>
+          <div class="stage-panel" role="tabpanel" id="sp-qa" aria-labelledby="st-qa" tabindex="0">
+            <div><h4>Records</h4><ul class="recs"><li>Heavy metals<em class="ok">Pass</em></li><li>Microbial count<em class="attn">Retest requested</em></li><li>Certificate of analysis<em class="attn">Pending release</em></li></ul></div>
+            <div><h4>Production memory</h4><p class="memory"><strong>Seen before.</strong> A similar retest on an earlier batch traced back to a humidity excursion during blending. Corrective action is already on file.</p><p class="memory"><strong>Dispatch held</strong> until QA releases, visible to both sides today rather than discovered on delivery day.</p></div>
+          </div>
+          <div class="stage-panel" role="tabpanel" id="sp-dispatch" aria-labelledby="st-dispatch" tabindex="0" hidden>
+            <div><h4>Records</h4><ul class="recs"><li>QA release<em class="attn">Blocked by QA</em></li><li>Packing list<em>Drafted</em></li></ul></div>
+            <div><h4>Why it matters</h4><p class="memory">Dates move when the upstream stage moves. Nobody has to chase the slip.</p></div>
+          </div>
+          <div class="stage-panel" role="tabpanel" id="sp-delivery" aria-labelledby="st-delivery" tabindex="0" hidden>
+            <div><h4>Records</h4><ul class="recs"><li>Delivery confirmation<em>Waiting</em></li><li>On-time and quality scorecard<em>Updates on close</em></li></ul></div>
+            <div><h4>Why it matters</h4><p class="memory">Every closed batch becomes evidence: on-time delivery and quality history that makes the next sourcing decision easier.</p></div>
+          </div>
+        </div>
+      </div>
+      <figcaption class="case-caption">Prototype view with illustrative data. Click or arrow through the stages.</figcaption>
+    </figure>
+
+    <ol class="story">
+      <li class="reveal"><h3>Problem</h3><p>A wellness brand making a supplement works with manufacturers it can&rsquo;t see inside. Specs, approvals and test results are spread across supplier emails, WhatsApp, spreadsheets and PDFs. When a batch slips or fails QA, nobody can say where, why, or whether it happened before.</p></li>
+      <li class="story-key reveal reveal-d1"><h3>First-principles insight</h3><p>The missing piece isn&rsquo;t data. It&rsquo;s a shared record.</p><p>If brand and manufacturer work from the same timeline, transparency stops being a favour someone grants and becomes the default.</p></li>
+      <li class="reveal reveal-d2"><h3>What I&rsquo;m building</h3><p>One workflow from sourcing brief to matched shortlist, contract and production tracking across setup, procurement, manufacturing, QA, dispatch and delivery, with compliance records and batch references on the timeline and every root cause kept as production memory.</p></li>
+      <li class="reveal reveal-d3"><h3>Outcome so far</h3><p>A network spanning 102 wellness contract manufacturers across 15 states. The bar for the product: a slipped batch is visible the day it slips, and a repeat failure is recognised before it repeats.</p></li>
+    </ol>
+
+    <div class="case-actions">
+      <a href="#" class="btn btn-ink" data-link="relmir">Visit Relmir <span class="arrow" aria-hidden="true">&nearr;</span></a>
+    </div>
+  </div>
+</article>
+
 </main>
 
 <script src="script.js" defer></script>
