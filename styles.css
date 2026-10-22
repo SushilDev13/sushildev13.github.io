@@ -249,8 +249,7 @@ button{font:inherit; color:inherit; background:none; border:0; cursor:pointer;}
 .section-head .lede{margin-top:4px;}
 
 /* ---------- case study chapter ---------- */
-.case{padding:clamp(96px, 13vw, 168px) 0; overflow:clip; border-top:1px solid var(--line);}
-.case[data-theme="light"]{border-top:0;}
+.case{padding:clamp(96px, 13vw, 168px) 0; overflow:clip;}
 .case-head{max-width:1000px; margin-bottom:clamp(48px, 7vw, 96px);}
 .case-meta{
   display:flex; flex-wrap:wrap; align-items:center; gap:8px 14px;
@@ -287,7 +286,7 @@ button{font:inherit; color:inherit; background:none; border:0; cursor:pointer;}
   .story li, .story li + li{padding:24px 0 8px; border-left:0;}
 }
 
-.case-actions{display:flex; flex-wrap:wrap; align-items:center; gap:14px 28px; margin-top:56px;}
+.case-actions{display:flex; flex-wrap:wrap; align-items:center; gap:14px 28px; margin-top:32px;}
 
 /* =========================================================
    PUBLYQ: the city lights up ward by ward (daylight)
