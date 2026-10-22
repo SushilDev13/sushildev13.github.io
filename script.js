@@ -5,9 +5,8 @@ const LINKS = {
   calendly: "https://calendly.com/sushilkumarsenthilnathan/20mins",
   publyq: "https://publyq.in",
   publyqData: "https://publyq.in/data",
-  publyqArchitecture: "https://publyq-kappa.vercel.app",
   relmir: "https://relmir.com",
-  kashiq: "https://kashiq.in",
+  axionCummins: "https://www.axion.com/news/cummins-ai-transformation-partnering-with-axion-for-customer-uptime-warranty-and-customer-experience",
   linkedin: "https://linkedin.com/in/sushilkumar-s/",
   github: "https://github.com/SushilDev13",
 };
@@ -61,15 +60,18 @@ function setupNav() {
   const links = document.getElementById("nav-links");
   if (!nav) return;
 
-  const darkSections = Array.from(document.querySelectorAll("[data-theme='dark']"));
+  // the page is dark by default; flip the nav over full-width light or sun sections
+  const themed = Array.from(document.querySelectorAll("section[data-theme], article[data-theme], footer[data-theme]"));
   onScrollFrame(() => {
     nav.classList.toggle("is-scrolled", window.scrollY > 24);
     const probe = 32;
-    const overDark = darkSections.some((s) => {
+    const under = themed.find((s) => {
       const r = s.getBoundingClientRect();
       return r.top <= probe && r.bottom >= probe;
     });
-    nav.classList.toggle("is-dark", overDark);
+    const theme = under ? under.dataset.theme : "dark";
+    nav.classList.toggle("is-light", theme === "light");
+    nav.classList.toggle("is-sun", theme === "sun");
   });
 
   if (!toggle || !links) return;
@@ -138,89 +140,136 @@ function setupReveal() {
   targets.forEach((t) => observer.observe(t));
 }
 
-// ---------- hero: scattered fragments resolve into three ordered systems ----------
-// The stage's static grid is the "legible" end state. We measure each chip's
-// resting position, give it a scattered offset, and scale that offset down to
-// zero as the visitor scrolls, so the layout itself tells the story.
-function setupHeroStage() {
-  const hero = document.getElementById("top");
-  const stage = document.getElementById("stage");
-  if (!hero || !stage) return;
-  const chips = Array.from(stage.querySelectorAll(".chip"));
-  const status = stage.querySelector("[data-state]");
-  const messy = status ? status.textContent : "";
-  const legible = "3 systems · every fragment has a place";
-  const pinned = window.matchMedia("(min-width: 961px) and (min-height: 701px)");
-
-  // deterministic pseudo-random so the "mess" looks the same on every visit
-  let seed = 7;
-  const rand = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
-  const scatter = chips.map(() => ({ x: rand(), y: rand(), r: (rand() - 0.5) * 22 }));
-
-  function layout() {
-    const box = stage.getBoundingClientRect();
-    chips.forEach((chip, i) => {
-      chip.style.setProperty("--q", 0);
-      const c = chip.getBoundingClientRect();
-      const s = scatter[i];
-      // keep every scattered chip inside the stage's horizontal bounds
-      const spreadX = Math.max(0, box.width - c.width);
-      const spreadY = box.height * 1.1;
-      const tx = (s.x - 0.5) * spreadX + box.width / 2 - (c.left - box.left) - c.width / 2;
-      const ty = (s.y - 0.5) * spreadY + box.height / 2 - (c.top - box.top) - c.height / 2;
-      chip.style.setProperty("--dx", tx.toFixed(1) + "px");
-      chip.style.setProperty("--dy", ty.toFixed(1) + "px");
-      chip.style.setProperty("--dr", s.r.toFixed(1) + "deg");
-    });
-  }
-
-  function progress() {
-    if (pinned.matches) {
-      const range = hero.offsetHeight - window.innerHeight;
-      return range > 0 ? clamp01(-hero.getBoundingClientRect().top / (range * 0.8)) : 1;
-    }
-    const top = stage.getBoundingClientRect().top;
-    const vh = window.innerHeight;
-    return clamp01((vh * 0.92 - top) / (vh * 0.5));
-  }
-
-  let lastLegible = null;
-  function render(p) {
-    chips.forEach((chip, i) => {
-      const local = clamp01(p * 1.35 - (i % 6) * 0.05);
-      chip.style.setProperty("--q", (1 - easeInOut(local)).toFixed(3));
-    });
-    stage.style.setProperty("--assembled", clamp01((p - 0.55) / 0.35).toFixed(3));
-    hero.style.setProperty("--hero-p", p.toFixed(3));
-    const isLegible = p > 0.92;
-    if (isLegible !== lastLegible) {
-      stage.classList.toggle("is-legible", isLegible);
-      if (status) status.textContent = isLegible ? legible : messy;
-      lastLegible = isLegible;
-    }
-  }
-
-  if (reduceMotion.matches) {
-    render(1);
+// ---------- hero: the logo assembles itself out of records ----------
+// 826 dots sampled from the road in sushil_logo.png start scattered like raw
+// records, then settle into the road as the sun rises behind them. Once formed,
+// a pulse travels along the road toward the horizon: data flowing to an answer.
+function setupField() {
+  const field = document.getElementById("field");
+  const canvas = document.getElementById("field-canvas");
+  if (!field || !canvas || !window.ROAD_POINTS) return;
+  const ctx = canvas.getContext && canvas.getContext("2d");
+  if (!ctx) {
+    field.classList.add("no-canvas");
     return;
   }
 
-  layout();
+  let seed = 3;
+  const rand = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+  const pts = window.ROAD_POINTS.split(";").map((e) => {
+    const [x, y, s] = e.split(",").map(Number);
+    return { tx: x, ty: y, s: s / 99, sx: rand() * 512, sy: rand() * 512 };
+  });
+
+  const DOT = 2.1;           // dot radius in logo units (grid step is 6)
+  const FORM_MS = 2600;
+  const SUN = { x: 256, y: 256, r: 236 };
+  let size = 0;
+  let scale = 1;
+  let sunFill = null;
+
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    size = canvas.clientWidth;
+    canvas.width = Math.round(size * dpr);
+    canvas.height = Math.round(size * dpr);
+    scale = (size * dpr) / 512;
+    ctx.setTransform(scale, 0, 0, scale, 0, 0);
+    // same direction as the logo: yellow top-left to pink bottom-right
+    sunFill = ctx.createLinearGradient(80, 40, 440, 470);
+    sunFill.addColorStop(0, "#FFDF36");
+    sunFill.addColorStop(0.42, "#FBA348");
+    sunFill.addColorStop(0.72, "#FC785B");
+    sunFill.addColorStop(1, "#FC5B6E");
+  }
+
+  const ease = (x) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
+  const mix = (a, b, k) => Math.round(a + (b - a) * k);
+
+  function draw(t, time) {
+    ctx.clearRect(0, 0, 512, 512);
+
+    // the sun rises as the records settle
+    const sunK = ease(clamp01((t - 0.15) / 0.6));
+    if (sunK > 0) {
+      ctx.globalAlpha = sunK;
+      ctx.fillStyle = sunFill;
+      ctx.beginPath();
+      ctx.arc(SUN.x, SUN.y + (1 - sunK) * 40, SUN.r * (0.85 + 0.15 * sunK), 0, Math.PI * 2);
+      ctx.fill();
+      ctx.globalAlpha = 1;
+    }
+
+    // a pulse runs along the road from the near end to the horizon every few seconds
+    const formed = t >= 1;
+    const pulse = formed && time != null ? (time / 3400) % 1.3 : -1;
+
+    for (const p of pts) {
+      // near end of the road lands first, the horizon last
+      const delay = 0.3 * p.s;
+      const k = ease(clamp01((t - delay) / 0.7));
+      const x = p.sx + (p.tx - p.sx) * k;
+      const y = p.sy + (p.ty - p.sy) * k;
+      // raw records are pale; settled ones become the road
+      let r = mix(214, 8, k), g = mix(214, 8, k), b = mix(210, 8, k);
+      let rad = DOT * (0.75 + 0.25 * k);
+      if (pulse >= 0) {
+        const d = Math.abs(p.s - pulse);
+        if (d < 0.06) {
+          const w = 1 - d / 0.06;
+          rad *= 1 + 0.35 * w;
+          r = mix(8, 255, w * 0.85); g = mix(8, 247, w * 0.85); b = mix(8, 230, w * 0.85);
+        }
+      }
+      ctx.fillStyle = `rgb(${r},${g},${b})`;
+      ctx.globalAlpha = 0.55 + 0.45 * k;
+      ctx.beginPath();
+      ctx.arc(x, y, rad, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  resize();
+
+  if (reduceMotion.matches) {
+    draw(1, null);
+    field.classList.add("is-formed");
+    window.addEventListener("resize", () => {
+      resize();
+      draw(1, null);
+    });
+    return;
+  }
+
+  let start = null;
+  let raf = null;
+  let visible = true;
+
+  function frame(now) {
+    if (start === null) start = now;
+    const t = clamp01((now - start - 250) / FORM_MS);
+    draw(t, t >= 1 ? now - start - 250 - FORM_MS : null);
+    if (t >= 1) field.classList.add("is-formed");
+    raf = visible && !document.hidden ? requestAnimationFrame(frame) : null;
+  }
+  const play = () => {
+    if (raf === null && visible && !document.hidden) raf = requestAnimationFrame(frame);
+  };
+
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver((entries) => {
+      visible = entries[0].isIntersecting;
+      play();
+    }).observe(canvas);
+  }
+  document.addEventListener("visibilitychange", play);
   let resizeTimer;
   window.addEventListener("resize", () => {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-      layout();
-      render(progress());
-    }, 120);
+    resizeTimer = setTimeout(resize, 100);
   });
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(() => {
-      layout();
-      render(progress());
-    });
-  }
-  onScrollFrame(() => render(progress()));
+  play();
 }
 
 // ---------- number counters: count up once when first seen ----------
@@ -471,7 +520,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupNav();
   setupScrollSpy();
   setupReveal();
-  setupHeroStage();
+  setupField();
   setupCounters();
   setupRecordScrolly();
   setupWaffle();
