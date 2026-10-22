@@ -290,32 +290,28 @@ button{font:inherit; color:inherit; background:none; border:0; cursor:pointer;}
 .case-actions{display:flex; flex-wrap:wrap; align-items:center; gap:14px 28px; margin-top:56px;}
 
 /* =========================================================
-   PUBLYQ: one metric story, 58% of records without a ward to 100% (daylight)
+   PUBLYQ: the city lights up ward by ward (daylight)
    ========================================================= */
-.data-panel{display:grid; grid-template-columns:1fr 1.15fr; gap:clamp(32px, 5vw, 72px); padding:clamp(28px, 4vw, 56px); border:1px solid var(--line); border-radius:24px; background:var(--surface); margin-bottom:clamp(64px, 8vw, 104px);}
-.data-panel h3{font-weight:800; font-stretch:108%; font-size:clamp(24px, 2.4vw, 32px); line-height:1.15; letter-spacing:-.035em; margin-bottom:24px;}
+.ward-proof{display:grid; grid-template-columns:auto 1fr; gap:clamp(40px, 7vw, 120px); align-items:center;}
+.ward-map{width:clamp(220px, 24vw, 340px);}
+.wards{display:block; width:100%; height:auto; overflow:visible;}
+/* every ward starts as a faint tint of the city and lights to full sun, zone by zone */
+.wards path{
+  stroke:var(--bg); stroke-width:.9; stroke-linejoin:round;
+  fill-opacity:.14; transition:fill-opacity .5s var(--ease) calc(var(--i) * 6ms);
+}
+.wards.in-view path, .no-js .wards path{fill-opacity:1;}
+.ward-facts{display:grid; gap:clamp(28px, 4vw, 44px);}
+.fact strong{display:block; font-weight:800; font-stretch:112%; font-size:clamp(56px, 7vw, 104px); line-height:.95; letter-spacing:-.05em; margin-bottom:10px;}
+.fact strong .hl{padding:0 .1em;}
+.fact > span{display:block; max-width:28ch; font-size:clamp(18px, 1.6vw, 22px); font-weight:600; letter-spacing:-.02em; line-height:1.3;}
 .hl{background:var(--sun); color:var(--road); padding:0 .14em; border-radius:.1em; -webkit-box-decoration-break:clone; box-decoration-break:clone;}
-.waffle{display:grid; grid-template-columns:repeat(10, 1fr); gap:6px; max-width:340px;}
-.waffle i{aspect-ratio:1; border-radius:50%; background:var(--road); transition:background-color .4s var(--ease), box-shadow .4s var(--ease);}
-.waffle i.is-unplaced{background:transparent; box-shadow:inset 0 0 0 1.5px var(--accent);}
-.waffle.is-resolved i.is-unplaced{background:var(--sun); box-shadow:none;}
-.waffle-legend{display:flex; flex-wrap:wrap; gap:8px 20px; margin-top:18px; font-size:13px; color:var(--fg-2);}
-.waffle-legend span{display:inline-flex; align-items:center; gap:8px;}
-.waffle-legend i{width:10px; height:10px; border-radius:50%; background:var(--road);}
-.waffle-legend i.alt{background:transparent; box-shadow:inset 0 0 0 1.5px var(--accent);}
-.waffle-legend i.sun{background:var(--sun);}
-.waffle-toggle{margin-top:18px;}
-.data-panel{align-items:center;}
-.data-big{display:flex; flex-wrap:wrap; align-items:center; gap:.18em; margin-bottom:12px; font-weight:800; font-stretch:112%; font-size:clamp(56px, 7vw, 100px); line-height:.95; letter-spacing:-.05em; font-variant-numeric:tabular-nums;}
-.data-big .hl{padding:0 .1em;}
-.data-arrow{font-weight:400; color:var(--fg-3);}
-.data-copy h3{margin-bottom:16px;}
-.data-copy p{color:var(--fg-2); max-width:46ch;}
-.data-source{margin-top:16px; font-family:var(--mono); font-size:11px; color:var(--fg-3); letter-spacing:.03em;}
+.data-source{font-family:var(--mono); font-size:11px; line-height:1.7; color:var(--fg-3); letter-spacing:.03em;}
 .data-source a{text-underline-offset:3px;}
 
-@media (max-width:900px){
-  .data-panel{grid-template-columns:1fr;}
+@media (max-width:760px){
+  .ward-proof{grid-template-columns:1fr; gap:40px;}
+  .ward-map{width:min(62vw, 260px); justify-self:center;}
 }
 
 /* =========================================================
@@ -373,6 +369,7 @@ button{font:inherit; color:inherit; background:none; border:0; cursor:pointer;}
 }
 
 @media (prefers-reduced-motion: reduce){
+  .wards path{fill-opacity:1;}
   *, *::before, *::after{animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; transition-delay:0s !important;}
   .reveal{opacity:1; transform:none;}
   .js .hero h1 .line, .js .hero .kicker, .js .hero .lede, .js .hero-ctas, .js .hero-proof{opacity:1; transform:none; animation:none;}

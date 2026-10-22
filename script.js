@@ -270,101 +270,6 @@ function setupField() {
   play();
 }
 
-// ---------- number counters: count up once when first seen ----------
-// Markup already holds the final value, so no-JS and reduced-motion visitors
-// see the real number; this only animates toward it.
-function setupCounters() {
-  const els = document.querySelectorAll("[data-count]");
-  if (reduceMotion.matches || !("IntersectionObserver" in window)) return;
-  const format = (el, v) => {
-    const n = Number(el.dataset.count);
-    const value = n >= 1000 ? Math.round(v).toLocaleString("en-US") : Math.round(v);
-    return (el.dataset.prefix || "") + value + (el.dataset.suffix || "");
-  };
-  const run = (el) => {
-    const target = Number(el.dataset.count);
-    const duration = 1400;
-    const start = performance.now();
-    const step = (now) => {
-      const t = clamp01((now - start) / duration);
-      el.textContent = format(el, target * (1 - Math.pow(1 - t, 3)));
-      if (t < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  };
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        run(entry.target);
-        observer.unobserve(entry.target);
-      });
-    },
-    { threshold: 0.6 }
-  );
-  els.forEach((el) => observer.observe(el));
-}
-
-// ---------- Publyq: waffle of 100 records, 58 arriving without a ward ----------
-function setupWaffle() {
-  const waffle = document.getElementById("waffle");
-  const toggle = document.getElementById("waffle-toggle");
-  if (!waffle) return;
-
-  const UNPLACED = 58;
-  // scatter the 58 unplaced squares so the grid reads as "most of it", not a block
-  let seed = 11;
-  const rand = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
-  const order = Array.from({ length: 100 }, (_, i) => i).sort(() => rand() - 0.5);
-  const unplaced = new Set(order.slice(0, UNPLACED));
-  const frag = document.createDocumentFragment();
-  const cells = [];
-  for (let i = 0; i < 100; i++) {
-    const cell = document.createElement("i");
-    if (unplaced.has(i)) cell.className = "is-unplaced";
-    frag.appendChild(cell);
-    cells.push(cell);
-  }
-  waffle.appendChild(frag);
-
-  const unplacedCells = cells.filter((c) => c.classList.contains("is-unplaced"));
-  function setResolved(resolved) {
-    if (!reduceMotion.matches) {
-      unplacedCells.forEach((c, i) => {
-        c.style.transitionDelay = resolved ? i * 14 + "ms" : "0ms";
-      });
-    }
-    waffle.classList.toggle("is-resolved", resolved);
-    if (toggle) {
-      toggle.setAttribute("aria-pressed", String(resolved));
-      toggle.textContent = resolved ? "Show the raw data" : "Place every record";
-    }
-  }
-
-  let touched = false;
-  if (toggle) {
-    toggle.addEventListener("click", () => {
-      touched = true;
-      setResolved(!waffle.classList.contains("is-resolved"));
-    });
-  }
-
-  // show the raw state first, then resolve once on first view unless the visitor already acted
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (!entries[0].isIntersecting) return;
-        observer.disconnect();
-        setTimeout(() => {
-          if (!touched) setResolved(true);
-        }, 1400);
-      },
-      { threshold: 0.7 }
-    );
-    observer.observe(waffle);
-  }
-}
-
 // ---------- copy-to-clipboard (email), announced to screen readers ----------
 function setupCopyButtons() {
   const status = document.getElementById("copy-status");
@@ -409,8 +314,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setupScrollSpy();
   setupReveal();
   setupField();
-  setupCounters();
-  setupWaffle();
   setupCopyButtons();
   startScrollLoop();
 });
