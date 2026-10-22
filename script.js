@@ -5,7 +5,6 @@ const LINKS = {
   calendly: "https://calendly.com/sushilkumarsenthilnathan/20mins",
   publyq: "https://publyq.in",
   publyqData: "https://publyq.in/data",
-  relmir: "https://relmir.com",
   axionCummins: "https://www.axion.com/news/cummins-ai-transformation-partnering-with-axion-for-customer-uptime-warranty-and-customer-experience",
   linkedin: "https://linkedin.com/in/sushilkumar-s/",
 };
