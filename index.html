@@ -2,566 +2,108 @@
 <html lang="en" class="no-js">
 <head>
 <meta charset="UTF-8">
-<script>document.documentElement.classList.remove('no-js');</script>
+<script>document.documentElement.classList.replace('no-js', 'js');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sushil - AI & Data Systems</title>
+<title>Sushil — I make messy systems legible</title>
+<meta name="description" content="Sushilkumar S builds data systems, products and websites that turn fragmented, ambiguous problems into decisions. Axion Ray, Publyq, Relmir.">
+<meta name="theme-color" content="#F4F1EA">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.sushil.one/">
+<meta property="og:title" content="Sushil — I make messy systems legible">
+<meta property="og:description" content="Data systems, products and websites that turn fragmented problems into decisions. Axion Ray, Publyq, Relmir.">
+<meta property="og:image" content="https://www.sushil.one/sushil_logo.png">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://www.sushil.one/">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="favicon-16x16.png" type="image/png" sizes="16x16">
-<link rel="icon" href="sushil_logo.png" type="image/png" sizes="512x512">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<a class="skip-link" href="#work">Skip to the work</a>
 
-<div class="bg-mesh" aria-hidden="true"></div>
-
-<nav>
+<nav class="site-nav" id="site-nav" aria-label="Primary">
   <div class="wrap">
-    <div class="brand"><span class="dot"></span>Sushil</div>
-    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation menu">
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
+    <a class="brand" href="#top" aria-label="Sushil, back to top">
+      <img src="apple-touch-icon.png" alt="" width="26" height="26">
+      <span>Sushil</span>
+    </a>
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+      <span class="nav-toggle-bars"><span></span><span></span></span>
     </button>
-    <div class="navlinks" id="nav-links">
-      <a href="#about">
-        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg>
-        <span>about</span>
-      </a>
-      <a href="#capabilities">
-        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5 13.6 8 19 9.6l-5.4 1.6L12 17l-1.6-5.4L5 9.6l5.4-1.6L12 2.5Z"/></svg>
-        <span>capabilities</span>
-      </a>
-      <a href="#log">
-        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg>
-        <span>case studies</span>
-      </a>
-      <a href="#impact">
-        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="14 7 21 7 21 14"/></svg>
-        <span>impact</span>
-      </a>
-      <a href="#faq">
-        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 2-3 4"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        <span>faq</span>
-      </a>
-      <a href="#contact">
-        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-        <span>contact</span>
-      </a>
+    <div class="nav-links" id="nav-links">
+      <a href="#work">Work</a>
+      <a href="#approach">Approach</a>
+      <a href="#proof">Proof</a>
+      <a href="#contact">Contact</a>
+      <a href="#" class="nav-cta" data-link="calendly">Book 20 min</a>
     </div>
   </div>
 </nav>
 
-<header class="hero" id="about">
-  <div class="wrap reveal-group">
-    <span class="eyebrow reveal-item">Independent AI &amp; Data Systems Partner</span>
-    <h1 class="reveal-item">I turn the data you already have into decisions your team can act on.</h1>
-    <p class="sub reveal-item">For four years, I led analytics for one of the largest AI vendors serving Fortune 500 manufacturers, surfacing more than $15M in hidden quality losses from data already sitting in their systems. I now apply the same systems thinking directly for operators, founders, and data leaders who need a production-grade decision system, not another slide deck.</p>
-    <div class="cta-group reveal-item">
-      <a href="#" id="calendly" class="btn btn-primary">Book a Discovery Call</a>
-      <a href="#log" class="btn btn-secondary">See Case Studies</a>
+<header class="hero" id="top">
+  <div class="hero-pin">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="kicker">Sushilkumar S &middot; Builder</span>
+        <h1 class="display"><span class="line">I make messy</span><span class="line">systems <em>legible.</em></span></h1>
+        <p class="lede">Warranty claims scattered across a Fortune&nbsp;500 manufacturer. Ten thousand civic complaints with no place on the map. Factory workflows living in WhatsApp threads and PDFs. I find the structure hiding in the mess, then build the data system, the product and the story that make it impossible to ignore.</p>
+        <div class="hero-ctas">
+          <a href="#work" class="btn btn-ink">See the work <span class="arrow" aria-hidden="true">&darr;</span></a>
+          <a href="#" class="btn btn-line" data-link="calendly">Book a 20-min call <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        </div>
+        <ul class="hero-proof" aria-label="Highlights">
+          <li><strong>$60k &rarr; $3M</strong>ARR account growth</li>
+          <li><strong>$15M+</strong>quality losses surfaced</li>
+          <li><strong>10,902</strong>civic complaints mapped</li>
+        </ul>
+      </div>
+
+      <div class="stage" id="stage" aria-hidden="true">
+        <div class="stage-cols">
+          <div class="stage-col">
+            <h3>Failure patterns</h3>
+            <div class="chip"><b>Claim 88213</b><span>Coolant leak</span></div>
+            <div class="chip"><b>Work order 4471</b><span>EGR valve swap</span></div>
+            <div class="chip is-flag"><b>Escalation 219</b><span>Repeat failure</span></div>
+            <div class="chip"><b>Claim 90127</b><span>Coolant leak</span></div>
+            <div class="chip chip-x"><b>Dealer note</b><span>&ldquo;same as March&rdquo;</span></div>
+            <div class="chip chip-x"><b>Failure code</b><span>Unparsed text</span></div>
+          </div>
+          <div class="stage-col">
+            <h3>Ward accountability</h3>
+            <div class="chip"><b>GCC reply</b><span>Complaint ID</span></div>
+            <div class="chip is-flag"><b>Ward</b><span>&mdash; unknown</span></div>
+            <div class="chip"><b>Solid waste</b><span>Bin not cleared</span></div>
+            <div class="chip"><b>Locality</b><span>&ldquo;near bus stop&rdquo;</span></div>
+            <div class="chip chip-x"><b>Streetlight</b><span>Out for 9 days</span></div>
+            <div class="chip chip-x"><b>Repeat</b><span>3rd report</span></div>
+          </div>
+          <div class="stage-col">
+            <h3>Batch traceability</h3>
+            <div class="chip is-flag"><b>Batch 2305</b><span>COA pending</span></div>
+            <div class="chip"><b>RFQ_v3_final</b><span>.pdf</span></div>
+            <div class="chip"><b>WhatsApp</b><span>&ldquo;dispatch Fri?&rdquo;</span></div>
+            <div class="chip"><b>GMP cert</b><span>Exp. 03/27</span></div>
+            <div class="chip chip-x"><b>QA hold</b><span>Micro retest</span></div>
+            <div class="chip chip-x"><b>Spreadsheet</b><span>Lead times v7</span></div>
+          </div>
+        </div>
+        <p class="stage-status"><i></i><span data-state>18 fragments &middot; no shared structure</span></p>
+      </div>
     </div>
+    <span class="scroll-cue" aria-hidden="true">Scroll</span>
   </div>
 </header>
 
-<section id="capabilities">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="tag">02</span>
-      <h2>Capabilities</h2>
-    </div>
-    <div class="stack-groups reveal-group">
-      <div class="stack-group reveal-item">
-        <div class="stack-group-head">
-          <svg class="stack-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M12 2.5 13.6 8 19 9.6l-5.4 1.6L12 17l-1.6-5.4L5 9.6l5.4-1.6L12 2.5Z"/>
-          </svg>
-          <span class="stack-group-label">Conversational Analytics &amp; Search</span>
-        </div>
-        <p class="project-block-body">Transform documents, records, and knowledge bases into a system your team can query in plain language.</p>
-        <ul class="stack-flow">
-          <li>RAG</li>
-          <li>Vector Search</li>
-          <li>Gemma4</li>
-          <li>Ollama</li>
-        </ul>
-      </div>
-      <div class="stack-group reveal-item">
-        <div class="stack-group-head">
-          <svg class="stack-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <ellipse cx="12" cy="5" rx="8" ry="3"/>
-            <path d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/>
-            <path d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/>
-          </svg>
-          <span class="stack-group-label">Data Pipelines &amp; Automation</span>
-        </div>
-        <p class="project-block-body">Clean, enrich, and automate operational data at scale, without manual reconciliation.</p>
-        <ul class="stack-flow">
-          <li>Python</li>
-          <li>SQL</li>
-          <li>PostgreSQL</li>
-          <li>Pandas</li>
-          <li>NumPy</li>
-          <li>GeoPandas</li>
-        </ul>
-      </div>
-      <div class="stack-group reveal-item">
-        <div class="stack-group-head">
-          <svg class="stack-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="2" y="5" width="20" height="14" rx="2"/>
-            <line x1="2" y1="9" x2="22" y2="9"/>
-          </svg>
-          <span class="stack-group-label">Custom Decision Applications</span>
-        </div>
-        <p class="project-block-body">Production applications and dashboards built around your workflow, not a generic template.</p>
-        <ul class="stack-flow">
-          <li>FastAPI</li>
-          <li>Flask</li>
-          <li>Pydantic</li>
-          <li>React</li>
-          <li>Vite</li>
-          <li>Tailwind CSS</li>
-          <li>Recharts</li>
-          <li>JavaScript</li>
-        </ul>
-      </div>
-      <div class="stack-group reveal-item">
-        <div class="stack-group-head">
-          <svg class="stack-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M17.5 19H7a5 5 0 1 1 1.09-9.88A6 6 0 0 1 19 11.5a4 4 0 0 1-1.5 7.5Z"/>
-          </svg>
-          <span class="stack-group-label">Infrastructure You Can Trust</span>
-        </div>
-        <p class="project-block-body">Deployed on infrastructure your engineering team already recognizes. No exotic dependencies, no lock-in.</p>
-        <ul class="stack-flow">
-          <li>Docker</li>
-          <li>Cloud Run</li>
-          <li>Cloud SQL</li>
-          <li>Vercel</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+<main id="main">
+<!-- sections -->
+</main>
 
-<section id="log">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="tag">03</span>
-      <h2>Case Studies</h2>
-    </div>
-    <div class="build-log-primary">
-      <div class="project-card">
-        <div class="project-card-head">
-          <span class="commit-hash">CASE STUDY 01</span>
-          <span class="status shipped">Live in Production</span>
-        </div>
-        <div class="commit-title">Publyq: A Civic Intelligence Layer for Public Grievance Data</div>
-
-        <div class="tabs" role="tablist" aria-label="Publyq sections">
-          <button type="button" class="tab" id="publyq-tab-problem" role="tab" aria-selected="false" tabindex="-1" aria-controls="publyq-panel-problem">Problem</button>
-          <button type="button" class="tab is-active" id="publyq-tab-solution" role="tab" aria-selected="true" aria-controls="publyq-panel-solution">Solution</button>
-          <button type="button" class="tab" id="publyq-tab-approach" role="tab" aria-selected="false" tabindex="-1" aria-controls="publyq-panel-approach">Engineering Approach</button>
-        </div>
-
-        <div class="tab-panels">
-          <div class="tab-panel" id="publyq-panel-problem" role="tabpanel" aria-labelledby="publyq-tab-problem" tabindex="0" hidden>
-            <div class="project-blocks">
-              <div class="project-block">
-                <span class="project-block-label">Problem</span>
-                <p class="project-block-body">Cities generate thousands of public grievances daily: roads, drainage, waste management, street lighting. This data is publicly available, yet it remains fragmented across individual complaints. Cities cannot identify recurring failures, accountability gaps, or citywide trends.</p>
-              </div>
-              <div class="project-block">
-                <span class="project-block-label">Why Now</span>
-                <p class="project-block-body">Governments now publish more operational data than ever. Most public systems, however, are still built to track individual complaints rather than surface citywide patterns. Advances in search and language models make it practical to query large civic datasets in plain language, replacing complex dashboards and SQL.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-panel is-active" id="publyq-panel-solution" role="tabpanel" aria-labelledby="publyq-tab-solution" tabindex="0">
-            <div class="project-blocks">
-              <div class="project-block">
-                <span class="project-block-label">Solution</span>
-                <p class="project-block-body">Publyq converts raw public grievance records into a searchable civic intelligence layer. By combining data enrichment, geospatial mapping, and conversational analytics, it lets users understand what is happening across a city instead of searching through thousands of individual complaints. The same systems thinking I applied to Fortune 500 manufacturing data, now directed at public infrastructure.</p>
-              </div>
-
-              <div class="project-block">
-                <span class="project-block-label">Capabilities Demonstrated</span>
-                <ul class="stack-flow">
-                  <li>Data Enrichment at Scale</li>
-                  <li>Geospatial Mapping</li>
-                  <li>Locally Hosted LLM Deployment</li>
-                  <li>Conversational Analytics on Unstructured Records</li>
-                  <li>Production Architecture (FastAPI + PostgreSQL)</li>
-                </ul>
-              </div>
-
-              <div class="project-block">
-                <span class="project-block-label">Outcome &amp; Scale</span>
-                <div class="metric-row">
-                  <div class="metric-item">
-                    <span class="metric-value">200</span>
-                    <span class="metric-label">Wards Covered</span>
-                  </div>
-                  <div class="metric-item">
-                    <span class="metric-value">3.4k+</span>
-                    <span class="metric-label">Complaints Indexed</span>
-                  </div>
-                  <div class="metric-item">
-                    <span class="metric-value">23</span>
-                    <span class="metric-label">Constituencies Mapped</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="project-block">
-                <span class="project-block-label">How It Works</span>
-                <div class="pipeline">
-                  <span class="pipeline-chip">Public Complaints</span>
-                  <span class="pipeline-arrow" aria-hidden="true">&rarr;</span>
-                  <span class="pipeline-chip">Data Enrichment</span>
-                  <span class="pipeline-arrow" aria-hidden="true">&rarr;</span>
-                  <span class="pipeline-chip">Ward Mapping</span>
-                  <span class="pipeline-arrow" aria-hidden="true">&rarr;</span>
-                  <span class="pipeline-chip">Knowledge Layer</span>
-                  <span class="pipeline-arrow" aria-hidden="true">&rarr;</span>
-                  <span class="pipeline-chip">Conversational Analytics</span>
-                  <span class="pipeline-arrow" aria-hidden="true">&rarr;</span>
-                  <span class="pipeline-chip">Insights &amp; Decisions</span>
-                </div>
-              </div>
-
-              <div class="project-block">
-                <span class="project-block-label">Built With</span>
-                <ul class="stack-flow">
-                  <li>FastAPI</li>
-                  <li>PostgreSQL</li>
-                  <li>Gemma4</li>
-                  <li>Python</li>
-                  <li>JavaScript</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-panel" id="publyq-panel-approach" role="tabpanel" aria-labelledby="publyq-tab-approach" tabindex="0" hidden>
-            <div class="project-blocks">
-              <div class="project-block">
-                <span class="project-block-label">Engineering Decisions</span>
-                <div class="decision-list">
-                  <div class="decision-row">
-                    <h4 class="decision-name">Local LLM</h4>
-                    <div class="decision-field">
-                      <span class="decision-field-label">Why</span>
-                      <p>Keeps conversational analytics responsive while reducing inference cost and eliminating dependence on external APIs.</p>
-                    </div>
-                    <div class="decision-field">
-                      <span class="decision-field-label">Tradeoffs</span>
-                      <p>Lower reasoning capability than frontier models, offset by materially better control over latency, privacy, and operating cost.</p>
-                    </div>
-                  </div>
-                  <div class="decision-row">
-                    <h4 class="decision-name">PostgreSQL + Structured Knowledge Layer</h4>
-                    <div class="decision-field">
-                      <span class="decision-field-label">Why</span>
-                      <p>Public grievance data is highly structured. It benefits from relational queries, spatial enrichment, and deterministic retrieval ahead of language model inference.</p>
-                    </div>
-                    <div class="decision-field">
-                      <span class="decision-field-label">Tradeoffs</span>
-                      <p>Greater engineering effort during data ingestion, in exchange for more reliable and explainable answers.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="cta-group">
-          <a href="#" id="publyq" class="btn btn-primary">Explore Platform</a>
-          <a href="#" id="publyq-architecture" class="btn btn-secondary">System Architecture</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="build-log-secondary">
-      <div class="project-card">
-        <div class="project-card-head">
-          <span class="commit-hash">CASE STUDY 02</span>
-          <span class="status building">Discovery</span>
-        </div>
-        <div class="commit-title">Kashiq: An Intelligence Layer for Multi-Account Personal Finance</div>
-
-        <div class="tabs" role="tablist" aria-label="Kashiq sections">
-          <button type="button" class="tab" id="kashiq-tab-problem" role="tab" aria-selected="false" tabindex="-1" aria-controls="kashiq-panel-problem">Problem</button>
-          <button type="button" class="tab is-active" id="kashiq-tab-solution" role="tab" aria-selected="true" aria-controls="kashiq-panel-solution">Solution</button>
-          <button type="button" class="tab" id="kashiq-tab-approach" role="tab" aria-selected="false" tabindex="-1" aria-controls="kashiq-panel-approach">Engineering Approach</button>
-        </div>
-
-        <div class="tab-panels">
-          <div class="tab-panel" id="kashiq-panel-problem" role="tabpanel" aria-labelledby="kashiq-tab-problem" tabindex="0" hidden>
-            <div class="project-blocks">
-              <div class="project-block">
-                <span class="project-block-label">Problem</span>
-                <p class="project-block-body">Every bank exports statements in its own format, with different column names, date formats, and transaction descriptions. Understanding real spending, savings, and runway across several accounts requires opening each statement by hand and reclassifying the same recurring merchants every month. Most people fall back to a rough mental estimate of where their money goes.</p>
-              </div>
-              <div class="project-block">
-                <span class="project-block-label">Why Now</span>
-                <p class="project-block-body">Bank-exported statements are universally available, yet remain fragmented across formats and institutions. Advances in document parsing and transaction intelligence now make it possible to consolidate these records into a single, structured financial ledger that works consistently across banks.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-panel is-active" id="kashiq-panel-solution" role="tabpanel" aria-labelledby="kashiq-tab-solution" tabindex="0">
-            <div class="project-blocks">
-              <div class="project-block">
-                <span class="project-block-label">Solution</span>
-                <p class="project-block-body">Kashiq automatically parses bank statements, categorizes transactions, and combines multiple accounts into a single, searchable view of personal finances, with intelligent transaction clustering.</p>
-              </div>
-              <div class="project-block">
-                <span class="project-block-label">Capabilities Demonstrated</span>
-                <ul class="stack-flow">
-                  <li>Deterministic Multi-Format Parsing</li>
-                  <li>Counterparty-Based Clustering</li>
-                  <li>Cross-Account Aggregation</li>
-                  <li>Runway Forecasting Logic</li>
-                </ul>
-              </div>
-              <div class="project-block">
-                <span class="project-block-label">How It Works</span>
-                <div class="pipeline">
-                  <span class="pipeline-chip">Statement Upload</span>
-                  <span class="pipeline-arrow" aria-hidden="true">&rarr;</span>
-                  <span class="pipeline-chip">Parser Normalization</span>
-                  <span class="pipeline-arrow" aria-hidden="true">&rarr;</span>
-                  <span class="pipeline-chip">Auto-Clustering</span>
-                  <span class="pipeline-arrow" aria-hidden="true">&rarr;</span>
-                  <span class="pipeline-chip">Dashboard Aggregation</span>
-                  <span class="pipeline-arrow" aria-hidden="true">&rarr;</span>
-                  <span class="pipeline-chip">Runway Forecast</span>
-                  <span class="pipeline-arrow" aria-hidden="true">&rarr;</span>
-                  <span class="pipeline-chip">User Validation</span>
-                </div>
-              </div>
-
-              <div class="project-block">
-                <span class="project-block-label">Status</span>
-                <p class="project-block-body">Strengthening the parsing and auto-clustering engine to support multi-format document ingestion (PDF, CSV, XLSX) and MECE-based transaction classification.</p>
-              </div>
-
-              <div class="project-block">
-                <span class="project-block-label">Built With</span>
-                <ul class="stack-flow">
-                  <li>Python</li>
-                  <li>Flask</li>
-                  <li>pandas</li>
-                  <li>React</li>
-                  <li>Vite</li>
-                  <li>Recharts</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-panel" id="kashiq-panel-approach" role="tabpanel" aria-labelledby="kashiq-tab-approach" tabindex="0" hidden>
-            <div class="project-blocks">
-              <div class="project-block">
-                <span class="project-block-label">Engineering Decisions</span>
-                <div class="decision-list">
-                  <div class="decision-row">
-                    <h4 class="decision-name">Counterparty + Direction Clustering</h4>
-                    <div class="decision-field">
-                      <span class="decision-field-label">Why</span>
-                      <p>Clusters are keyed on the normalized counterparty and debit or credit direction only, not amount or bank. A recurring merchant, such as rent or a food delivery app, is grouped into a single cluster regardless of amount or account, so it is classified once.</p>
-                    </div>
-                    <div class="decision-field">
-                      <span class="decision-field-label">Tradeoffs</span>
-                      <p>Correctness depends entirely on clean counterparty extraction. Two distinct payees with similar noisy descriptions can collide into the same cluster if the name-cleaning rules are not precise enough.</p>
-                    </div>
-                  </div>
-                  <div class="decision-row">
-                    <h4 class="decision-name">Deterministic, Rule-Based Parsing</h4>
-                    <div class="decision-field">
-                      <span class="decision-field-label">Why</span>
-                      <p>Bank statement descriptions follow predictable prefixes, including UPI, NEFT, RTGS, IMPS, ATM, and POS. A sequential regex pipeline extracts clean merchant names without a model call per row, keeping parsing instant, free, and fully explainable.</p>
-                    </div>
-                    <div class="decision-field">
-                      <span class="decision-field-label">Tradeoffs</span>
-                      <p>Each new bank or statement format requires an explicit pattern addition. Formats outside those rules fall back to a generic heuristic, less accurate than the bank-specific matchers.</p>
-                    </div>
-                  </div>
-                  <div class="decision-row">
-                    <h4 class="decision-name">JSON Flat-File Storage</h4>
-                    <div class="decision-field">
-                      <span class="decision-field-label">Why</span>
-                      <p>For a single-user, self-hosted tool, a flat JSON file keeps the dataset transparent, portable, and simple to back up or inspect, without the operational overhead of running a database.</p>
-                    </div>
-                    <div class="decision-field">
-                      <span class="decision-field-label">Tradeoffs</span>
-                      <p>It will not scale to concurrent multi-user access or high transaction volumes. For one person's transaction history, it remains simpler to reason about and debug than a full relational database.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="cta-group">
-          <a href="#" id="kashiq" class="btn btn-primary">View Landing Page</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="impact">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="tag">04</span>
-      <h2>Impact</h2>
-    </div>
-    <div class="role-line reveal"><strong>Lead Analytics</strong> · Axion Ray (Vertical AI) · Apr 2022 – Apr 2026</div>
-    <div class="role-text reveal">Scaled enterprise analytics across <strong>product, operations, and AI workflows</strong> for one of Axion Ray's largest customer portfolios.</div>
-
-    <div class="impact-list reveal-group">
-      <div class="impact-row reveal-item">
-        <div class="impact-num">$15M+<span class="unit">quality losses</span></div>
-        <div class="impact-text">Built analytics workflows that surfaced over $15M in potential quality losses <strong>by identifying recurring engine failure patterns</strong> across warranty claims, work orders, and service escalations, enabling engineering teams to prioritize corrective actions.</div>
-      </div>
-      <div class="impact-row reveal-item">
-        <div class="impact-num">26%<span class="unit">of revenue</span></div>
-        <div class="impact-text">Served as the end-to-end analytics lead for one of Axion Ray's largest enterprise accounts, representing approximately 26% of company revenue, <strong>coordinating delivery, client priorities, and analytics operations</strong> across cross-functional teams.</div>
-      </div>
-      <div class="impact-row reveal-item">
-        <div class="impact-num">90%<span class="unit">automation</span></div>
-        <div class="impact-text">Deployed LLM-powered automation pipelines that eliminated approximately 90% of manual ETL effort for failure-code extraction, <strong>reducing processing time while improving data consistency.</strong></div>
-      </div>
-      <div class="impact-row reveal-item">
-        <div class="impact-num">24<span class="unit">analysts</span></div>
-        <div class="impact-text">Led and mentored a team of 24 analysts, <strong>standardizing workflows, reducing delivery bottlenecks,</strong> and improving delivery quality across multiple workstreams.</div>
-      </div>
-      <div class="impact-row reveal-item">
-        <div class="impact-num">450+<span class="unit">client users</span></div>
-        <div class="impact-text">Measured product adoption and engagement across an enterprise AI platform serving more than 450 client stakeholders, designing funnel analyses, WAU/MAU reporting, and feature-flag experiments that informed <strong>product strategy and operational decisions.</strong></div>
-      </div>
-    </div>
-  </div>
-</section>
-<section id="faq">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="tag">05</span>
-      <h2>FAQs</h2>
-    </div>
-    <div class="faq-list reveal-group">
-      <div class="faq-item reveal-item">
-        <h3 class="faq-question-wrap">
-          <button type="button" class="faq-question" id="faq-q1" aria-expanded="false" aria-controls="faq-a1">
-            <span>How Is This Different From Hiring An Agency?</span>
-            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-        </h3>
-        <div class="faq-answer" id="faq-a1" role="region" aria-labelledby="faq-q1" hidden>
-          <p class="faq-answer-body">You work directly with me, the person who scopes, builds, and ships the system. There is no account-manager layer, no junior developers learning on your project, and no markup for a team you will never speak with.</p>
-        </div>
-      </div>
-      <div class="faq-item reveal-item">
-        <h3 class="faq-question-wrap">
-          <button type="button" class="faq-question" id="faq-q2" aria-expanded="false" aria-controls="faq-a2">
-            <span>What Does An Engagement Cost?</span>
-            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-        </h3>
-        <div class="faq-answer" id="faq-a2" role="region" aria-labelledby="faq-q2" hidden>
-          <p class="faq-answer-body">Every engagement is scoped and fixed-price before work begins. We agree on scope and investment together once I understand what you need built, so there is no open-ended hourly billing and no surprises.</p>
-        </div>
-      </div>
-      <div class="faq-item reveal-item">
-        <h3 class="faq-question-wrap">
-          <button type="button" class="faq-question" id="faq-q3" aria-expanded="false" aria-controls="faq-a3">
-            <span>Can You Work With Our Existing Stack And Team?</span>
-            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-        </h3>
-        <div class="faq-answer" id="faq-a3" role="region" aria-labelledby="faq-q3" hidden>
-          <p class="faq-answer-body">Yes. I build on infrastructure your team already recognizes, including PostgreSQL, FastAPI, React, and standard cloud platforms, so there is no lock-in and your engineers can extend or take over the system after handoff.</p>
-        </div>
-      </div>
-      <div class="faq-item reveal-item">
-        <h3 class="faq-question-wrap">
-          <button type="button" class="faq-question" id="faq-q4" aria-expanded="false" aria-controls="faq-a4">
-            <span>How Do You Handle Sensitive Or Proprietary Data?</span>
-            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-        </h3>
-        <div class="faq-answer" id="faq-a4" role="region" aria-labelledby="faq-q4" hidden>
-          <p class="faq-answer-body">I am glad to sign an NDA before any detailed discussion. My default architecture is privacy-conscious, including locally hosted models where it matters, rather than routing your data through third-party APIs by default.</p>
-        </div>
-      </div>
-      <div class="faq-item reveal-item">
-        <h3 class="faq-question-wrap">
-          <button type="button" class="faq-question" id="faq-q5" aria-expanded="false" aria-controls="faq-a5">
-            <span>Is This A Replacement For A Full-Time Data Or AI Hire?</span>
-            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-        </h3>
-        <div class="faq-answer" id="faq-a5" role="region" aria-labelledby="faq-q5" hidden>
-          <p class="faq-answer-body">Sometimes. More often, clients use me to move quickly on a defined system now, then hire in-house once the value is proven. I will tell you honestly which situation applies to you.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer id="contact">
-  <div class="wrap">
-    <div class="sec-head sec-head-plain reveal">
-      <span class="tag">06</span>
-      <h2>Contact</h2>
-    </div>
-    <div class="contact-heading reveal">Let's Build Together</div>
-    <p class="contact-desc reveal">I work best on problems where the data already exists and the insights do not. If that describes your situation, let's discuss how to solve it.</p>
-    <div class="contact-icons reveal">
-      <button type="button" class="icon-btn icon-btn-copy" id="email-copy" data-copy="sushilkumarsenthilnathan@gmail.com" aria-label="Copy my email address" title="Email">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <rect x="3" y="5" width="18" height="14" rx="2"/>
-          <path d="m3 7 9 6 9-6"/>
-        </svg>
-        <span class="icon-tooltip" aria-hidden="true">Copy sushilkumarsenthilnathan@gmail.com</span>
-      </button>
-      <a href="https://calendly.com/sushilkumarsenthilnathan/30min" target="_blank" rel="noopener" class="icon-btn" aria-label="Book time on my calendar" title="Book a call">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <rect x="3" y="5" width="18" height="16" rx="2"/>
-          <path d="M3 10h18"/>
-          <path d="M8 3v4"/>
-          <path d="M16 3v4"/>
-        </svg>
-      </a>
-      <button type="button" class="icon-btn icon-btn-copy" id="discord-copy" data-copy="sushil_17054" aria-label="Copy my Discord username" title="Discord">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M20.317 4.3698a19.7913 19.7913 0 0 0-4.8851-1.5152.0741.0741 0 0 0-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 0 0-.0785-.037 19.7363 19.7363 0 0 0-4.8852 1.515.0699.0699 0 0 0-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 0 0 .0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 0 0 .0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 0 0-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 0 1-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 0 1 .0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 0 1 .0785.0095c.1202.0991.246.1981.3728.2924a.077.077 0 0 1-.0066.1276 12.2986 12.2986 0 0 1-1.873.8914.0766.0766 0 0 0-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 0 0 .0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 0 0 .0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 0 0-.0312-.0286ZM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189Zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/>
-        </svg>
-        <span class="icon-tooltip" aria-hidden="true">Copy sushil_17054</span>
-      </button>
-      <a href="https://linkedin.com/in/sushilkumar-s/" target="_blank" rel="noopener" class="icon-btn" aria-label="View my LinkedIn profile" title="LinkedIn">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2ZM8 19H5v-9h3ZM6.5 8.25A1.75 1.75 0 1 1 8.3 6.5a1.78 1.78 0 0 1-1.8 1.75ZM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0 0 13 14.19a.66.66 0 0 0 0 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 0 1 2.7-1.4c1.55 0 3.36.86 3.36 3.66Z"/>
-        </svg>
-      </a>
-      <a href="https://github.com/SushilDev13" target="_blank" rel="noopener" class="icon-btn" aria-label="View my GitHub profile" title="GitHub">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M12 .5C5.73.5.98 5.24.98 11.5c0 5.02 3.26 9.28 7.79 10.78.57.1.78-.25.78-.55v-2.15c-3.17.69-3.83-1.36-3.83-1.36-.52-1.31-1.26-1.67-1.26-1.67-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.74 2.65 1.24 3.3.95.1-.73.4-1.24.72-1.53-2.53-.29-5.19-1.27-5.19-5.63 0-1.24.44-2.26 1.17-3.06-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.17a10.9 10.9 0 0 1 5.72 0c2.18-1.48 3.14-1.17 3.14-1.17.62 1.57.23 2.73.11 3.02.73.8 1.17 1.82 1.17 3.06 0 4.37-2.67 5.34-5.21 5.62.41.36.77 1.07.77 2.15v3.19c0 .3.2.66.79.55A11.03 11.03 0 0 0 23.02 11.5C23.02 5.24 18.27.5 12 .5Z"/>
-        </svg>
-      </a>
-    </div>
-  </div>
-</footer>
-
-<script src="script.js"></script>
+<script src="script.js" defer></script>
 </body>
 </html>
